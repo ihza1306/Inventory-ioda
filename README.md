@@ -92,7 +92,9 @@ firebase deploy --only hosting
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ihza1306/Inventory-ioda)
 
-1. Click the button above.
+**[KLIK DI SINI UNTUK DEPLOY KE RENDER](https://render.com/deploy?repo=https://github.com/ihza1306/Inventory-ioda)**
+
+1. Klik link atau tombol di atas.
 2. Connect your GitHub account.
 3. Click **"Apply"**.
 
