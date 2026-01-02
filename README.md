@@ -75,7 +75,7 @@ npm run dev
 
 ## Deployment
 
-### Firebase Hosting
+### Firebase Hosting (Frontend)
 
 1. Build the frontend:
 ```bash
@@ -87,6 +87,14 @@ npm run build
 ```bash
 firebase deploy --only hosting
 ```
+
+### Render (Backend)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ihza1306/Inventory-ioda)
+
+1. Click the button above.
+2. Connect your GitHub account.
+3. Click **"Apply"**.
 
 ## Project Structure
 
