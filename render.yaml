@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: inventory-backend
+    runtime: node
+    repo: https://github.com/ihza1306/Inventory-ioda
+    rootDir: backend
+    buildCommand: npm install && npx prisma generate
+    startCommand: node index.js
+    envVars:
+      - key: DATABASE_URL
+        value: file:./prisma/dev.db
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    plan: free
