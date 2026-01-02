@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Peminjam - Inventory Ioda Academy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2230",
+                        "border-light": "#dbdfe6",
+                        "border-dark": "#2a3447",
+                        "text-main-light": "#111318",
+                        "text-main-dark": "#e2e8f0",
+                        "text-sec-light": "#616f89",
+                        "text-sec-dark": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }.custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display min-h-screen flex flex-col overflow-x-hidden transition-colors duration-200">
+<div class="layout-container flex h-full grow flex-col">
+<div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center gap-2 text-sm">
+<a class="text-text-sec-light dark:text-text-sec-dark font-medium hover:text-primary transition-colors" href="#">Beranda</a>
+<span class="material-symbols-outlined text-text-sec-light dark:text-text-sec-dark !text-base">chevron_right</span>
+<a class="text-text-sec-light dark:text-text-sec-dark font-medium hover:text-primary transition-colors" href="#">Peminjam</a>
+<span class="material-symbols-outlined text-text-sec-light dark:text-text-sec-dark !text-base">chevron_right</span>
+<span class="text-text-main-light dark:text-text-main-dark font-medium">Jane Doe</span>
+</div>
+</div>
+<div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-10 flex flex-col lg:flex-row gap-6">
+<aside class="w-full lg:w-[360px] flex-shrink-0 flex flex-col gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark p-6 shadow-sm">
+<div class="flex flex-col items-center text-center">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full bg-cover bg-center border-4 border-background-light dark:border-background-dark shadow-md" data-alt="Profile picture of Jane Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQijU-MRZJSE1wwREggUq_CvwTsfaVtOOYqcTTLdasWL49mZ85p_UCOxu03Vh1AHOkIA-ASidPEBi5YaIJE5rZ7zrqsxoZRexHKK29zEjIe7CTVmXbsacui8HdIO-T1kiACerfEAv3JiI4VJCFF4PwObI_aoRE-z1OGXFLXX88-zumgzDqrjsSnxgKscv_fXZcatUHSYB9W3VT3Zt-R2IgeIm8pW60-MdCINp44pFUlK7S3e4wo86Im8Y3HGB29YgSZfR9VfwebZA");'></div>
+<div class="absolute bottom-2 right-2 bg-green-500 w-5 h-5 rounded-full border-2 border-white dark:border-surface-dark" title="Status Aktif"></div>
+</div>
+<h1 class="mt-4 text-2xl font-bold text-text-main-light dark:text-text-main-dark">Jane Doe</h1>
+<p class="text-text-sec-light dark:text-text-sec-dark font-medium">Dept. Desain Produk</p>
+<div class="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">
+                            Status: Aktif
+                        </div>
+<div class="mt-6 w-full flex flex-col gap-3">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-blue-700 text-white text-sm font-bold transition-colors">
+<span class="material-symbols-outlined mr-2 !text-lg">edit</span>
+                                Edit Profil
+                            </button>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-border-dark hover:bg-gray-200 dark:hover:bg-gray-700 text-text-main-light dark:text-text-main-dark text-sm font-bold border border-border-light dark:border-transparent transition-colors">
+<span class="material-symbols-outlined mr-2 !text-lg">visibility</span>
+                                Lihat Detail Akun
+                            </button>
+</div>
+</div>
+<div class="mt-8 border-t border-border-light dark:border-border-dark pt-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-primary">
+<span class="material-symbols-outlined !text-lg">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Alamat Email</span>
+<span class="text-sm font-medium text-text-main-light dark:text-text-main-dark truncate max-w-[200px]">jane.doe@ioda.academy</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-primary">
+<span class="material-symbols-outlined !text-lg">call</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Nomor Telepon</span>
+<span class="text-sm font-medium text-text-main-light dark:text-text-main-dark">+62 812-3456-7890</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-primary">
+<span class="material-symbols-outlined !text-lg">badge</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">ID Peminjam</span>
+<span class="text-sm font-medium text-text-main-light dark:text-text-main-dark font-mono">#BRW-2024-089</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark p-6 shadow-sm flex flex-col items-center">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark mb-4 self-start">Identifikasi Digital</h3>
+<div class="bg-white p-2 rounded-lg border border-border-light">
+<img alt="QR Code for borrower identification" class="w-32 h-32 object-contain" data-alt="QR Code scanning pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Q-sYG8XctMUVekAR0q82Lzhx1yj_mXcjK_qPkfZkntizE-vey07mjT_FlWBey0n7hqv5qxxnYjU82pdoT6_Ygt0x94tYKSmSJeqyy8gjoe4NYV2Q-H8-7pmkkWTuOrPT8I1xx2qrOkBS-pHlkCzFLsveqeAG-SCh4Zce_19LG9nHEhkqVYpPpuTgb178aWY5zgM-6u8FB_iHzsCvceOFQTVrndFfFrNjVkHQwpVWreCtgNf_1wTQQtumgs8rl4SeZ0M6E1wSVD4"/>
+</div>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark mt-3 text-center">Pindai untuk identifikasi peminjam atau check-out barang dengan cepat.</p>
+<button class="mt-4 text-primary hover:text-blue-700 text-sm font-bold flex items-center">
+<span class="material-symbols-outlined mr-1 !text-lg">print</span> Cetak Kartu ID
+                    </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col gap-6 min-w-0">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark p-4 flex flex-col gap-1 shadow-sm">
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark mb-1">
+<span class="material-symbols-outlined !text-lg">inventory_2</span>
+<span class="text-sm font-medium">Total Dipinjam</span>
+</div>
+<p class="text-3xl font-bold text-text-main-light dark:text-text-main-dark">12</p>
+<p class="text-xs text-green-600 dark:text-green-400 mt-1 font-medium">+2 bulan ini</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark p-4 flex flex-col gap-1 shadow-sm relative overflow-hidden">
+<div class="absolute right-0 top-0 w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-bl-full -mr-4 -mt-4"></div>
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark mb-1 relative z-10">
+<span class="material-symbols-outlined !text-lg text-red-500">warning</span>
+<span class="text-sm font-medium">Terlambat</span>
+</div>
+<p class="text-3xl font-bold text-text-main-light dark:text-text-main-dark relative z-10">2</p>
+<p class="text-xs text-red-500 font-medium mt-1 relative z-10">Perlu tindakan</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark p-4 flex flex-col gap-1 shadow-sm">
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark mb-1">
+<span class="material-symbols-outlined !text-lg">verified</span>
+<span class="text-sm font-medium">Skor Reputasi</span>
+</div>
+<p class="text-3xl font-bold text-text-main-light dark:text-text-main-dark">98%</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark mt-1">Sangat Baik</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark shadow-sm flex flex-col min-h-[500px]">
+<div class="flex items-center justify-between border-b border-border-light dark:border-border-dark px-6 pt-2">
+<div class="flex gap-6 overflow-x-auto">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-4 px-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="text-sm font-bold tracking-wide">Pinjaman Aktif (4)</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-text-sec-light dark:text-text-sec-dark hover:text-text-main-light dark:hover:text-text-main-dark pb-3 pt-4 px-2 transition-colors" href="#">
+<span class="text-sm font-bold tracking-wide">Riwayat</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-text-sec-light dark:text-text-sec-dark hover:text-text-main-light dark:hover:text-text-main-dark pb-3 pt-4 px-2 transition-colors" href="#">
+<span class="text-sm font-bold tracking-wide">Reservasi</span>
+</a>
+</div>
+<div class="hidden sm:flex py-3">
+<button class="bg-primary hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded-lg flex items-center gap-2 transition-colors shadow-sm">
+<span class="material-symbols-outlined !text-lg">add</span>
+                                Pinjamkan Barang
+                            </button>
+</div>
+</div>
+<div class="sm:hidden p-4 border-b border-border-light dark:border-border-dark">
+<button class="w-full bg-primary hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined !text-lg">add</span>
+                            Pinjamkan Barang
+                        </button>
+</div>
+<div class="overflow-x-auto custom-scrollbar flex-1">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-background-light/50 dark:bg-surface-dark border-b border-border-light dark:border-border-dark text-xs uppercase tracking-wider text-text-sec-light dark:text-text-sec-dark font-semibold">
+<th class="px-6 py-4">Detail Barang</th>
+<th class="px-6 py-4">Tanggal Pinjam</th>
+<th class="px-6 py-4">Jatuh Tempo</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr class="group hover:bg-background-light dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center border border-border-light dark:border-border-dark" data-alt="HDMI Adapter visual" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPlEUjCYTpcesq92B1GPD-QBK8L-bf3O5ZtnEzFF22rXmMs4gTyb_Zo3j_TA6Qel51vk9sAFEHarSMC1NS-myUlQjy3Xt7OAVO1716EYmTWn3rU8-6gTZJ1d2qyUt1oYATuX6D9q_j0T1faYpa4ulfPC6GYaR55WlHEAQQBYJX0dq9-gGmumFvnKyXO6YECDx0MTWGIqjTp0e0zVYVUtV3QeOxVRRFnY3n_FlSqE1Po--aDBU_cS03aJpoD2qi3c0F3Ibs8g87daA");'></div>
+<div>
+<p class="text-sm font-bold text-text-main-light dark:text-text-main-dark">HDMI Adapter 4K</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark font-mono">SKU: ACC-883-201</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-text-main-light dark:text-text-main-dark">
+                                        10 Okt 2024
+                                    </td>
+<td class="px-6 py-4 text-sm font-bold text-red-600 dark:text-red-400">
+                                        20 Okt 2024
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-900/50">
+                                            Terlambat (4h)
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors p-1 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-background-light dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center border border-border-light dark:border-border-dark" data-alt="Macbook Pro visual" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuzYeUf6IQPtODDl_ovBRXl344GmDZ-_pGzYu_f3IlXEXYXI1Wko8Wn2NpmeUM9Uwjeh8GjFiDJOxnTFOwDRLkI6WkOihKDdv19l_xZzs_wk1Z8LX9OCcj8c-NAyiRL_ChkcXeUC4ApFVWgnzdtWNtrmqxI0lT5y2_D3TmzW7PWe39a49fNimB8-xFsymGgz6JB1OdJEnUuh1PNGY2jWsTqpWgYkHujlDtHMYGYB75JG4yQ9W9jSYOsSpTW_AlorCIY58qKg4MoM0");'></div>
+<div>
+<p class="text-sm font-bold text-text-main-light dark:text-text-main-dark">MacBook Pro M1</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark font-mono">SKU: LAP-002-394</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-text-main-light dark:text-text-main-dark">
+                                        15 Okt 2024
+                                    </td>
+<td class="px-6 py-4 text-sm text-text-sec-light dark:text-text-sec-dark">
+                                        24 Okt 2024
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-900/50">
+                                            Dipinjam
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors p-1 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-background-light dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center border border-border-light dark:border-border-dark" data-alt="Canon Camera visual" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDSLLKV8srFSABXm3KSoTSL0w3z1u3PqPBZKkLEgPq8Jg6LmF-d-j1MYXGz9-Q9-SWVIAAusiYoTRpTqwfQuVo9NgLLm2SoYgKbH0Vjr0VyH0-c5MHiRPdFppsNJv6sQwpZYBOpbL2aaLbfdhejFHZNzLpY8tctCSth4ACnHJvUS_8fRO99vtciGctehFuARlKph9u9GY-MbdtPi7-d6P5yWr1Ys8n7njGXR3aGJoGQNKVG-v7xyaLsdy_1N_EO8DU0MCYqkCd5HM");'></div>
+<div>
+<p class="text-sm font-bold text-text-main-light dark:text-text-main-dark">Canon DSLR EOS</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark font-mono">SKU: CAM-104-555</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-text-main-light dark:text-text-main-dark">
+                                        18 Okt 2024
+                                    </td>
+<td class="px-6 py-4 text-sm text-text-sec-light dark:text-text-sec-dark">
+                                        25 Okt 2024
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-900/50">
+                                            Dipinjam
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors p-1 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-background-light dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center border border-border-light dark:border-border-dark" data-alt="Wacom Tablet visual" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3_WoQcYDcHzdDVCvGtv3-PSN8rVf1KQm-_9Ric76qAJDImggMcQDWy1U-wH1NsUXmevOeiO10lutzI0yuVIf6HJiXe_2vWZwV3MYYCq6QNXASRb5l9Hz6fw6bgM-bumISm02ShqMIYjAWLZlM9dHbCjc9GmqbA_xW9M-dkD4SYI3L4x_KliWId1YwtGMu887JPvxTKX0a7AFN2YM0ugDR2yG19pUPwAOAuR9mor45G7WmjYfzSfpL4tLrAvkUI6byNr_F3tri40o");'></div>
+<div>
+<p class="text-sm font-bold text-text-main-light dark:text-text-main-dark">Wacom Cintiq Pro</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark font-mono">SKU: TAB-992-110</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-text-main-light dark:text-text-main-dark">
+                                        01 Sep 2024
+                                    </td>
+<td class="px-6 py-4 text-sm text-text-sec-light dark:text-text-sec-dark">
+                                        01 Des 2024
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-900/50">
+                                            Jangka Panjang
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors p-1 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="border-t border-border-light dark:border-border-dark px-6 py-4 flex items-center justify-between">
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark">Menampilkan 4 item aktif</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-medium rounded-md border border-border-light dark:border-border-dark text-text-sec-light dark:text-text-sec-dark hover:bg-background-light dark:hover:bg-white/5 disabled:opacity-50">Sebelumnya</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md border border-border-light dark:border-border-dark text-text-sec-light dark:text-text-sec-dark hover:bg-background-light dark:hover:bg-white/5">Berikutnya</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

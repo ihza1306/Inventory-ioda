@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Borrower Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#13a4ec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101c22",
+                "surface-light": "#ffffff",
+                "surface-dark": "#182830",
+                },
+                fontFamily: {
+                "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-100 dark:bg-black font-display antialiased flex justify-center items-center min-h-screen">
+<!-- Mobile Container -->
+<div class="relative flex h-full min-h-[812px] w-full max-w-[375px] flex-col bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl rounded-[32px] sm:my-8 border-[6px] border-gray-900 dark:border-gray-800">
+<!-- Status Bar Placeholder (iOS Style) -->
+<div class="h-11 w-full bg-background-light dark:bg-background-dark shrink-0"></div>
+<!-- Navigation Header -->
+<header class="flex flex-col bg-background-light dark:bg-background-dark px-4 pb-2 sticky top-0 z-20">
+<div class="flex items-center justify-between h-11 mb-2">
+<button class="text-[#111618] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<div class="flex gap-2">
+<button class="text-[#111618] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">more_horiz</span>
+</button>
+</div>
+</div>
+<h1 class="text-[#111618] dark:text-white text-3xl font-bold tracking-tight mb-4 px-1">Borrowers</h1>
+<!-- Search Bar -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none rounded-xl leading-5 bg-white dark:bg-surface-dark text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 sm:text-sm shadow-sm transition-shadow" placeholder="Search name, ID..." type="text"/>
+</div>
+</header>
+<!-- Main Content List -->
+<div class="flex-1 overflow-y-auto px-4 pb-24 pt-4 space-y-3">
+<!-- List Header/Filter -->
+<div class="flex justify-between items-center px-1 mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">All Borrowers (24)</span>
+<button class="text-primary text-sm font-medium hover:text-primary/80 flex items-center gap-1">
+                    Filter
+                    <span class="material-symbols-outlined" style="font-size: 16px;">filter_list</span>
+</button>
+</div>
+<!-- Borrower Card 1 -->
+<div class="group flex items-center gap-4 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-transparent hover:border-primary/20 cursor-pointer transition-all active:scale-[0.98]">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-100 dark:border-gray-700" data-alt="Portrait of Jane Doe looking professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQUqb1ce_ek062frZ22rHyj-d7PyzyjLo0lms-YRvuJ9XuGdLwuaTLW3RxZAMwd3MBxenVZl7XLFeXOutx5KHu2hlGj5Kvvr-qFYFkC8L8qdGWDpE8zYT5zP1o5hDk3Ylh6-v3ni8kq1hvqoXi5hBIXQ9LQe3dlDspFCTBrceGO1qcKLvRFgsdWbA7yQOGiZktY7WrGV8MuT9XPQS45qo5iUGZTuj_BYa3nlyEZrFdQ-xL2fj9UITYmVLF_Yv0J3ZVYbm9krKjJjtR");'>
+</div>
+<!-- Status Dot -->
+<span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-surface-dark"></span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-tight truncate">Jane Doe</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
+                            2 Active Loans
+                        </span>
+</div>
+</div>
+<div class="shrink-0 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+<!-- Borrower Card 2 -->
+<div class="group flex items-center gap-4 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-transparent hover:border-primary/20 cursor-pointer transition-all active:scale-[0.98]">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-100 dark:border-gray-700 flex items-center justify-center bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 font-bold text-lg" data-alt="Abstract avatar with initials JS">
+                        JS
+                    </div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-tight truncate">John Smith</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5 truncate">No active loans</p>
+</div>
+<div class="shrink-0 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+<!-- Borrower Card 3 -->
+<div class="group flex items-center gap-4 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-transparent hover:border-primary/20 cursor-pointer transition-all active:scale-[0.98]">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-100 dark:border-gray-700" data-alt="Portrait of Alex Johnson in casual wear" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVZfBszMlA6rx_JIVVk715IyB5ufn2vqOkEB_SmnZISFV3e5q8smDN0w5DjQRWm0VUcwQo5PjSYc5QqQaqe5R3OYdlOsqoJDaAV43QsaExy9N8g8jRWr6vORKxcZkNGiA9ioApvbbQAxa6wxkQ6P1lGWESQejt7Eh4tXMJBs-9DUrrnjxd5sVXknjdn-yijaEWPf2s1oMhhzLiaFgC1NoQdyfRpfu-nmYl0Z5lr56l02YEmbZ3joHekJUptOoH75nP0TiJGt8UfhvD");'>
+</div>
+<span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-surface-dark"></span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-tight truncate">Alex Johnson</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
+                            1 Active Loan
+                        </span>
+<span class="text-xs text-gray-400">• Overdue</span>
+</div>
+</div>
+<div class="shrink-0 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+<!-- Borrower Card 4 -->
+<div class="group flex items-center gap-4 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-transparent hover:border-primary/20 cursor-pointer transition-all active:scale-[0.98]">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-100 dark:border-gray-700" data-alt="Portrait of Sarah Connor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbHY65FXp6d7U3z4xye7GXosYagFiSZfPJCUBdhkdbOuvSDhi7dNRpq4vftDAxpXQIdfMtzGwFG4nQKucYVfi_V_bTXd_xRzJooW3O0jWUmFOzE6hH4_yf34CtwcAVqst1lzDbJPWYQyuMqrskk_nulQI3nx83oNyIoXMLRSOTFL1O2OFTw3D5gie1K5ldkBhzjoZSCzOc4yJtLFwjChlxBX-WuKpH4RA6hMY1SrXfNb6xMMBxVABNGyInqFRChnHCP-dAk7IjNUom");'>
+</div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-tight truncate">Sarah Connor</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5 truncate">No active loans</p>
+</div>
+<div class="shrink-0 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+<!-- Borrower Card 5 -->
+<div class="group flex items-center gap-4 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-transparent hover:border-primary/20 cursor-pointer transition-all active:scale-[0.98]">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-100 dark:border-gray-700 flex items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300 font-bold text-lg" data-alt="Abstract avatar with initials MW">
+                        MW
+                    </div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-tight truncate">Michael Wright</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center rounded-md bg-red-100 dark:bg-red-900/30 px-2 py-0.5 text-xs font-medium text-red-700 dark:text-red-300 ring-1 ring-inset ring-red-600/10">
+                            3 Overdue
+                        </span>
+</div>
+</div>
+<div class="shrink-0 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+<!-- Borrower Card 6 -->
+<div class="group flex items-center gap-4 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-transparent hover:border-primary/20 cursor-pointer transition-all active:scale-[0.98]">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-100 dark:border-gray-700" data-alt="Portrait of Emily Blunt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuuobFjiukjE4UV1gVDNwbprE7_ArAf4NODqaO4mnKCYX5sDiy4SQfT7sUGhNP-G29Ip2sU1VPSvTrUUNqvEsyLWQvi_gsY3cZPcbjR1QlIpGxrvaO360gVQjIpkENeyoeMyErVNopLMyS0Lp9jUO0bUdC8Ti0dlWTJ2FxiP1N1ClmYF9JLxN4iQqzROm1DAGPocF7NZDOLFvKTThNhGsHoQBvVfKrGScO-B9RkDwcGqyizImerypVx8-0XcfKaje7KwtQtGrtbLSD");'>
+</div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-tight truncate">Emily Blunt</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5 truncate">No active loans</p>
+</div>
+<div class="shrink-0 text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined" style="font-size: 24px;">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- FAB (Floating Action Button) -->
+<div class="absolute bottom-6 right-6 z-30">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-size: 28px;">add</span>
+</button>
+</div>
+<!-- Bottom overlay gradient for scroll fade effect -->
+<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent pointer-events-none z-10"></div>
+</div>
+</body></html>

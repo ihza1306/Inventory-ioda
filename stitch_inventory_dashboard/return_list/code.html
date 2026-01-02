@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Pengembalian - Inventory Ioda Academy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="w-full bg-white dark:bg-[#1A202C] border-b border-[#f0f2f4] dark:border-gray-800">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between">
+<div class="flex items-center gap-4 text-[#111318] dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">inventory_2</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Inventory Ioda Academy</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-6">
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal" href="#">Dasbor</a>
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal" href="#">Inventaris</a>
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal" href="#">Peminjam</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Pengembalian</a>
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal" href="#">Pengaturan</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary hover:bg-blue-700 transition-colors text-white text-sm font-bold leading-normal">
+                        Catat Pengembalian
+                    </button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-gray-200 dark:border-gray-700" data-alt="User profile avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCt9atWVcn3Oy5pOeijChjmcWO7xXSTrqS_FnPNt6zJlCLaDCOtEuc0FbP2hhwiZ7rstSKcQ8RMbNpFvcsv82kdrRavaV3XJeuVgprKi-cLwtEtnxMldNh819vvtBWuldn8G6j7g3hbHJfZqdLagsKMRJd7gom2H7HQeWYp-sVSlR2AjJ8gkB-3rRb84iZKvbg8F0KfSrxl8Pq1P83CJwujiSZQ39cJepUh5idVDfFofI7LcVYQU06N3mLGGnSdIbzu2bibXwLi_TI");'></div>
+</div>
+</div>
+<button class="md:hidden text-[#111318] dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5 px-4 md:px-10 lg:px-20 xl:px-40">
+<div class="layout-content-container flex flex-col max-w-[1024px] flex-1 gap-6">
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-[#616f89] dark:text-gray-400 font-medium hover:text-primary" href="#">Beranda</a>
+<span class="text-[#616f89] dark:text-gray-400">/</span>
+<a class="text-[#616f89] dark:text-gray-400 font-medium hover:text-primary" href="#">Inventaris</a>
+<span class="text-[#616f89] dark:text-gray-400">/</span>
+<span class="text-[#111318] dark:text-white font-medium">Daftar Pengembalian</span>
+</div>
+<div class="flex flex-col gap-2">
+<h1 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Daftar Pengembalian</h1>
+<p class="text-[#616f89] dark:text-gray-400 text-base font-normal">Halaman ini menampilkan daftar riwayat semua barang yang telah dikembalikan. Informasi yang disertakan adalah nama produk, nama peminjam, tanggal pengembalian aktual, dan catatan tambahan apa pun. Daftar ini akan berfungsi sebagai catatan historis untuk melacak item yang telah melalui siklus peminjaman dan pengembalian.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1A202C] border border-[#dbdfe6] dark:border-gray-700 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">Dikembalikan Hari Ini</p>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#111318] dark:text-white text-3xl font-bold">14</p>
+<span class="text-[#07883b] bg-[#07883b]/10 px-2 py-0.5 rounded text-xs font-bold">+12%</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1A202C] border border-[#dbdfe6] dark:border-gray-700 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-600">pending_actions</span>
+<p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">Menunggu Inspeksi</p>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#111318] dark:text-white text-3xl font-bold">5</p>
+<span class="text-[#616f89] bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded text-xs font-bold">Sama seperti kemarin</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1A202C] border border-[#dbdfe6] dark:border-gray-700 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#e73908]">broken_image</span>
+<p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">Barang Rusak</p>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#111318] dark:text-white text-3xl font-bold">2</p>
+<span class="text-[#e73908] bg-[#e73908]/10 px-2 py-0.5 rounded text-xs font-bold">-5%</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center bg-white dark:bg-[#1A202C] p-4 rounded-xl border border-[#dbdfe6] dark:border-gray-700 shadow-sm">
+<div class="relative flex-1 w-full md:max-w-md">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-500">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg leading-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm" placeholder="Cari barang, peminjam, atau ID pengembalian..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center">
+<button class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-primary flex items-center gap-1" title="Scan QR Code">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</button>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex flex-1 md:flex-none items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 bg-white dark:bg-gray-800">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Filter Tanggal</span>
+</button>
+<button class="flex flex-1 md:flex-none items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 bg-white dark:bg-gray-800">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Ekspor</span>
+</button>
+</div>
+</div>
+<div class="overflow-hidden bg-white dark:bg-[#1A202C] rounded-xl border border-[#dbdfe6] dark:border-gray-700 shadow-sm">
+<div class="overflow-x-auto">
+<table class="min-w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Detail Barang</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Peminjam</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Tgl Pengembalian Aktual</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Kondisi</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Catatan Tambahan</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-right" scope="col">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-700 bg-cover bg-center border border-gray-200 dark:border-gray-600" data-alt="Macbook Pro laptop" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCyPqZvHd5EPfGYBBeSbCQKFlxzfhOAdVbteu76YtZIYHD7zxuG5QUZ-u7tYrDWR3QDnG4xyFACV9UQ2aFhLaWTByzzvvgTjLeabMvvrASCsXxkVuwAkjvFJcuhP2iqpperCinKBs8tS5JnHVmLJXl56AkRizQKbLI7MZcFL7IGDVoZy1e-CunjbDi2maaHAX0rUdNiyuxc_IC64Rj8aJA1P10m86DExyyCxYuqoxr5lapjuc_CTMsYngnL2tbhE2iD0g-6D4GvPQ')"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">MacBook Pro M1</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">ID: MB-2023-001</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-gray-200 dark:bg-gray-600 bg-cover bg-center" data-alt="Portrait of John Doe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFkwG17Pj5m0NI8z9PcyVxGTtL7dvc0VeI6W2VRYecjv1aHHM_L849xbNp2glgucbQ9taF5i1J5lR_1V2i0Oi-r4vrNhHRVdbgum40st3rM_L_N0X-TzdEnXehG0vcojQJR5p3YSiExHmcxnbAmWfjbYWbZ5K0Z_Bl2hqzym8Z6_H21reRilDl6YvZJDVLhfwV32bG-kt_hUMugCddGZqWisECWCVlCkN4UzMONBRKh7D1AbV6gYx1Qb9p3x2g9TPiu5Ooi2XrXt0')"></div>
+<span class="text-sm text-gray-700 dark:text-gray-200">John Doe</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">24 Okt 2023</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">10:42 WIB</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+<span class="h-1.5 w-1.5 rounded-full bg-orange-500"></span>
+                                        Rusak
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap max-w-[200px]">
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Layar tergores, engsel longgar.</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-700 bg-cover bg-center border border-gray-200 dark:border-gray-600" data-alt="Canon DSLR Camera" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWHuaAFA5Rk29tTYZ_e_-7fJfIkZZOEiE5DZO9fVRqxxiBv7xjF3bAqWYynFEJBf-9aF_2zUZ3e5DdFDZHC8WZn6zZbrVqsfUsSd_iYWDD18F8x34khhDi9EaPV0yUSJhQD_fRfZu09HpKwf2IyU8i1sOEelA3TLKeG_yNtrCphHF8JE08T1wS_FNtQZm_uyv7ca-Rch5cWACSywPZy8xYjmw5V7f4Ex5nVpmPW5jz29E2rUTClWbO15GdEXjH5bV9iIrI-VFTsaY')"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">Canon EOS R5</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">ID: CA-2023-089</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-gray-200 dark:bg-gray-600 bg-cover bg-center" data-alt="Portrait of Jane Smith" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUP7OOVZmkBkUPN6SakpVFtdYCcbsFNTFRz1816Xp810Uirq9t096jzMoQWc8giGhqiKl128tEUo4hFW6ARl-mTQ-dvN_slEuMFLhKFjhaPg50GHF16bhJJ2X1IPnwm7MwEhuztD4prVNegFBqGVhK95sZyliAF1TMp4ZXKzxyTerA6ohpn-5zw4u5QK5G_Gm3C-PR5WzNX3yoKneExfJJW5LQEPkUYRNKrzwZ6amNn1CazUu33Rmwx46hKjMpdQHFFV79HpENlu0')"></div>
+<span class="text-sm text-gray-700 dark:text-gray-200">Jane Smith</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">23 Okt 2023</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">14:15 WIB</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        Baik
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap max-w-[200px]">
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Dikembalikan dalam kemasan asli.</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-700 bg-cover bg-center border border-gray-200 dark:border-gray-600" data-alt="Blue drill tool" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-MR_GmEyYKSP8sEijowC9EBHe2xuM_vLBN9gDXDuDpW9Tvv3819CII9YcZx57Mvo5dlAxAVMS92RbIFz08UeRRZoXzBeVGtDiTKnYMsC0mhwrDEE6GrGWe6xZ7EtgkjT7ZZEo0Sr7MPkhkraqtajgFqphfvOnlCW0OaOOzQMONwX_Q3XD1fvm4lwmwQi1ZZdYcltVLVQ0LyxqkoVPhAYN-XxSyKamIr01sMP6n_YZTjxCBDRmxAsaRX1G0pO4emq4nQaYKxtUM9k')"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">Bosch Power Drill</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">ID: TL-2022-112</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 text-xs font-bold">MK</div>
+<span class="text-sm text-gray-700 dark:text-gray-200">Mike K.</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">22 Okt 2023</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">09:00 WIB</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+<span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                                        Diproses
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap max-w-[200px]">
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Menunggu inspeksi tim.</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-700 bg-cover bg-center border border-gray-200 dark:border-gray-600" data-alt="VR Headset" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAucD_UodGLmAdS8mOkaUrOIkwlF9j-1rhLAZDD5Sz8vX93yB9euytDbcH_YM-Smd6yR1GkZRLxN-FT-gWsW35hHNNBI98ZjDJWJR0Hnc2Rc2syoS2IVyVYLXCP6IYxWLymRI_5iDV_CFQ2aLQdrYfhXrhsbQtmxTpl9JwRrWFyFUwrJdKx6Fx_1vjTsEQmrtcjvyIk11DJjVciITXFRzahqd1Vp0fjunxmFigL84SAOHZduNmowfa0FS__aWifrmS-fVodidyOJzk')"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">Oculus Quest 2</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">ID: VR-2023-005</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-gray-200 dark:bg-gray-600 bg-cover bg-center" data-alt="Portrait of Sarah L" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjUw0ho6yUlAUXqCrlStc1YY4tkdZV3QXakbTmIaCMLhY-AkSirG-6W2gLLl4eG7wqlvkhuMpjuVyhX4BmSYhwm4NDKujAfIWJFI-fQe0HDxowbyEcuxnrn6KXhiGpb61B5tENDDd4iowMHsrfu_pi4-2JkglA0x05XZd0pvfXY-sjTz8teFU6u07gQGZDVjVlnQ5OGT7cDwhCT170WE8MGfRuDi5maBm5IUwzhLKh9CYhxOcvb6D-mNy2GWufxHSbRnSjiXSTfco')"></div>
+<span class="text-sm text-gray-700 dark:text-gray-200">Sarah L.</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-[#111318] dark:text-white">21 Okt 2023</span>
+<span class="text-xs text-[#616f89] dark:text-gray-500">16:30 WIB</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        Baik
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap max-w-[200px]">
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Perangkat dibersihkan dan direset.</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between bg-white dark:bg-[#1A202C]">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-gray-700 dark:text-gray-400">
+                                    Menampilkan
+                                    <span class="font-medium text-[#111318] dark:text-white">1</span>
+                                    sampai
+                                    <span class="font-medium text-[#111318] dark:text-white">4</span>
+                                    dari
+                                    <span class="font-medium text-[#111318] dark:text-white">48</span>
+                                    hasil
+                                </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">
+<span class="sr-only">Sebelumnya</span>
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</a>
+<a aria-current="page" class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-bold" href="#"> 1 </a>
+<a class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 2 </a>
+<a class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 3 </a>
+<span class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700">...</span>
+<a class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 8 </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">
+<span class="sr-only">Selanjutnya</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center justify-between sm:hidden w-full">
+<a class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700" href="#"> Sebelumnya </a>
+<a class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700" href="#"> Selanjutnya </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

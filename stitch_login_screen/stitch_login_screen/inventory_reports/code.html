@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Reports</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1C2932",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111618] dark:text-white font-display antialiased">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Header -->
+<header class="flex items-center justify-between bg-surface-light dark:bg-surface-dark px-4 py-3 border-b border-gray-100 dark:border-gray-800 sticky top-0 z-10">
+<div class="w-12">
+<!-- Placeholder for back button if needed, keeping layout balanced -->
+</div>
+<h1 class="text-lg font-bold leading-tight tracking-[-0.015em] text-center flex-1 dark:text-white">Inventory Reports</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">ios_share</span>
+</button>
+</div>
+</header>
+<!-- Filters (Chips) -->
+<div class="w-full bg-surface-light dark:bg-surface-dark pb-4 pt-2 shadow-sm">
+<div class="flex gap-3 px-4 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white pl-4 pr-3 shadow-sm shadow-primary/30">
+<span class="material-symbols-outlined" style="font-size: 18px;">calendar_month</span>
+<span class="text-sm font-medium">This Month</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 pl-4 pr-3 dark:text-gray-300">
+<span class="material-symbols-outlined" style="font-size: 18px;">category</span>
+<span class="text-sm font-medium">Category</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 pl-4 pr-3 dark:text-gray-300">
+<span class="material-symbols-outlined" style="font-size: 18px;">warehouse</span>
+<span class="text-sm font-medium">Warehouse</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Quick Stats Summary -->
+<div class="px-4 pt-6 pb-2">
+<h2 class="text-base font-semibold text-gray-900 dark:text-white mb-4">Overview</h2>
+<div class="flex flex-row gap-4">
+<!-- Stat Card 1 -->
+<div class="flex flex-1 flex-col gap-3 rounded-2xl p-5 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none">
+<div class="flex items-start justify-between">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary">
+<span class="material-symbols-outlined">attach_money</span>
+</div>
+<span class="flex items-center text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400 px-2 py-1 rounded-full">+5.2%</span>
+</div>
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Total Value</p>
+<p class="text-gray-900 dark:text-white text-2xl font-bold mt-1">$124,500</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="flex flex-1 flex-col gap-3 rounded-2xl p-5 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none">
+<div class="flex items-start justify-between">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 dark:bg-orange-900/30 text-orange-500">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="flex items-center text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400 px-2 py-1 rounded-full">+2 new</span>
+</div>
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Low Stock</p>
+<p class="text-gray-900 dark:text-white text-2xl font-bold mt-1">12 Items</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Report Types Grid -->
+<div class="px-4 pt-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">All Reports</h2>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Report Card 1: Stock Levels -->
+<div class="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[4/3] bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract blue bar chart graphic" style='background-image: linear-gradient(180deg, rgba(19, 164, 236, 0.05) 0%, rgba(19, 164, 236, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCq5Y6OcKdyqM3MEnBPpAOJ8_h_kIbua8Lv-ArmtYJjVfwo_sNCzwj70saA_zUftrXkqZxWi2DEGWvN7HBVaQlMC_3_r19JSw4Mzd23lU_jRhWXuuHj4je2H1If7FbBU-zD_qjc7TJhtXR-jsCvr7K0XXc8pKriawxBx1BGFhwmipZNnDJq9mqaZTlLqUSX_bCt2U1AJlDARu6KAsf-avz9Oj-xMIR8GL_LpPQXpvmGD9nVNj_iK8CIkX_gXOfgOkD8oGBQFOko4cvF");'>
+</div>
+<div class="relative p-4 z-10 bg-gradient-to-t from-black/60 to-transparent">
+<div class="mb-1 text-white opacity-90">
+<span class="material-symbols-outlined" style="font-size: 24px;">bar_chart</span>
+</div>
+<p class="text-white text-base font-bold leading-tight">Stock Levels</p>
+<p class="text-white/80 text-xs mt-1">Real-time counts</p>
+</div>
+</div>
+<!-- Report Card 2: Transaction History -->
+<div class="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[4/3] bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract purple flowing lines data visualization" style='background-image: linear-gradient(180deg, rgba(124, 58, 237, 0.05) 0%, rgba(124, 58, 237, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBx8jVtcNzfuyX-BwfKRq6QZMssDFWO1n3ZtseCVvuhx-MPv1jFEfztdjd31Fo6C_xJ0-FbGE_yS9i-dNI7I_8Lptwfok2pvkiIhUHrp8hGlmav64leWncfT1Yl3gRsIzDr66xLx5W9lxoT8sSW7RcITGHvfHAPvgHzM7nyuQtofo-1vQ-wLHcltKpnnT4Gky886NqvcyWJMh5XY7AJ9SB_u_489n9riJKR6xj8q8xmLrBOLji1TDwbL9vrKF7dkoqlQCT5r2MGbhTl");'>
+</div>
+<div class="relative p-4 z-10 bg-gradient-to-t from-black/60 to-transparent">
+<div class="mb-1 text-white opacity-90">
+<span class="material-symbols-outlined" style="font-size: 24px;">history</span>
+</div>
+<p class="text-white text-base font-bold leading-tight">History</p>
+<p class="text-white/80 text-xs mt-1">In/Out movements</p>
+</div>
+</div>
+<!-- Report Card 3: Low Stock Alerts -->
+<div class="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[4/3] bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract red warning pattern graphic" style='background-image: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCrAxS6dc9RK-gJdOBgjvguyI9b4Wnnx2EThG8vTbd1d8-Ou1fzZgSxPurwDT-ovchI-T1URf2UMTJ6nA9KZUEzKkJP_iCfvOWlEIqE03Euh9qpyu0zcIGh0DdNAyt413-oj4UKNfePGXLJmHWbnXPt0KERGGVZLtJipHEOxsfThKaArbDRvmICSN7WzBwnHSGwpxyGYXy_GU77CeLc-vZOXM4R3Uivb_wGWJMLzsxaaC2g49GBQNCA74rSf5ixekrcKrBscUIcb_hS");'>
+</div>
+<div class="relative p-4 z-10 bg-gradient-to-t from-black/60 to-transparent">
+<div class="mb-1 text-white opacity-90">
+<span class="material-symbols-outlined" style="font-size: 24px;">notifications_active</span>
+</div>
+<p class="text-white text-base font-bold leading-tight">Alerts</p>
+<p class="text-white/80 text-xs mt-1">Restock needed</p>
+</div>
+</div>
+<!-- Report Card 4: Valuation -->
+<div class="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[4/3] bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract green growth chart graphic" style='background-image: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDY_J50yORRs32LujsgGiD-_lPLI1orsfG5EvvtJkmu4Z1TcKXGL_b7K_UqK2nfvaRI-E8dnY1KeNVyU7lDPbsODkydt4C3Zjq5K33_rMF86OXYkbJNS9QUcFpRuNj1BT6KGLH8_JkbxwKjfD3Du7Up_SbKbRZK6MTAONoe6X8r7KFbhiXcYIF7OpUdG7wnwWAyD_SyTXEII6O5PhG8sm_1AiilSpew5avkS-dCrU0TYs56JsWMo5XLGxVM8EKKtjCdHIFhxLPtGNPS");'>
+</div>
+<div class="relative p-4 z-10 bg-gradient-to-t from-black/60 to-transparent">
+<div class="mb-1 text-white opacity-90">
+<span class="material-symbols-outlined" style="font-size: 24px;">trending_up</span>
+</div>
+<p class="text-white text-base font-bold leading-tight">Valuation</p>
+<p class="text-white/80 text-xs mt-1">Asset breakdown</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity List (Extra content for completeness) -->
+<div class="px-4 pt-6">
+<h3 class="text-base font-bold text-gray-900 dark:text-white mb-3">Recent Reports</h3>
+<div class="flex flex-col gap-3">
+<div class="flex items-center p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="ml-3 flex-1">
+<p class="text-sm font-semibold text-gray-900 dark:text-white">End of Month Audit</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Generated on Oct 31, 2023</p>
+</div>
+<button class="text-gray-400 hover:text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex items-center p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="ml-3 flex-1">
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Q3 Stock Valuation</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Generated on Sep 30, 2023</p>
+</div>
+<button class="text-gray-400 hover:text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pb-safe pt-2 px-6 h-[80px] z-50">
+<div class="flex justify-between items-center h-full pb-4">
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary">
+<span class="material-symbols-outlined text-[26px]">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[26px] font-bold">analytics</span>
+<span class="text-[10px] font-medium">Reports</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary">
+<span class="material-symbols-outlined text-[26px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</nav>
+<!-- Floating Action Button -->
+<div class="fixed bottom-[90px] right-4 z-40">
+<button class="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:bg-primary/90 transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</div>
+</div>
+</body></html>

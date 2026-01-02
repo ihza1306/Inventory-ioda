@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory List</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden pb-24">
+<!-- Header Section -->
+<header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-20">
+<!-- Status Bar -->
+<div class="w-full bg-primary/10 dark:bg-primary/20 py-1.5 px-4 flex justify-center items-center">
+<span class="flex items-center gap-1.5">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+<span class="text-xs font-medium text-primary dark:text-blue-300">Cloud Database Connected</span>
+</span>
+</div>
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<h2 class="text-2xl font-bold leading-tight tracking-tight flex-1">Inventory</h2>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 pb-4">
+<label class="flex flex-col h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-slate-400 dark:text-slate-500 flex border-none bg-slate-100 dark:bg-slate-900 items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border-none bg-slate-100 dark:bg-slate-900 focus:border-none h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 rounded-l-none pl-2 text-base font-normal leading-normal" placeholder="Search by name or SKU..." value=""/>
+</div>
+</label>
+</div>
+</header>
+<!-- Main Content List -->
+<main class="flex-1 flex flex-col gap-4 p-4 overflow-y-auto">
+<!-- Item 1 -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Cordless Power Drill</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wide">SKU: DRILL-20V-XR</p>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-green-100 dark:bg-green-900/30">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+<span class="text-green-700 dark:text-green-300 text-xs font-semibold">In Stock</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">Qty: </span>
+<span class="text-lg font-bold text-primary dark:text-blue-400">45</span>
+</div>
+</div>
+<div class="w-24 h-24 sm:w-32 sm:h-auto bg-center bg-no-repeat bg-cover rounded-lg shrink-0 bg-slate-100 dark:bg-slate-700" data-alt="Yellow cordless power drill on white background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABgdPzLLeoa8zvYnWGtlwYMpZ-IQjWtQAsW_B8-4-iRGpbLJwsCpcCa4XSm1psWWUB1FrHb-92AYnNFl7HOYYEL_MIgaAgEFiNhune6eToUAMW-43amvwpk3vLlsUjx7G6qKvrA9iAjdpeX4s0_nY_znVvhGEi4Oti5V4H7rwHDa-mJs0XllnngG5vUm4_FsA5r3amz3kLlT7nFwBwr3E8gk3CMQdjCSAmjVX77VYxkMaB16_DUlhsqQaI8Ku_tiT5H0WRHXiyiGdw");'></div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Socket Wrench Set</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wide">SKU: WRENCH-METRIC-12</p>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-100 dark:bg-orange-900/30">
+<span class="h-1.5 w-1.5 rounded-full bg-orange-500"></span>
+<span class="text-orange-700 dark:text-orange-300 text-xs font-semibold">Low Stock</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">Qty: </span>
+<span class="text-lg font-bold text-orange-600 dark:text-orange-400">3</span>
+</div>
+</div>
+<div class="w-24 h-24 sm:w-32 sm:h-auto bg-center bg-no-repeat bg-cover rounded-lg shrink-0 bg-slate-100 dark:bg-slate-700" data-alt="Set of silver metal socket wrenches" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDai8DxLjrmi1YHHF157HpWVZGpZTFyp9T6vs4ZhDTyQQm50YqAPVJ0-QVQ1JNxuwfG9MsztvPypjqrYJiCuPU9skJBcsU_aWVGVMWGEmfIrFC2Y34iqTuT8VNcReEmsBsw6wdgZ0pFkp7gdcc8pZ9Wu6_-XLvdh7g2LI_8QZfhzTIgXSHljbnyB_TZnCBGf-w2RuFCErYcymLholhkGGf8oBaY1ZJoUO2BNEL1fBnaf7kO6vRSFeQKzNs_qgULmNiRTTf6gZDOcfEe");'></div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Professional Circular Saw</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wide">SKU: SAW-CIRC-7IN</p>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-green-100 dark:bg-green-900/30">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+<span class="text-green-700 dark:text-green-300 text-xs font-semibold">In Stock</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">Qty: </span>
+<span class="text-lg font-bold text-primary dark:text-blue-400">12</span>
+</div>
+</div>
+<div class="w-24 h-24 sm:w-32 sm:h-auto bg-center bg-no-repeat bg-cover rounded-lg shrink-0 bg-slate-100 dark:bg-slate-700" data-alt="Circular saw blade on wood background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJUidqCeLw0C-QNjxSHb9w6gKydPXNiNwleNLZHoGO01j-OGUgCvxP7ZV_arzrICeBpO4VnP9IPxUOZNVT8707J2fmz3nO5yXUkgv-s1Cp0qQoaCVtgYgaRE69dUdvIxqOGL9qwHJFY0o5btiK_icum4mpaoX82Bh70Rx6bX0VZmrhZZvLRhc2NWa9uLMvuP_WJB0p-KVMFDuVz_DNjXQvbt6lVAy5K44It8IfXruBVvjdCEUjStad2vtds1OmkCnnEfw7qKZN0EeS");'></div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex flex-[2_2_0px] flex-col justify-between gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Safety Helmet - Yellow</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wide">SKU: SAFE-HELM-YEL</p>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-green-100 dark:bg-green-900/30">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+<span class="text-green-700 dark:text-green-300 text-xs font-semibold">In Stock</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">Qty: </span>
+<span class="text-lg font-bold text-primary dark:text-blue-400">150</span>
+</div>
+</div>
+<div class="w-24 h-24 sm:w-32 sm:h-auto bg-center bg-no-repeat bg-cover rounded-lg shrink-0 bg-slate-100 dark:bg-slate-700" data-alt="Yellow construction safety helmet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz5OH4_RkTKMhscOs6aeQUvru4vleFwgzaXmCXn0bptmYP_L96EE6C49SFTdA7-T0er9mEgfoO0KUuELjKGLPwTQj1Js5qvtIDtf3rQechPGg-ekAh2iIBAr0CmIcilkjuqx0BOG3q-F-AjJEei-KM95VMzTm1e1X1-BLROQxMyCPUa_T6bpzA-qjhdh46JjuocchdahhwgvVoCYsnO9pTqPoP5Xe-HYLuAGAMpeEtns5Y9tRyzpc7EvbdmgqaoMU_dVrc6CBJLOQ5");'></div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-24 right-5 h-14 w-14 bg-primary hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95 z-30">
+<span class="material-symbols-outlined" style="font-size: 32px;">add</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 pb-safe z-40">
+<div class="flex items-center justify-around h-16 pb-2">
+<button class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] mt-1 font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-primary dark:text-blue-400">
+<span class="material-symbols-outlined filled">inventory_2</span>
+<span class="text-[10px] mt-1 font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="text-[10px] mt-1 font-medium">Scan</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-[10px] mt-1 font-medium">Reports</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] mt-1 font-medium">Profile</span>
+</button>
+</div>
+<!-- iOS Home Indicator spacing -->
+<div class="h-1 w-full bg-white dark:bg-slate-800"></div>
+</nav>
+</div>
+</body></html>

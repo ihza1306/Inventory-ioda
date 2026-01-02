@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detailed Report View</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#13a4ec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101c22",
+                },
+                fontFamily: {
+                "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111618] dark:text-white min-h-screen flex flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#111618]/90 backdrop-blur-md border-b border-[#e5e7eb] dark:border-[#222]">
+<div class="flex items-center justify-between p-4 h-16">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-[#111618] dark:text-white">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="text-base font-bold leading-tight tracking-tight text-[#111618] dark:text-white">Q3 Stock Transactions</h1>
+<p class="text-xs text-[#617c89] dark:text-gray-400">July 1 - Sept 30</p>
+</div>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-primary">
+<span class="material-symbols-outlined">ios_share</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col gap-2 pb-24">
+<section class="px-4 py-4">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1 rounded-xl bg-white dark:bg-[#1a262d] border border-gray-100 dark:border-gray-800 p-4 items-center text-center shadow-sm">
+<div class="size-8 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-1">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+<p class="text-[#111618] dark:text-white tracking-tight text-xl font-bold leading-tight">1,240</p>
+<p class="text-[#617c89] dark:text-gray-400 text-[11px] font-medium uppercase tracking-wide">Total Items</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl bg-white dark:bg-[#1a262d] border border-gray-100 dark:border-gray-800 p-4 items-center text-center shadow-sm">
+<div class="size-8 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400 mb-1">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<p class="text-green-600 dark:text-green-400 tracking-tight text-xl font-bold leading-tight">+12%</p>
+<p class="text-[#617c89] dark:text-gray-400 text-[11px] font-medium uppercase tracking-wide">Variance</p>
+</div>
+</div>
+</section>
+<section class="sticky top-16 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm px-4 pb-2 pt-0 border-b border-transparent">
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white pl-4 pr-3 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<p class="text-sm font-semibold leading-normal">Filter</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1a262d] border border-gray-200 dark:border-gray-700 pl-3 pr-3 active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-[#617c89]">sort</span>
+<p class="text-[#111618] dark:text-white text-sm font-medium leading-normal">Sort By</p>
+<span class="material-symbols-outlined text-[18px] text-[#617c89]">keyboard_arrow_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1a262d] border border-gray-200 dark:border-gray-700 pl-3 pr-3 active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-[#617c89]">calendar_today</span>
+<p class="text-[#111618] dark:text-white text-sm font-medium leading-normal">This Month</p>
+<span class="material-symbols-outlined text-[18px] text-[#617c89]">keyboard_arrow_down</span>
+</button>
+</div>
+</section>
+<section class="flex flex-col px-4 gap-3 mt-1">
+<h3 class="text-sm font-semibold text-[#617c89] dark:text-gray-400 uppercase tracking-wider ml-1 mb-1">Recent Activity</h3>
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a262d] px-4 py-4 rounded-xl shadow-sm border border-transparent dark:border-gray-800">
+<div class="size-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start w-full">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-normal truncate pr-2">Safety Gloves - Size M</p>
+<p class="text-green-600 dark:text-green-400 text-base font-bold leading-normal whitespace-nowrap">+50 Units</p>
+</div>
+<div class="flex justify-between items-center w-full mt-1.5">
+<p class="text-[#617c89] dark:text-gray-400 text-xs font-normal leading-normal truncate">SKU: SG-001</p>
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">Restock</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a262d] px-4 py-4 rounded-xl shadow-sm border border-transparent dark:border-gray-800">
+<div class="size-10 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center shrink-0 text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start w-full">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-normal truncate pr-2">Safety Helmets</p>
+<p class="text-red-500 dark:text-red-400 text-base font-bold leading-normal whitespace-nowrap">-12 Units</p>
+</div>
+<div class="flex justify-between items-center w-full mt-1.5">
+<p class="text-[#617c89] dark:text-gray-400 text-xs font-normal leading-normal truncate">SKU: SH-882</p>
+<span class="inline-flex items-center rounded-md bg-orange-50 dark:bg-orange-900/30 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/10">Outbound</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a262d] px-4 py-4 rounded-xl shadow-sm border border-transparent dark:border-gray-800">
+<div class="size-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start w-full">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-normal truncate pr-2">High-Vis Vests</p>
+<p class="text-green-600 dark:text-green-400 text-base font-bold leading-normal whitespace-nowrap">+100 Units</p>
+</div>
+<div class="flex justify-between items-center w-full mt-1.5">
+<p class="text-[#617c89] dark:text-gray-400 text-xs font-normal leading-normal truncate">SKU: HV-202</p>
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">Bulk Add</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a262d] px-4 py-4 rounded-xl shadow-sm border border-transparent dark:border-gray-800">
+<div class="size-10 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center shrink-0 text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start w-full">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-normal truncate pr-2">Industrial Boots (Size 10)</p>
+<p class="text-[#111618] dark:text-white text-base font-bold leading-normal whitespace-nowrap">0 Units</p>
+</div>
+<div class="flex justify-between items-center w-full mt-1.5">
+<p class="text-[#617c89] dark:text-gray-400 text-xs font-normal leading-normal truncate">SKU: IB-10X</p>
+<span class="inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-900/30 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-300 ring-1 ring-inset ring-purple-700/10">Adjustment</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a262d] px-4 py-4 rounded-xl shadow-sm border border-transparent dark:border-gray-800">
+<div class="size-10 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center shrink-0 text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start w-full">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-normal truncate pr-2">Copper Wire Spool</p>
+<p class="text-red-500 dark:text-red-400 text-base font-bold leading-normal whitespace-nowrap">-5 Units</p>
+</div>
+<div class="flex justify-between items-center w-full mt-1.5">
+<p class="text-[#617c89] dark:text-gray-400 text-xs font-normal leading-normal truncate">SKU: CW-500</p>
+<span class="inline-flex items-center rounded-md bg-orange-50 dark:bg-orange-900/30 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/10">Outbound</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-[#1a262d] px-4 py-4 rounded-xl shadow-sm border border-transparent dark:border-gray-800">
+<div class="size-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start w-full">
+<p class="text-[#111618] dark:text-white text-base font-semibold leading-normal truncate pr-2">PVC Pipe 2"</p>
+<p class="text-green-600 dark:text-green-400 text-base font-bold leading-normal whitespace-nowrap">+200 Units</p>
+</div>
+<div class="flex justify-between items-center w-full mt-1.5">
+<p class="text-[#617c89] dark:text-gray-400 text-xs font-normal leading-normal truncate">SKU: PP-020</p>
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">Restock</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-6 right-6 z-50">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-lg shadow-blue-500/30 hover:bg-blue-500 transition-colors">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</div>
+</body></html>

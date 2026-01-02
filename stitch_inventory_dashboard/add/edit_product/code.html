@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tambah/Edit Produk - Inventory Ioda Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1e293b] dark:text-[#e2e8f0] font-display antialiased overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="w-[280px] hidden lg:flex flex-col bg-white dark:bg-[#18212f] border-r border-[#e2e8f0] dark:border-[#2d3748] h-full shrink-0">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+</div>
+<div>
+<h1 class="text-base font-bold text-[#111318] dark:text-white leading-tight">Inventory<br/>Ioda Academy</h1>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 flex flex-col gap-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f8fafc] dark:hover:bg-[#2d3748] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-[#94a3b8] group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium group-hover:text-[#111318] dark:group-hover:text-white transition-colors">Dasbor</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined text-primary fill">package_2</span>
+<span class="text-sm font-medium">Inventaris</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f8fafc] dark:hover:bg-[#2d3748] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-[#94a3b8] group-hover:text-primary transition-colors">assignment_return</span>
+<span class="text-sm font-medium group-hover:text-[#111318] dark:group-hover:text-white transition-colors">Peminjaman</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f8fafc] dark:hover:bg-[#2d3748] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-[#94a3b8] group-hover:text-primary transition-colors">local_shipping</span>
+<span class="text-sm font-medium group-hover:text-[#111318] dark:group-hover:text-white transition-colors">Pengiriman</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f8fafc] dark:hover:bg-[#2d3748] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-[#94a3b8] group-hover:text-primary transition-colors">group</span>
+<span class="text-sm font-medium group-hover:text-[#111318] dark:group-hover:text-white transition-colors">Anggota</span>
+</a>
+<div class="my-2 border-t border-[#e2e8f0] dark:border-[#2d3748]"></div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f8fafc] dark:hover:bg-[#2d3748] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-[#94a3b8] group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium group-hover:text-[#111318] dark:group-hover:text-white transition-colors">Pengaturan</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[#e2e8f0] dark:border-[#2d3748]">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-white dark:ring-[#18212f]" data-alt="User profile picture placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtJg_BIJURW0fPsVJD39nf9ImufCGDmhH41gVYQfcro3V3gqTMzi6i34f6HI-ZQGkMibHjCFgewnEs3eYxBsX5VNunYQHhdAbxdPB6sm8Gmew__poDe7Ui3ludNfuCTThWpG8tKLeeG-bvBbrHv4BX19lWVWA-RJUL6spswG4Xv2YuLKxiIzaQ-U92Ec0-Bfvz-xUlgBgoSA8Zmzk6mtvVQRQ2NjRyybLLNDDJ0a1aL10o3Jj2pSeH3TSgR9h-kxh9fkbh1wkc4wM");'></div>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-[#111318] dark:text-white">Alex Morgan</p>
+<p class="text-xs text-[#616f89] dark:text-[#94a3b8]">Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light dark:bg-background-dark relative">
+<header class="flex items-center justify-between h-16 px-8 bg-white dark:bg-[#18212f] border-b border-[#e2e8f0] dark:border-[#2d3748] shrink-0 z-20">
+<div class="flex items-center gap-4 lg:hidden">
+<button class="text-[#616f89] dark:text-[#94a3b8]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="text-lg font-bold text-[#111318] dark:text-white">Inventaris</span>
+</div>
+<div class="hidden lg:flex w-full max-w-lg">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-[#94a3b8]">search</span>
+</div>
+<input class="block w-full p-2.5 pl-10 text-sm text-[#111318] dark:text-white bg-[#f1f5f9] dark:bg-[#2d3748] border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-[#18212f] transition-all placeholder-[#94a3b8]" placeholder="Cari produk, peminjaman..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f1f5f9] dark:hover:bg-[#2d3748] rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-[#18212f]"></span>
+</button>
+<button class="hidden lg:flex p-2 text-[#616f89] dark:text-[#94a3b8] hover:bg-[#f1f5f9] dark:hover:bg-[#2d3748] rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-6 lg:p-10 pb-20">
+<div class="max-w-6xl mx-auto space-y-8">
+<nav aria-label="Breadcrumb" class="flex">
+<ol class="inline-flex items-center space-x-1 md:space-x-2">
+<li class="inline-flex items-center">
+<a class="inline-flex items-center text-sm font-medium text-[#616f89] dark:text-[#94a3b8] hover:text-primary transition-colors" href="#">
+                                Dasbor
+                            </a>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#94a3b8] text-sm mx-1">chevron_right</span>
+<a class="text-sm font-medium text-[#616f89] dark:text-[#94a3b8] hover:text-primary transition-colors" href="#">Inventaris</a>
+</div>
+</li>
+<li aria-current="page">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#94a3b8] text-sm mx-1">chevron_right</span>
+<span class="text-sm font-medium text-[#111318] dark:text-white">Tambah/Edit Produk</span>
+</div>
+</li>
+</ol>
+</nav>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="text-3xl font-bold tracking-tight text-[#111318] dark:text-white">Tambah/Edit Produk</h2>
+<p class="mt-1 text-sm text-[#616f89] dark:text-[#94a3b8]">Kelola katalog inventaris Ioda Academy, tambahkan item baru atau perbarui stok.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-medium text-[#111318] dark:text-white bg-white dark:bg-[#2d3748] border border-[#e2e8f0] dark:border-[#4a5568] rounded-lg hover:bg-[#f8fafc] dark:hover:bg-[#4a5568] transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50" type="button">
+                            Batal
+                        </button>
+<button class="flex items-center justify-center gap-2 px-6 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#18212f]" type="button">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                            Simpan Produk
+                        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-white dark:bg-[#18212f] rounded-xl shadow-sm border border-[#e2e8f0] dark:border-[#2d3748] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#e2e8f0] dark:border-[#2d3748] flex justify-between items-center bg-gray-50/50 dark:bg-white/5">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Informasi Umum</h3>
+</div>
+<div class="p-6 space-y-6">
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="product-name">Nama Produk <span class="text-red-500">*</span></label>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 placeholder-[#94a3b8]" id="product-name" placeholder="cth. Laptop Lenovo ThinkPad" required="" type="text"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="description">Deskripsi</label>
+<div class="w-full mb-4 border border-[#e2e8f0] dark:border-[#4a5568] rounded-lg bg-gray-50 dark:bg-[#101622]">
+<div class="flex items-center justify-between px-3 py-2 border-b border-[#e2e8f0] dark:border-[#4a5568]">
+<div class="flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x">
+<div class="flex items-center space-x-1 sm:pr-4">
+<button class="p-1.5 text-[#616f89] dark:text-[#94a3b8] rounded hover:text-primary hover:bg-[#e2e8f0] dark:hover:bg-[#2d3748]" type="button">
+<span class="material-symbols-outlined text-[20px]">format_bold</span>
+</button>
+<button class="p-1.5 text-[#616f89] dark:text-[#94a3b8] rounded hover:text-primary hover:bg-[#e2e8f0] dark:hover:bg-[#2d3748]" type="button">
+<span class="material-symbols-outlined text-[20px]">format_italic</span>
+</button>
+<button class="p-1.5 text-[#616f89] dark:text-[#94a3b8] rounded hover:text-primary hover:bg-[#e2e8f0] dark:hover:bg-[#2d3748]" type="button">
+<span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#101622] rounded-b-lg">
+<textarea class="block w-full px-4 py-2 text-sm text-[#111318] dark:text-white bg-white dark:bg-[#101622] border-0 focus:ring-0 rounded-b-lg placeholder-[#94a3b8]" id="description" placeholder="Tulis deskripsi produk, spesifikasi, dan kondisi..." rows="5"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#18212f] rounded-xl shadow-sm border border-[#e2e8f0] dark:border-[#2d3748] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#e2e8f0] dark:border-[#2d3748] bg-gray-50/50 dark:bg-white/5">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Media Produk</h3>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-center w-full">
+<label class="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-xl cursor-pointer bg-gray-50 dark:bg-[#101622] border-gray-300 dark:border-[#4a5568] hover:bg-gray-100 dark:hover:bg-[#2d3748] hover:border-primary transition-all group" for="dropzone-file">
+<div class="flex flex-col items-center justify-center pt-5 pb-6">
+<div class="bg-white dark:bg-[#2d3748] p-3 rounded-full mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[#616f89] dark:text-[#94a3b8] text-3xl">cloud_upload</span>
+</div>
+<p class="mb-1 text-sm font-medium text-[#111318] dark:text-white">Klik untuk unggah atau seret dan lepas</p>
+<p class="text-xs text-[#616f89] dark:text-[#94a3b8]">SVG, PNG, JPG atau GIF (MAKS. 800x400px)</p>
+</div>
+<input class="hidden" id="dropzone-file" type="file"/>
+</label>
+</div>
+<div class="mt-4 grid grid-cols-4 gap-4">
+<div class="relative group rounded-lg overflow-hidden border border-[#e2e8f0] dark:border-[#4a5568] aspect-square bg-gray-50 dark:bg-[#101622]">
+<div class="w-full h-full bg-center bg-cover" data-alt="Preview of uploaded mouse product" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAz0EUYPW6mtPXRxVqXgS0c5jXdbZp4zKbp5kpZwWFtqVAX4iU2M7mHoMxdxsNpKSf37nl7-Qabib5QGgWVM9qSQI_kim1Jp0B_klSL1sM3mM2rNr5iCeQWNN6TmlQW44o-kHqC-7lzPYfku6Vg03dXML5CKRYTf3vnqXtv29IXwzLDz0k1QHO8B4Z8FVPyraLxskaxKBm9K8Jq8XMWN5pilDTSb54wxntwkIvBSTtqN-fSSVYhmpcr2fztCyspsqCYSGlEa0eiZMs')"></div>
+<button class="absolute top-1 right-1 bg-white dark:bg-[#18212f] text-red-500 rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#18212f] rounded-xl shadow-sm border border-[#e2e8f0] dark:border-[#2d3748] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#e2e8f0] dark:border-[#2d3748] bg-gray-50/50 dark:bg-white/5">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Inventaris &amp; Identifikasi</h3>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="sku">SKU (Unit Penyimpanan Stok)</label>
+<button class="text-xs text-primary font-medium hover:underline" type="button">Buat otomatis</button>
+</div>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="sku" placeholder="cth. ACADEMY-IT-001" type="text"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="quantity">Kuantitas Stok</label>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="quantity" placeholder="0" type="number"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="barcode">Barcode (ISBN, UPC, GTIN)</label>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="barcode" placeholder="cth. 1234567890123" type="text"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="threshold">Ambang Batas Stok Rendah</label>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="threshold" placeholder="10" type="number"/>
+</div>
+<div class="md:col-span-2 pt-2 mt-2 border-t border-[#e2e8f0] dark:border-[#2d3748]">
+<label class="block mb-3 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]">Identifikasi Kode QR</label>
+<div class="p-5 rounded-lg border border-[#e2e8f0] dark:border-[#4a5568] bg-gray-50/50 dark:bg-[#101622]/50">
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="shrink-0">
+<div class="w-32 h-32 bg-white rounded-lg border border-[#e2e8f0] flex items-center justify-center p-2 shadow-sm">
+<span class="material-symbols-outlined text-6xl text-[#111318]">qr_code_2</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center space-y-4">
+<p class="text-sm text-[#616f89] dark:text-[#94a3b8]">Hasilkan kode QR baru untuk identifikasi aset atau pindai kode yang ada untuk memperbarui data produk ini.</p>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">autorenew</span>
+                                                        Buat QR
+                                                    </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#111318] dark:text-white bg-white dark:bg-[#2d3748] border border-[#e2e8f0] dark:border-[#4a5568] rounded-lg hover:bg-gray-50 dark:hover:bg-[#374151] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
+                                                        Pindai Kode
+                                                    </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#111318] dark:text-white bg-white dark:bg-[#2d3748] border border-[#e2e8f0] dark:border-[#4a5568] rounded-lg hover:bg-gray-50 dark:hover:bg-[#374151] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                                                        Cetak Label
+                                                    </button>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-[#94a3b8] text-[18px]">fingerprint</span>
+</div>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5" placeholder="Atau masukkan kode identifikasi QR secara manual" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-white dark:bg-[#18212f] rounded-xl shadow-sm border border-[#e2e8f0] dark:border-[#2d3748] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#e2e8f0] dark:border-[#2d3748] bg-gray-50/50 dark:bg-white/5">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Status</h3>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-[#111318] dark:text-white">Status Produk</span>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="translate-x-6 inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
+</div>
+</div>
+<p class="text-xs text-[#616f89] dark:text-[#94a3b8] mb-4">Produk tersedia untuk dipinjam atau digunakan.</p>
+<div class="border-t border-[#e2e8f0] dark:border-[#2d3748] pt-4 mt-4">
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]">Visibilitas</label>
+<select class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5">
+<option>Publik (Siswa &amp; Staff)</option>
+<option>Hanya Staff</option>
+<option>Arsip</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#18212f] rounded-xl shadow-sm border border-[#e2e8f0] dark:border-[#2d3748] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#e2e8f0] dark:border-[#2d3748] bg-gray-50/50 dark:bg-white/5">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Harga &amp; Nilai</h3>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="base-price">Harga Beli</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="text-[#616f89] dark:text-[#94a3b8]">Rp</span>
+</div>
+<input class="pl-9 bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="base-price" placeholder="0" type="number"/>
+</div>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="sale-price">Nilai Aset / Harga Sewa</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="text-[#616f89] dark:text-[#94a3b8]">Rp</span>
+</div>
+<input class="pl-9 bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="sale-price" placeholder="0" type="number"/>
+</div>
+</div>
+<div class="flex items-center pt-2">
+<input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-[#101622] dark:border-[#4a5568]" id="tax-charge" type="checkbox" value=""/>
+<label class="ml-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="tax-charge">Aset kena pajak</label>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#18212f] rounded-xl shadow-sm border border-[#e2e8f0] dark:border-[#2d3748] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#e2e8f0] dark:border-[#2d3748] bg-gray-50/50 dark:bg-white/5">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Organisasi</h3>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="supplier">Pemasok</label>
+<select class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="supplier">
+<option selected="">Pilih pemasok</option>
+<option>TechGlobal Logistics</option>
+<option>Mitra Edukasi Indonesia</option>
+<option>Office Depot Inc.</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="category">Kategori</label>
+<select class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="category">
+<option selected="">Pilih kategori</option>
+<option>Elektronik</option>
+<option>Furnitur Kelas</option>
+<option>Perlengkapan Lab</option>
+<option>Buku &amp; Modul</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-[#111318] dark:text-[#e2e8f0]" for="tags">Tag</label>
+<input class="bg-white dark:bg-[#101622] border border-[#e2e8f0] dark:border-[#4a5568] text-[#111318] dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" id="tags" placeholder="cth. Aset IT, Lab Komputer 1" type="text"/>
+<p class="mt-1 text-xs text-[#616f89] dark:text-[#94a3b8]">Pisahkan tag dengan koma.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

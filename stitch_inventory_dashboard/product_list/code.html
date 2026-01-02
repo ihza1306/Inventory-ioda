@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Produk - Inventory Ioda Academy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="w-[280px] h-full bg-white dark:bg-[#1a2233] border-r border-[#e5e7eb] dark:border-[#2a3447] flex flex-col shrink-0 transition-all duration-300">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 pb-2">
+<div class="flex items-center justify-center size-9 rounded-lg bg-primary text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+</div>
+<div>
+<h1 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-tight">Ioda Academy</h1>
+<p class="text-xs text-[#616f89] dark:text-gray-400 font-medium">Inventory System</p>
+</div>
+</div>
+<div class="flex gap-3 items-center px-2 py-3 mb-2 bg-gray-50 dark:bg-[#252f44]/50 rounded-xl border border-dashed border-gray-200 dark:border-gray-700/50">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white dark:ring-[#2a3447]" data-alt="Profile picture of the admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHidH7Jxg5R8s8hwrVjHnA9uycZ4pNwYSPJl5bKjYegCByFUkr_xceUaOGhZpPnflBcH_HAnvpHrHvoPj6SXHJonaoKojeDuJu1RB1FFiZ1S-fGLZrN54LullqoLu9JDBuISIaK-2scYz2CEc3CSzlHt3YmFZtloko5HJDoDXwVwgzuaRfldR3ZlEpjqoqr4adC3Nn45WZRHF9wDBDfbvsfG8voSquBSwTCcSEM-6Xv50KOQMtZ8jgGdAb3oAztHZoI3imBEzG_mw");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#111318] dark:text-white text-sm font-semibold leading-normal">Admin User</h1>
+<p class="text-[#616f89] dark:text-gray-400 text-xs font-medium leading-normal">Manajer Gudang</p>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#2a3447] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-gray-400 group-hover:text-[#111318] dark:group-hover:text-white">dashboard</span>
+<p class="text-inherit font-medium text-sm">Dasbor</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-blue-400 transition-colors" href="#">
+<span class="material-symbols-outlined fill-1">qr_code_scanner</span>
+<p class="font-bold text-sm">Daftar Produk</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#2a3447] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-gray-400 group-hover:text-[#111318] dark:group-hover:text-white">swap_horiz</span>
+<p class="text-inherit font-medium text-sm">Peminjaman</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#2a3447] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-gray-400 group-hover:text-[#111318] dark:group-hover:text-white">history</span>
+<p class="text-inherit font-medium text-sm">Riwayat</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#2a3447] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#616f89] dark:text-gray-400 group-hover:text-[#111318] dark:group-hover:text-white">settings</span>
+<p class="text-inherit font-medium text-sm">Pengaturan</p>
+</a>
+</div>
+</div>
+<div class="px-3 py-2">
+<button class="flex items-center gap-3 w-full text-[#616f89] dark:text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Keluar</span>
+</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 h-full flex flex-col overflow-hidden relative">
+<div class="flex flex-col bg-background-light dark:bg-background-dark z-10">
+<div class="px-8 pt-6 pb-2">
+<div class="flex flex-wrap gap-2 items-center">
+<a class="text-[#616f89] dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Inventaris</a>
+<span class="material-symbols-outlined text-[#616f89] dark:text-gray-500 text-sm">chevron_right</span>
+<span class="text-[#111318] dark:text-white text-sm font-semibold leading-normal">Daftar Produk</span>
+</div>
+</div>
+<div class="px-8 py-4 flex flex-wrap justify-between items-end gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#111318] dark:text-white text-3xl font-black tracking-tight">Daftar Produk</h1>
+<p class="text-[#616f89] dark:text-gray-400 text-base font-normal">Kelola aset Inventory Ioda Academy, periksa ketersediaan, dan pindai kode QR.</p>
+</div>
+<div class="flex gap-3">
+<button class="hidden sm:flex h-10 px-4 items-center justify-center rounded-lg bg-white dark:bg-[#1a2233] border border-[#dbdfe6] dark:border-[#2a3447] text-[#111318] dark:text-white text-sm font-semibold shadow-sm hover:bg-gray-50 dark:hover:bg-[#252f44] transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">qr_code_2</span>
+                        Cetak QR Massal
+                    </button>
+<button class="flex h-10 px-4 items-center justify-center rounded-lg bg-primary hover:bg-blue-600 text-white text-sm font-bold shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[20px] mr-2">add</span>
+                        Tambah Produk
+                    </button>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-8 pb-8">
+<div class="bg-white dark:bg-[#1a2233] rounded-xl border border-[#e5e7eb] dark:border-[#2a3447] p-4 mb-6 shadow-sm">
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[240px]">
+<label class="sr-only">Search</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-[#616f89] text-[20px]">search</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 border border-[#dbdfe6] dark:border-[#2a3447] rounded-lg leading-5 bg-[#f0f2f4] dark:bg-[#252f44] text-[#111318] dark:text-white placeholder-[#616f89] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out" placeholder="Cari nama atau pindai QR..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer hover:text-primary transition-colors text-[#616f89]" title="Aktifkan Pemindai QR">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</div>
+</div>
+</div>
+<div class="w-full sm:w-auto min-w-[140px]">
+<div class="relative">
+<select class="block w-full pl-3 pr-10 py-2.5 text-base border-gray-300 dark:border-[#2a3447] focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-lg bg-white dark:bg-[#252f44] text-[#111318] dark:text-white appearance-none border shadow-sm cursor-pointer">
+<option>Status: Semua</option>
+<option>Tersedia</option>
+<option>Dipinjam</option>
+<option>Pemeliharaan</option>
+<option>Hilang</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="w-full sm:w-auto min-w-[140px]">
+<div class="relative">
+<select class="block w-full pl-3 pr-10 py-2.5 text-base border-gray-300 dark:border-[#2a3447] focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-lg bg-white dark:bg-[#252f44] text-[#111318] dark:text-white appearance-none border shadow-sm cursor-pointer">
+<option>Kategori: Semua</option>
+<option>Elektronik</option>
+<option>Aksesoris</option>
+<option>Kantor</option>
+<option>Bahan Makanan</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="w-full sm:w-auto min-w-[140px]">
+<div class="relative">
+<select class="block w-full pl-3 pr-10 py-2.5 text-base border-gray-300 dark:border-[#2a3447] focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-lg bg-white dark:bg-[#252f44] text-[#111318] dark:text-white appearance-none border shadow-sm cursor-pointer">
+<option>Urutkan: Terbaru</option>
+<option>Nama (A-Z)</option>
+<option>Stok (Terbanyak)</option>
+<option>Stok (Sedikit)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-[20px]">sort</span>
+</div>
+</div>
+</div>
+<button class="text-sm font-medium text-[#616f89] hover:text-primary transition-colors whitespace-nowrap px-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+                        Reset
+                    </button>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a2233] rounded-xl border border-[#e5e7eb] dark:border-[#2a3447] shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-[#e5e7eb] dark:divide-[#2a3447]">
+<thead class="bg-[#f9fafb] dark:bg-[#252f44]">
+<tr>
+<th class="px-6 py-4 text-left w-[40px]" scope="col">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 cursor-pointer" type="checkbox"/>
+</th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-[#616f89] dark:text-gray-400 uppercase tracking-wider group cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors" scope="col">
+<div class="flex items-center gap-1">
+                                    Produk
+                                    <span class="material-symbols-outlined text-[16px] opacity-40 group-hover:opacity-100">unfold_more</span>
+</div>
+</th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-[#616f89] dark:text-gray-400 uppercase tracking-wider" scope="col">Kode QR / SKU</th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-[#616f89] dark:text-gray-400 uppercase tracking-wider" scope="col">Kategori</th>
+<th class="px-6 py-4 text-left text-xs font-semibold text-[#616f89] dark:text-gray-400 uppercase tracking-wider group cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors" scope="col">
+<div class="flex items-center gap-1">
+                                    Stok
+                                    <span class="material-symbols-outlined text-[16px] opacity-40 group-hover:opacity-100">unfold_more</span>
+</div>
+</th>
+<th class="px-6 py-4 text-center text-xs font-semibold text-[#616f89] dark:text-gray-400 uppercase tracking-wider group cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors" scope="col">
+<div class="flex items-center justify-center gap-1">
+                                    Status
+                                    <span class="material-symbols-outlined text-[16px] opacity-40 group-hover:opacity-100">unfold_more</span>
+</div>
+</th>
+<th class="relative px-6 py-4" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-[#1a2233] divide-y divide-[#e5e7eb] dark:divide-[#2a3447]">
+<tr class="group hover:bg-[#f9fafb] dark:hover:bg-[#252f44] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-lg object-cover border border-gray-100 dark:border-gray-700" data-alt="Wireless headphones product thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDahDzGw3N8UxcVBRPZwTDdE7zzpSMWWzhM8xmRpq1ZkMKuKU44ZsfV1d6J5rytsWNGw_Rld0FrcoThkZkqpQetF2IEJlEkjKjjS_5YlYtOU4INxIndedD5EcEs6nkmPld3dBQ8xd-AbfY9ZaLyV8c2zJt57Hf9QSUItkewkx8W9oPkQv7Mgq2mce1tnUmNw57n2tcVYn3aMxG24X1KXjoTvCEP7ni4645skjoml3ZPpJ4zgjDbvAgxr9HuSn44vjF3ajj1V4-3MXY"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-[#111318] dark:text-white group-hover:text-primary transition-colors">Premium Headphones</div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 mt-0.5">ID Aset: #48293</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span>
+                                        QR-8292
+                                    </div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 font-mono">PH-2023-BLK</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-[#111318] dark:text-white">Elektronik</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="flex-1 w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-green-500 h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+<span class="text-sm font-semibold text-[#111318] dark:text-white w-8 text-right">85</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800">
+                                    Tersedia
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" title="Pinjam Barang">
+<span class="material-symbols-outlined text-[20px]">move_item</span>
+</button>
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-[#f9fafb] dark:hover:bg-[#252f44] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-lg object-cover border border-gray-100 dark:border-gray-700" data-alt="Red sport sneaker product thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrB3igiZhjA7VkqHOVS9yZz0PqG4K2YLoyZw1oF4HFsphbwEf2CgRTpnCZxhLouc_Fiw_eJJ4JwRaU3XHxl_DVLD5UQ3nt23-NQ5QeUveRYmXv5qCuGbQ8zu-Voq9cB33V7FoR3yfrxz1ligwUpJ6IT_4NQRUjYHf-jOwuvlsdf4t0knTAxtiFrzhyURv_3h1-zhqmKKxBDvLbjkg-oFNEglz3Mm-J50_j5lN4xBte6pnP2D9fdFmYfFxXb2ahy19s6QMcCbWaRh0"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-[#111318] dark:text-white group-hover:text-primary transition-colors">Sport Runner X1</div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 mt-0.5">ID Aset: #93012</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span>
+                                        QR-1102
+                                    </div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 font-mono">SR-RED-001</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-[#111318] dark:text-white">Alas Kaki</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="flex-1 w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-yellow-500 h-1.5 rounded-full" style="width: 15%"></div>
+</div>
+<span class="text-sm font-semibold text-[#111318] dark:text-white w-8 text-right">5</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
+                                    Dipinjam
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" title="Kembalikan Barang">
+<span class="material-symbols-outlined text-[20px]">assignment_return</span>
+</button>
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-[#f9fafb] dark:hover:bg-[#252f44] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-lg object-cover border border-gray-100 dark:border-gray-700" data-alt="Instant camera product thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4ky2hZx9ub-gltaon0zRmr-ddOz7DP-Zzd7gbbs4FFfnbbF2CGXzEfvfiQjIZHvV-O-_7sEk6uWt5swNsM-VUIHqgZf2OXc0il2JwGMWaM5WH5aDuoBIg1O8Fk4unESJ_kdS7BTWcwqBlhuTHvquonlRSEEHSuJLy3X6-6HnLqXKLSvZQhj6W_o-4u2p56SRjjqcPbzV0Wa6Vx2PIytiNQwCf1Nnfc2d1MZa2rd9cjBgX4ENJkoayGPWj91CjGSazVFrf_0RuEw"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-[#111318] dark:text-white group-hover:text-primary transition-colors">Polaroid Snap</div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 mt-0.5">ID Aset: #19920</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span>
+                                        QR-7728
+                                    </div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 font-mono">CAM-SNAP-WHT</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-[#111318] dark:text-white">Elektronik</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="flex-1 w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-gray-300 dark:bg-gray-600 h-1.5 rounded-full" style="width: 0%"></div>
+</div>
+<span class="text-sm font-semibold text-[#111318] dark:text-white w-8 text-right">0</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800">
+                                    Stok Habis
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" disabled="">
+<span class="material-symbols-outlined text-[20px] text-gray-300">move_item</span>
+</button>
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-[#f9fafb] dark:hover:bg-[#252f44] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-lg object-cover border border-gray-100 dark:border-gray-700" data-alt="White watch product thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNMrf2P3SnU6BoaOqaOrSW85h1AR-EzVW5QMZJ7cjSICyIzeuB_jmwl_yFQDqczg5pbNRxteNOmTy3zOpeHuy9A1TdK5W5gPMs304j61DAE5z38YVI5t85_ttzC7RO8leO5AixzI2jDrnaSOri18Uy6tNWVVimDzu1xUlFDsEFNVjKP54dS4v0IG1q3e7Sqb0Ee_dZwKClEsRigg-XuJWuietuiJ2sbf5PW-IQoqxpIhDlCtPgJCJSRVoF2e0zOZL1HhyokqkBe4Q"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-[#111318] dark:text-white group-hover:text-primary transition-colors">Minimalist Watch</div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 mt-0.5">ID Aset: #22819</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span>
+                                        QR-4451
+                                    </div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 font-mono">WCH-MIN-05</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-[#111318] dark:text-white">Aksesoris</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="flex-1 w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-green-500 h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+<span class="text-sm font-semibold text-[#111318] dark:text-white w-8 text-right">45</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800">
+                                    Tersedia
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" title="Pinjam Barang">
+<span class="material-symbols-outlined text-[20px]">move_item</span>
+</button>
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-[#f9fafb] dark:hover:bg-[#252f44] transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="h-10 w-10 flex-shrink-0">
+<img class="h-10 w-10 rounded-lg object-cover border border-gray-100 dark:border-gray-700" data-alt="Coffee beans bag product thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQaV8vGvIAfH91deDOIITBqzLWWj_YR6QO9EZk3WbvpnmAY6Ea9aqCpvI9OBk5f7Xaa7A3Fkzxwd9kFbAfPFs9X_HlTnnwgAyz0bwIrNe4Y3MDkhOZebpZ9Q4yDEa9IVtS246BJKFND2Fxes4ktnw4A9HI0-x4oNEThcyUltcAabWnlZKPFj0IHjrZwaH1UCDpHpvxBqx0SsL9enKPvkH673zOxvZJsXLRoUiK0bWwuJdDdvZ60ES-j9eCIElA6a5JCcwx0Vfuw-w"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-[#111318] dark:text-white group-hover:text-primary transition-colors">Arabica Coffee Beans</div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 mt-0.5">ID Aset: #99281</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span>
+                                        QR-2212
+                                    </div>
+<div class="text-xs text-[#616f89] dark:text-gray-400 font-mono">CF-ARA-500</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm text-[#111318] dark:text-white">Bahan Makanan</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="flex-1 w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-yellow-500 h-1.5 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-sm font-semibold text-[#111318] dark:text-white w-8 text-right">1</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 border border-orange-200 dark:border-orange-800">
+                                    Pemeliharaan
+                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" title="Kembali ke Inventaris">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</button>
+<button class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-white dark:bg-[#1a2233] px-4 py-3 flex items-center justify-between border-t border-[#e5e7eb] dark:border-[#2a3447]">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-[#616f89] dark:text-gray-400">
+                                Menampilkan
+                                <span class="font-medium text-[#111318] dark:text-white">1</span>
+                                hingga
+                                <span class="font-medium text-[#111318] dark:text-white">5</span>
+                                dari
+                                <span class="font-medium text-[#111318] dark:text-white">245</span>
+                                hasil
+                            </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-[#dbdfe6] dark:border-[#2a3447] bg-white dark:bg-[#252f44] text-sm font-medium text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#1a2233]" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</a>
+<a aria-current="page" class="relative inline-flex items-center px-4 py-2 border border-primary bg-primary/10 dark:bg-primary/20 text-sm font-bold text-primary dark:text-blue-400" href="#">
+                                    1
+                                </a>
+<a class="relative inline-flex items-center px-4 py-2 border border-[#dbdfe6] dark:border-[#2a3447] bg-white dark:bg-[#252f44] text-sm font-medium text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#1a2233]" href="#">
+                                    2
+                                </a>
+<a class="relative inline-flex items-center px-4 py-2 border border-[#dbdfe6] dark:border-[#2a3447] bg-white dark:bg-[#252f44] text-sm font-medium text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#1a2233]" href="#">
+                                    3
+                                </a>
+<span class="relative inline-flex items-center px-4 py-2 border border-[#dbdfe6] dark:border-[#2a3447] bg-white dark:bg-[#252f44] text-sm font-medium text-[#616f89] dark:text-gray-400">
+                                    ...
+                                </span>
+<a class="relative inline-flex items-center px-4 py-2 border border-[#dbdfe6] dark:border-[#2a3447] bg-white dark:bg-[#252f44] text-sm font-medium text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#1a2233]" href="#">
+                                    8
+                                </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-[#dbdfe6] dark:border-[#2a3447] bg-white dark:bg-[#252f44] text-sm font-medium text-[#616f89] dark:text-gray-400 hover:bg-[#f0f2f4] dark:hover:bg-[#1a2233]" href="#">
+<span class="sr-only">Next</span>
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

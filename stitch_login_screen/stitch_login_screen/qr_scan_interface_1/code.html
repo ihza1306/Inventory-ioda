@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QR Scan Interface</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'scan': 'scan 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        scan: {
+                            '0%, 100%': { top: '0%', opacity: '0' },
+                            '10%': { opacity: '1' },
+                            '90%': { opacity: '1' },
+                            '100%': { top: '100%', opacity: '0' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .material-symbols-filled {
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            /* Custom shadow to create the cutout effect */
+            .cutout-shadow {
+                box-shadow: 0 0 0 9999px rgba(255, 255, 255, 0.85);
+            }
+            .dark .cutout-shadow {
+                box-shadow: 0 0 0 9999px rgba(16, 28, 34, 0.85);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111618] dark:text-white h-screen w-screen overflow-hidden selection:bg-primary selection:text-white">
+<!-- Main Container -->
+<div class="relative h-full w-full flex flex-col items-center justify-center bg-gray-900 group/design-root">
+<!-- Camera Feed Simulation (Background) -->
+<!-- Using an image of warehouse/boxes to simulate context -->
+<div class="absolute inset-0 z-0 w-full h-full">
+<img class="w-full h-full object-cover opacity-90" data-alt="Blurred warehouse shelves background simulating camera feed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEXQjI45iNla603l0rLSlKdDnboWthMHpmnCL5odq78E8Z1sbk9NMUFSdD5QHU_F2P_Gbj5vk6qQa2O-qFhByVY4OO7ZuE3uHXJADt1de02lk8iwyhi3D9wleiG2DyY3six4l3brURINe7zm1RQCv2COL1eqiYu8T_Slm3nKi11A2e7P3t0cOjBBWwR_9NElmMipFUvm3KfiXJSiM4MjFerQKWy2TpNJNVxH8oi51H1NXoAhBBZzOXwoq_utSj2axRN6kdvqlciXqs"/>
+</div>
+<!-- Cutout Overlay Layer -->
+<!-- This div creates the focus area by casting a huge shadow everywhere else -->
+<div class="absolute z-10 w-72 h-72 rounded-3xl cutout-shadow pointer-events-none">
+<!-- Scanning Animation Line -->
+<div class="absolute left-0 w-full h-0.5 bg-primary shadow-[0_0_15px_2px_rgba(19,164,236,0.6)] animate-scan z-20"></div>
+<!-- Corner Markers -->
+<!-- Top Left -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-[5px] border-l-[5px] border-primary rounded-tl-xl -translate-x-1 -translate-y-1"></div>
+<!-- Top Right -->
+<div class="absolute top-0 right-0 w-8 h-8 border-t-[5px] border-r-[5px] border-primary rounded-tr-xl translate-x-1 -translate-y-1"></div>
+<!-- Bottom Left -->
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-[5px] border-l-[5px] border-primary rounded-bl-xl -translate-x-1 translate-y-1"></div>
+<!-- Bottom Right -->
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-[5px] border-r-[5px] border-primary rounded-br-xl translate-x-1 translate-y-1"></div>
+</div>
+<!-- UI Layer (Content on top) -->
+<div class="absolute inset-0 z-20 flex flex-col justify-between pointer-events-none">
+<!-- Top Navigation Bar -->
+<div class="w-full pt-12 pb-4 px-4 flex items-center justify-between pointer-events-auto bg-gradient-to-b from-white/90 via-white/50 to-transparent dark:from-black/80 dark:to-transparent">
+<button class="flex items-center justify-center size-10 rounded-full bg-white/80 dark:bg-black/40 text-[#111618] dark:text-white backdrop-blur-md shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h2 class="text-[#111618] dark:text-white text-lg font-bold tracking-tight drop-shadow-md bg-white/60 dark:bg-black/40 px-4 py-1 rounded-full backdrop-blur-sm">
+                    Scan Item
+                </h2>
+<!-- Spacer to balance the layout -->
+<div class="size-10"></div>
+</div>
+<!-- Spacer for visual balance around the scanner frame -->
+<div class="flex-1"></div>
+<!-- Bottom Control Panel -->
+<div class="w-full bg-background-light dark:bg-background-dark rounded-t-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.12)] p-6 pt-8 pb-10 flex flex-col items-center gap-6 pointer-events-auto transform transition-transform">
+<!-- Instruction Text -->
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">qr_code_scanner</span>
+<h3 class="text-[#111618] dark:text-white text-base font-medium text-center">
+                        Align QR code within the frame
+                    </h3>
+</div>
+<!-- Controls Container -->
+<div class="w-full flex items-center gap-4">
+<!-- Flashlight Toggle -->
+<button class="group flex shrink-0 items-center justify-center rounded-2xl size-14 bg-white dark:bg-[#1e2a30] border border-gray-200 dark:border-gray-700 shadow-sm active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 group-active:text-primary transition-colors">flashlight_on</span>
+</button>
+<!-- Manual Entry Button -->
+<button class="flex-1 h-14 bg-primary hover:bg-primary/90 active:bg-primary/95 text-white text-sm font-bold tracking-wide rounded-2xl shadow-lg shadow-primary/25 flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[20px]">keyboard</span>
+<span>Enter ID Manually</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Success Toast Simulation (Hidden by default, shown for design completeness concept) -->
+<!-- <div class="absolute top-28 left-1/2 -translate-x-1/2 bg-black/80 text-white px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md shadow-lg flex items-center gap-2 animate-bounce">
+            <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+            QR Code Detected
+        </div> -->
+</div>
+</body></html>

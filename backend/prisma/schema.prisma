@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id      String   @id @default(uuid())
+  google_uid   String   @unique
+  email        String   @unique
+  display_name String?
+  photo_url    String?
+  phone        String?
+  theme_pref   String   @default("system")
+  role         String   @default("viewer")
+  created_at   DateTime @default(now())
+
+  inventory_items     InventoryItem[]
+  transaction_history TransactionHistory[]
+  reservations        Reservation[]
+}
+
+model InventoryItem {
+  item_id         String   @id @default(uuid())
+  name            String
+  sku             String   @unique
+  category        String
+  stock_qty       Int      @default(0)
+  unit            String
+  condition       String   @default("Good")
+  location        String
+  image_url       String?
+  last_updated_by String
+  updated_at      DateTime @updatedAt
+
+  user                User                 @relation(fields: [last_updated_by], references: [user_id])
+  transaction_history TransactionHistory[]
+  reservations        Reservation[]
+}
+
+model TransactionHistory {
+  trx_id      String   @id @default(uuid())
+  item_id     String
+  user_id     String
+  type        String
+  qty_change  Int
+  notes       String?
+  status      String   @default("COMPLETED") // PENDING, APPROVED, REJECTED, COMPLETED
+  is_returned Boolean  @default(false)
+  timestamp   DateTime @default(now())
+
+  item InventoryItem @relation(fields: [item_id], references: [item_id])
+  user User          @relation(fields: [user_id], references: [user_id])
+}
+
+model Reservation {
+  res_id      String   @id @default(uuid())
+  item_id     String
+  user_id     String
+  start_date  DateTime
+  end_date    DateTime
+  status      String   @default("PENDING") // PENDING, APPROVED, REJECTED, CANCELLED, COMPLETED
+  notes       String?
+  rejection_reason String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  item InventoryItem @relation(fields: [item_id], references: [item_id])
+  user User          @relation(fields: [user_id], references: [user_id])
+}
+model SharedAccount {
+  account_id        String   @id @default(uuid())
+  platform          String
+  username          String
+  email             String
+  password          String
+  url               String?
+  icon_url          String?
+  login_method      String   @default("Langsung")
+  notes             String?
+  authorized_emails String? // Comma-separated emails that can access this account
+  is_active         Boolean  @default(true)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+}
+
+model Category {
+  category_id String   @id @default(uuid())
+  name        String   @unique
+  created_at  DateTime @default(now())
+}
+
+model SystemSetting {
+  id                    String @id @default("system_config")
+  company_name          String @default("IODA Academy")
+  pt_name               String @default("PT. Ioda Academy Indonesia")
+  company_address       String @default("Jakarta, Indonesia")
+  company_logo          String @default("https://api.dicebear.com/7.x/initials/svg?seed=IA")
+  report_number_format  String @default("IODA/INV/2026")
+  pic_email             String @default("admin@ioda.academy")
+  company_phone         String @default("628123456789")
+  
+  // WA Templates
+  wa_confirm_borrow     String @default("Halo {name}, anda telah meminjam {item} sejumlah {qty}. Harap jaga barang dengan baik.")
+  wa_confirm_return     String @default("Halo {name}, barang {item} telah berhasil dikembalikan. Terima kasih.")
+  wa_notify_damage      String @default("Halo {name}, ditemukan kerusakan pada barang {item} yang anda pinjam. Mohon segera hubungi admin.")
+  wa_notify_loss        String @default("Halo {name}, terdapat kekurangan/kehilangan pada peminjaman {item} anda. Mohon segera diklarifikasi.")
+  wa_notify_overdue     String @default("Halo {name}, peminjaman {item} anda telah melewati batas waktu. Mohon segera lakukan pengembalian atau perpanjangan.")
+  wa_booking_approved   String @default("Halo {name}, reservasi aset {item} anda untuk {start} s/d {end} telah DISETUJUI.")
+  wa_booking_rejected   String @default("Halo {name}, reservasi aset {item} anda DITOLAK. Alasan: {reason}.")
+  
+  updated_at            DateTime @updatedAt
+  platform_icons        String?  @default("{}") // JSON mapping of { "Platform Name": "Icon URL" }
+  login_bg_video_url    String?
+  login_logo            String?  // Logo for login page
+}
+

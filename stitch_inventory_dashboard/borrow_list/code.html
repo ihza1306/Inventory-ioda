@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Peminjaman - Inventory Ioda Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b", // Slate 800
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569; 
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-200">
+<div class="flex h-screen w-full overflow-hidden">
+<aside class="flex w-64 flex-col bg-surface-light dark:bg-surface-dark border-r border-slate-200 dark:border-slate-700 h-full hidden lg:flex shrink-0 transition-colors duration-200">
+<div class="flex flex-col h-full p-4">
+<div class="flex items-center gap-3 px-2 py-4 mb-6">
+<div class="bg-primary/10 p-2 rounded-lg">
+<div class="bg-center bg-no-repeat bg-contain w-6 h-6" data-alt="Abstract geometric logo representing inventory cubes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEeiwA5GDwAxNG9f91Uo-TUxaBsgjULbpMTBTDt22VhBKnfVTU4kGjTyky97Hi7J2RvUzjZyxX6BBPPXQJGm0hN-dcyEA85slzIwYGGYh2DUdsJORzZaFfMkPFHghgwE9H-NN-tgJYFqJuMHiXG3m7tsnfwtjh3UnIIAG5UyfvtS-Rc7L_Qbzd9tbrZHCtCloHn7lVHRbYX33s4128kVd6LpUFwUzA1CjjplLn01HugslvZzrFPU9kKbhkwE4ryDhKzaILt1bBYng");'></div>
+</div>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Ioda Academy</h1>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium">Dasbor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventaris</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-primary dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined fill-1">assignment_returned</span>
+<span class="text-sm font-medium">Daftar Peminjaman</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">analytics</span>
+<span class="text-sm font-medium">Laporan</span>
+</a>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Pengaturan</span>
+</a>
+</div>
+</nav>
+<div class="mt-4 flex items-center gap-3 px-3 py-3 rounded-lg border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8 shrink-0" data-alt="User profile picture of a man smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-zXn1P56egm-Lauresuh48-l70P31zKEaaHvK7DDgzpKyVgvkk3Mpy68-pSB0FgTbf9NlOaFLatKs70wdT4l1fbBVVHLe_fZorhF15g4vm2XMKTeouzEdGCZKkbtwT-vbTyg-dfT7r0XQQKHRFywCWNuWpt3-VR6w2toLgpH8S7n9ahtUt9EGs9zyPBV15bQW1VZsZQ3UHPrRwPC7bI2vOTSi7tqjHEQiSdceqLcMMDnnNpfmZ6-SzB9jJWpaJJNM_Lsnbkeowjg");'></div>
+<div class="flex flex-col min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Admin Ioda</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">admin@ioda.academy</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<div class="lg:hidden flex items-center justify-between p-4 bg-surface-light dark:bg-surface-dark border-b border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<span class="font-bold text-lg">Inventory Ioda</span>
+</div>
+<button class="p-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 scroll-smooth">
+<div class="max-w-7xl mx-auto flex flex-col gap-6">
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Daftar Peminjaman</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base">Kelola daftar barang yang sedang dipinjam oleh siswa dan staf Ioda Academy.</p>
+</div>
+<div class="flex gap-3 shrink-0">
+<button class="flex items-center justify-center gap-2 px-4 h-10 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+<span>Ekspor Data</span>
+</button>
+<button class="flex items-center justify-center gap-2 px-4 h-10 rounded-lg bg-primary text-white text-sm font-bold shadow-sm hover:bg-blue-700 transition-colors focus:ring-4 focus:ring-primary/20">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span>Pindai Kode QR</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex flex-col lg:flex-row gap-4">
+<div class="flex-1 relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border-none rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 focus:ring-2 focus:ring-primary sm:text-sm transition-shadow" placeholder="Cari nama produk, nama peminjam, atau status..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-2 items-center">
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors">
+<span>Peminjam: Semua</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors">
+<span>Status: Semua</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="Hapus Filter">
+<span class="material-symbols-outlined text-[20px]">filter_alt_off</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 w-16">Barang</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Detail Produk</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Peminjam</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Jadwal Peminjaman</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 w-32">Status</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-right w-20">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="h-10 w-10 rounded-lg bg-slate-100 dark:bg-slate-700 bg-center bg-cover border border-slate-200 dark:border-slate-600" data-alt="Macbook Pro laptop showing screen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6QGkci8VR4O-WQpoid2ZpY4Fk3s20c70et3pHmgE0rFXEZzrk55bin0aZWO3h9Ae4Y_6PUftlCdXOBAmOFXz83beYmg8EAT9s1NJgb2zlHyCZEPms1o2znNdZxoEVcfI5ghxG40C6TlBU73y2zschljxyMYAhcfu7RZxFw84VEMpnKC1VlcjMEj3haNOa82MpyKjfncTrnJyRhamQYc5hOiG-sQLosM7eE92vqPWiL_xWzKXWkHAolTU47-R_bwx6zVf_hGtGzjc");'></div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-white">MacBook Pro 16"</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aset #4022</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-600 bg-center bg-cover" data-alt="Portrait of Sarah Jenkins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3Kz6bIG9ZhEvSp-oPwskl-_caFg52NLVBKD5rddlIklJ4xpP1s7rYsQ_tjcVrIoUwe3YjR00nwURBTFsvuK-CSx1uRfuVVJx4OXpMrGzJUaqyqLjFap3ctDzMYIntquUqQaHkZ7D6oFt4fDaEbh0M_LZLQ8r9A_Ouls7_GGEaYC-pkxaGH4fPfpqarL77RfwW-3xBqJjxVOML0bvvqx9sbZVn1Pbn0GUuVKTG8pgYtdd661sA5MneKfQT0Hu-cGT9V2ekFNvonPg");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary hover:underline cursor-pointer">Sarah Jenkins</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Siswa Desain</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Pinjam:</span> <span class="font-medium text-slate-700 dark:text-slate-300">24 Okt 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Kembali:</span> <span class="font-medium text-red-600 dark:text-red-400">01 Nov 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                Terlambat
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-md text-xs font-medium transition-colors" title="Catat Pengembalian">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Kembalikan</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="h-10 w-10 rounded-lg bg-slate-100 dark:bg-slate-700 bg-center bg-cover border border-slate-200 dark:border-slate-600" data-alt="Sony Camera on table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2N7V3mE3dMlHM2fVL0kfMS_MRWTteXl7zjvotMCRSwvxiT4SXmIRn8xx0xnKucuZ6Vr7BdSMxn2-Qpjsj1RfQTD4AIY0PeHzI4MXJd4rJljfpiLhtgRi6ucY7BYlKMbNLBiNkMO5qYP_YqSlJxE-C8iFSOjxO1LMwYv91Lt923T6DxhGmRHPNPaMta9cUQkWZKo74V9RKa-2jAKvHHU0Qm1Ziq-PLDsCwfKJqZ6RtfI4arqOVfyzrHGpBzCQxKMFdKjdoIs4n1_A");'></div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-white">Sony Alpha a7 III</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aset #1055</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-600 bg-center bg-cover" data-alt="Portrait of Mike Ross" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdlnZYIBnG04Eft5CBSmXICOpqjZXF6_qIriAGHRmsQXDDrzpBbOepmhLVdQO2OM5Ygr_kJaREPxzTkMGlmYU-uH-HJSjwWt41hCfAfjn02hwEiJ2m49pQhLJo4RmoNE0bKanjqxdLnHBJE10WUtCm9_3rnbTpqbEdNITyKyW10-2YpTcep7uYPejtsqMKzpYJCY2Nn6bKDTA1aaBohi8AaCftC2f-PSWrOfSQBlW6DkWPZfGLEBwkqZUOnf7ZtNorsabjUMoka5g");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary hover:underline cursor-pointer">Mike Ross</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Staff Fotografi</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Pinjam:</span> <span class="font-medium text-slate-700 dark:text-slate-300">28 Okt 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Kembali:</span> <span class="font-medium text-slate-700 dark:text-slate-300">05 Nov 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                                Dipinjam
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-md text-xs font-medium transition-colors" title="Catat Pengembalian">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Kembalikan</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="h-10 w-10 rounded-lg bg-slate-100 dark:bg-slate-700 bg-center bg-cover border border-slate-200 dark:border-slate-600" data-alt="Dell laptop top view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8qiSgA-iN3s5AesKT5mjcn8eey-dvuBAyNKdZeRy4_EMVCB8HDVesN15lbK93pkm0DrfM_2G0lw3GarRSRLTRb7uC32ncknHX6chLLhkhnUlz7mF3Hj-XUb1HkIhpHMn9gxXkGvD_1NsvtZFHeJLC16AsmpoF08XtftLc5mS7nTlMDlsxgO71qnTPd5bN-_qAeAYs4ebXPjMyOn2o9AgD8jIVyhq8uphSSztQzJqRp-wDRwcaNG1-7g_yWdSl4BLoX79Bki_-Tyo");'></div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-white">Dell XPS 15</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aset #3321</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-600 bg-center bg-cover" data-alt="Portrait of Rachel Zane" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD15ZiD9B_WIYb4zw3GLcAJKf6uMn5VVCh3nt0zGRk1xiH7Mxjr7Pw-t1TU9ZGqRT6NP7H6AA0_RiqB5FM9C9TkqCCztqAJIglW2YhyVwKzVo4GzNZBV6MKMXMZv8cyCJx0w2N5xxhjpBvAjrNPrEhpW9zfpWzeAa3_WwV0jhKXyvi-6z16nd42xk6do-5KtLxZgEb-MrjH-Zp8bFlqQQAvQ-7kzAPKTtPV8bQOS0kST_Vf0aD_ovtflDd5Ox0g25HMjTDbjUEcjqA");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary hover:underline cursor-pointer">Rachel Zane</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Siswa Hukum</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Pinjam:</span> <span class="font-medium text-slate-700 dark:text-slate-300">30 Okt 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Kembali:</span> <span class="font-medium text-slate-700 dark:text-slate-300">10 Nov 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                                Dipinjam
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-md text-xs font-medium transition-colors" title="Catat Pengembalian">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Kembalikan</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="h-10 w-10 rounded-lg bg-slate-100 dark:bg-slate-700 bg-center bg-cover border border-slate-200 dark:border-slate-600" data-alt="White projector device" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBroAv1Rb6nrowN3fq3h4FYqsGm2UC_jZHe_ruWmqf6_f6kNSntiRpy5-Rzs74DsdQ8RzQBz8aD6IIg4gqvH-IfNMzAIAyYkkc3536paX1yCPnPTdi-rDJoN7I7GieJ0mPyo0lcpWibmmsl6C1rsgDWOowAjesuo8wgoTTe0Q_9pjLDtJ87ZBncUZTRgn66TtLitHlcs3h2kcvYG-31SpjwoAoc9AVw08na-rrxsWUNbjRbRlvPxo21j01gx2lOhzgpzWarucGJkQ4");'></div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-white">Epson 4K Projector</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aset #9901</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-600 bg-center bg-cover" data-alt="Portrait of Louis Litt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPOqcz1I-3bb4dNvDLKJKhE5PApt6_FAWZmVW0eaZMrEGnt2NK7Xq0rhNYG7izNoCM9GBr0Kpwk2ZZaKxedzvtSw30N29E0650RJO74_9dtGjtXlq92xdFIFJ4o19RKFz80qrE6oreK4448wsMcILzK_UEym4ovkRBZIB8nqXq_5qyXt872OOnHiWkOgk5GpqKAsmHUjb4z-jqcQNiX9Ho1x2Bsk_KIDtRPShw0K_VmTnygiP2Swf-fdfeU_FIuPwR9ZPPCLfTk-o");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary hover:underline cursor-pointer">Louis Litt</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Staff Keuangan</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Pinjam:</span> <span class="font-medium text-slate-700 dark:text-slate-300">01 Nov 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Kembali:</span> <span class="font-medium text-amber-600 dark:text-amber-400">02 Nov 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-200 dark:border-amber-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                                Hampir Tenggat
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-md text-xs font-medium transition-colors" title="Catat Pengembalian">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Kembalikan</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="h-10 w-10 rounded-lg bg-slate-100 dark:bg-slate-700 bg-center bg-cover border border-slate-200 dark:border-slate-600" data-alt="iPad Pro tablet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3a1BurzuTWm_QzpXklv3M6SJFmvW3ejqi_gN28Wm2Os7hZvCFGRgt5PVnHG3QqQIBCcqWOTjvLsMn39o6heLkEUTegbEOmTQc1ocdQykESpTK4pbav6bgqr_f-SUgZE5wCGzEyhPnI9Gb2gcGievpsbFk_nnpboUNlRBxr-4mvJWHJHSCxPnlVdtdf6fI2rpIehT1y9Y5b08xLskQF5nKbSLRkYZsJRDkXLwJGAnsa8H4nba8tM1Bu3eyU_k7hk0_8bfTpghFbzg");'></div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-white">iPad Pro 12.9</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aset #2210</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-600 bg-center bg-cover" data-alt="Portrait of Donna Paulsen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbcAuGoNtCUOJ-n2rdyMayr553CIRqQ0ur4Ztq-XAvE0q79cvwZo_yFP3vEow1ln471Oqr6um32Q2nckIdqSD4ErDdqOBwzrAFSf-euJeWZRDQaafMI-ha6f0-07E66mU9ttO_5X5B9KyQW_ro8SrLHoQ84f_Sv7a9Bb8prOsRMLuxqX3enm4LMe0XcuHcDFQQOTQvR5sCrWrROGt3mBAr05Dux6mbKXlX2JTqA9Sp34n5sj7UQR7rqOe0qcirgGMmoinmyvH-0OM");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary hover:underline cursor-pointer">Donna Paulsen</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Staff Admin</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Pinjam:</span> <span class="font-medium text-slate-700 dark:text-slate-300">02 Nov 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="w-16">Kembali:</span> <span class="font-medium text-slate-700 dark:text-slate-300">09 Nov 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                                Dipinjam
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-md text-xs font-medium transition-colors" title="Catat Pengembalian">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Kembalikan</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between px-6 py-4 border-t border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark">
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<span class="hidden sm:inline">Menampilkan</span>
+<span class="font-medium text-slate-900 dark:text-white">1</span>
+<span>sampai</span>
+<span class="font-medium text-slate-900 dark:text-white">5</span>
+<span>dari</span>
+<span class="font-medium text-slate-900 dark:text-white">12</span>
+<span class="hidden sm:inline">hasil</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center h-8 w-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-600 dark:hover:text-slate-200 transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-white text-sm font-medium hover:bg-blue-600 transition-colors">1</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">2</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">3</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

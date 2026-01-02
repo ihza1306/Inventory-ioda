@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Vault</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#607AFB", "background-light": "#f5f6f8", "background-dark": "#0f1323", "surface-dark": "#182830", "surface-highlight": "#233c48"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+        }::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233c48;
+            border-radius: 3px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-white dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased selection:bg-primary selection:text-white overflow-hidden">
+<div class="relative mx-auto h-screen w-full max-w-md bg-white dark:bg-background-dark flex flex-col overflow-hidden shadow-2xl">
+<div class="h-12 w-full bg-white dark:bg-background-dark shrink-0"></div>
+<header class="flex items-center justify-between px-4 pb-4 pt-2 bg-white dark:bg-background-dark shrink-0 z-20">
+<button class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Account Vault</h1>
+<div class="flex items-center gap-2">
+<button class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">lock_person</span>
+</button>
+</div>
+</header>
+<div class="px-4 pb-4 bg-white dark:bg-background-dark shrink-0 z-20">
+<div class="relative flex w-full items-center">
+<span class="absolute left-4 flex items-center justify-center text-gray-500 dark:text-[#92b7c9]">
+<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+</span>
+<input class="h-12 w-full rounded-xl border-none bg-gray-100 dark:bg-surface-highlight pl-11 pr-4 text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-[#92b7c9] shadow-none focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Search accounts..." type="text"/>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto px-4 pb-32 scroll-smooth">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between py-2">
+<h3 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Stored Credentials</h3>
+<span class="text-xs font-medium text-primary cursor-pointer">Sort by Name</span>
+</div>
+<button class="group flex w-full items-center gap-4 rounded-2xl bg-white dark:bg-surface-dark p-4 shadow-sm transition-all active:scale-[0.98] hover:shadow-md border border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-[#233c48] text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined" style="font-size: 28px;">alternate_email</span>
+</div>
+<div class="flex flex-1 flex-col items-start">
+<p class="text-base font-semibold text-gray-900 dark:text-white line-clamp-1">Google Workspace</p>
+<p class="text-sm text-gray-500 dark:text-[#92b7c9] line-clamp-1">admin@company.com</p>
+</div>
+<div class="flex shrink-0 items-center text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</button>
+<button class="group flex w-full items-center gap-4 rounded-2xl bg-white dark:bg-surface-dark p-4 shadow-sm transition-all active:scale-[0.98] hover:shadow-md border border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-orange-100 dark:bg-[#233c48] text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined" style="font-size: 28px;">cloud</span>
+</div>
+<div class="flex flex-1 flex-col items-start">
+<p class="text-base font-semibold text-gray-900 dark:text-white line-clamp-1">AWS Console</p>
+<p class="text-sm text-gray-500 dark:text-[#92b7c9] line-clamp-1">devops@company.com</p>
+</div>
+<div class="flex shrink-0 items-center text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</button>
+<button class="group flex w-full items-center gap-4 rounded-2xl bg-white dark:bg-surface-dark p-4 shadow-sm transition-all active:scale-[0.98] hover:shadow-md border border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gray-100 dark:bg-[#233c48] text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined" style="font-size: 28px;">terminal</span>
+</div>
+<div class="flex flex-1 flex-col items-start">
+<p class="text-base font-semibold text-gray-900 dark:text-white line-clamp-1">Github - Team A</p>
+<p class="text-sm text-gray-500 dark:text-[#92b7c9] line-clamp-1">git_user_01</p>
+</div>
+<div class="flex shrink-0 items-center text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</button>
+<button class="group flex w-full items-center gap-4 rounded-2xl bg-white dark:bg-surface-dark p-4 shadow-sm transition-all active:scale-[0.98] hover:shadow-md border border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-red-100 dark:bg-[#233c48] text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined" style="font-size: 28px;">brush</span>
+</div>
+<div class="flex flex-1 flex-col items-start">
+<p class="text-base font-semibold text-gray-900 dark:text-white line-clamp-1">Adobe Creative Cloud</p>
+<p class="text-sm text-gray-500 dark:text-[#92b7c9] line-clamp-1">design@company.com</p>
+</div>
+<div class="flex shrink-0 items-center text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</button>
+<button class="group flex w-full items-center gap-4 rounded-2xl bg-white dark:bg-surface-dark p-4 shadow-sm transition-all active:scale-[0.98] hover:shadow-md border border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-indigo-100 dark:bg-[#233c48] text-indigo-600 dark:text-indigo-400">
+<span class="material-symbols-outlined" style="font-size: 28px;">payments</span>
+</div>
+<div class="flex flex-1 flex-col items-start">
+<p class="text-base font-semibold text-gray-900 dark:text-white line-clamp-1">Stripe Dashboard</p>
+<p class="text-sm text-gray-500 dark:text-[#92b7c9] line-clamp-1">billing@company.com</p>
+</div>
+<div class="flex shrink-0 items-center text-gray-400 dark:text-gray-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</button>
+<div class="h-8"></div>
+</div>
+</main>
+<nav class="absolute bottom-0 left-0 w-full bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 z-40 pb-5 pt-2">
+<div class="flex items-center justify-around px-2">
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors w-16">
+<span class="material-symbols-outlined text-[24px]">inventory_2</span>
+<span class="text-[10px] font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors w-16">
+<span class="material-symbols-outlined text-[24px]">shelves</span>
+<span class="text-[10px] font-medium">Stock</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors w-16">
+<span class="material-symbols-outlined text-[24px]">bar_chart</span>
+<span class="text-[10px] font-medium">Reports</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors w-16">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</nav>
+<div class="absolute bottom-24 right-6 z-50">
+<button class="flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/30 transition-transform active:scale-90 hover:scale-105">
+<span class="material-symbols-outlined text-white" style="font-size: 28px;">add</span>
+</button>
+</div>
+<div class="absolute bottom-0 z-50 h-5 w-full bg-transparent flex justify-center pb-2 pointer-events-none">
+<div class="h-1 w-32 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+<div class="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-transparent to-gray-100/50 dark:to-black/20"></div>
+</div>
+</body></html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login/Manajemen Pengguna - Inventory Ioda Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111318] antialiased">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+<div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px]"></div>
+<div class="absolute top-[20%] -right-[10%] w-[40%] h-[40%] rounded-full bg-blue-400/10 blur-[100px]"></div>
+</div>
+<div class="layout-content-container flex flex-col w-full max-w-[480px] z-10">
+<div class="bg-white rounded-xl shadow-lg border border-[#f0f2f4] overflow-hidden">
+<div class="px-8 pt-8 pb-4 text-center">
+<div class="flex items-center justify-center gap-2 mb-6 text-primary">
+<div class="size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#111318] text-xl font-bold leading-tight tracking-[-0.015em]">Ioda Academy</h2>
+</div>
+<h2 class="text-[#111318] tracking-light text-[24px] font-bold leading-tight px-4 text-center pb-2">Welcome Back</h2>
+<p class="text-[#616f89] text-sm">Masuk untuk mengelola inventaris dan peminjaman</p>
+</div>
+<div class="px-8 pb-4">
+<button class="flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-[#dbdfe6] bg-white h-12 px-4 hover:bg-gray-50 transition-colors">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Google G Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJM921WQDuYclZ620cjph-uwihUr1ZNoDlYjKJtQTsEpbVvvH0lr2Zy1zVdXYEHDOU5sfIAYA-n8rWVXrsGPuaJoh-FG238qE-5OcbF0WXHvXfzxHT-pFadDijfZCRYCQ9ysn2RGif9vWlkLhISLBQdTWOJ2IkVr6EDe4iaxl6Xz0robi8XSyGDamQ76m0ReRLGFmwLcsOZL6cj79ZsHTQR31Idspgb7Mr2J-8PVHHT4Pw594V-4n05srpRWAfTd0MZPKNkM5iHRI"/>
+<span class="text-[#111318] text-sm font-medium">Masuk dengan Google</span>
+</button>
+</div>
+<div class="flex items-center gap-4 px-8 py-2">
+<div class="h-px flex-1 bg-[#dbdfe6]"></div>
+<span class="text-[#616f89] text-xs font-medium uppercase">Atau lanjutkan dengan email</span>
+<div class="h-px flex-1 bg-[#dbdfe6]"></div>
+</div>
+<div class="px-8 py-6 flex flex-col gap-4">
+<label class="flex flex-col w-full">
+<p class="text-[#111318] text-sm font-medium leading-normal pb-2">Alamat Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbdfe6] bg-white focus:border-primary h-11 placeholder:text-[#616f89] px-4 text-sm font-normal leading-normal transition-all" placeholder="nama@ioda-academy.com" type="email" value=""/>
+</label>
+<label class="flex flex-col w-full">
+<div class="flex justify-between items-center pb-2">
+<p class="text-[#111318] text-sm font-medium leading-normal">Kata Sandi</p>
+<a class="text-primary text-xs font-medium hover:underline" href="#">Lupa kata sandi?</a>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbdfe6] bg-white focus:border-primary h-11 placeholder:text-[#616f89] px-4 text-sm font-normal leading-normal transition-all" placeholder="Masukkan kata sandi Anda" type="password" value=""/>
+</label>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-4 bg-primary hover:bg-blue-700 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors mt-2 shadow-md shadow-blue-500/20">
+<span class="truncate">Masuk</span>
+</button>
+</div>
+<div class="bg-[#fcfcfd] border-t border-[#f0f2f4] p-4 text-center">
+<p class="text-[#616f89] text-sm">Belum punya akun? <a class="text-primary font-medium hover:underline" href="#">Hubungi Admin</a></p>
+</div>
+</div>
+</div>
+<div class="mt-20 flex flex-col items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-4xl">arrow_downward</span>
+<p class="text-sm font-medium">Gulir ke bawah untuk Tampilan Dasbor Admin</p>
+</div>
+</div>
+<div class="flex min-h-screen w-full bg-background-light border-t-4 border-dashed border-gray-300">
+<div class="hidden lg:flex w-64 flex-col justify-between bg-white border-r border-[#f0f2f4] sticky top-0 h-screen">
+<div class="flex flex-col">
+<div class="p-6 flex items-center gap-3 border-b border-[#f0f2f4]/50">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-[#111318] text-base font-bold leading-normal">Ioda Academy</h1>
+<p class="text-[#616f89] text-xs font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 p-4">
+<p class="text-[#616f89] text-xs font-bold uppercase tracking-wider px-3 mb-2 mt-2">Menu</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] hover:bg-gray-50 hover:text-[#111318] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dasbor</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] hover:bg-gray-50 hover:text-[#111318] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">inventory_2</span>
+<p class="text-sm font-medium leading-normal">Inventaris</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/10" href="#">
+<span class="material-symbols-outlined text-[20px] icon-fill">group</span>
+<p class="text-sm font-bold leading-normal">Pengguna</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] hover:bg-gray-50 hover:text-[#111318] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">swap_horiz</span>
+<p class="text-sm font-medium leading-normal">Peminjaman</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] hover:bg-gray-50 hover:text-[#111318] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">settings</span>
+<p class="text-sm font-medium leading-normal">Pengaturan</p>
+</a>
+</div>
+</div>
+<div class="p-4 border-t border-[#f0f2f4]">
+<button class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#616f89] hover:bg-red-50 hover:text-red-600 transition-colors w-full">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<p class="text-sm font-medium leading-normal">Keluar</p>
+</button>
+</div>
+</div>
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<header class="flex items-center justify-between bg-white border-b border-[#f0f2f4] px-8 py-4 shrink-0">
+<div>
+<h2 class="text-[#111318] text-xl font-bold leading-tight">Manajemen Pengguna</h2>
+<p class="text-[#616f89] text-sm mt-1">Kelola izin dan akses sistem inventaris Ioda</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-full text-[#616f89] hover:bg-gray-100 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-[#f0f2f4]">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-[#111318]">Jane Admin</p>
+<p class="text-xs text-[#616f89]">Sistem Admin</p>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white shadow-sm" data-alt="User profile picture of a woman smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsxBpjogZsNmBnXsdj3vo0qYg6uTi1gVtJEk5LsOkHOuJXOphCXKm_5YWXWyFJvm84w8mgW_WkdvVsbFQZKH9JR9u-_a0HhWqvo3YPxHRX8r7I1MJv8nwPq5OGoM_9OTJfeSajfT9mowcwCjCgsMqXv9f3nC15PgfN1yElFI8K0H8DF99QY0cII2y8yTALSFl1nmo0gPfXaakzLUlyGWU5eIRLcV4xBcyCx6e6zMnAGo4JBHeOSZPrPoxZL_z404YQN1ncfjoV7M8");'>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-auto p-8 bg-background-light">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white p-5 rounded-xl border border-[#e5e7eb] shadow-sm flex items-start justify-between">
+<div>
+<p class="text-[#616f89] text-sm font-medium mb-1">Total Pengguna</p>
+<h3 class="text-2xl font-bold text-[#111318]">42</h3>
+</div>
+<div class="size-10 rounded-lg bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-[#e5e7eb] shadow-sm flex items-start justify-between">
+<div>
+<p class="text-[#616f89] text-sm font-medium mb-1">Peminjaman Aktif</p>
+<h3 class="text-2xl font-bold text-[#111318]">12</h3>
+</div>
+<div class="size-10 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-[#e5e7eb] shadow-sm flex items-start justify-between">
+<div>
+<p class="text-[#616f89] text-sm font-medium mb-1">Menunggu Persetujuan</p>
+<h3 class="text-2xl font-bold text-[#111318]">5</h3>
+</div>
+<div class="size-10 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-[#e5e7eb] shadow-sm">
+<h3 class="text-[#111318] font-bold text-lg mb-4">Tambah Pengguna Baru</h3>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<div class="md:col-span-4">
+<label class="block text-sm font-medium text-[#111318] mb-1">Alamat Email</label>
+<input class="w-full h-10 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm outline-none transition-all" placeholder="pengguna@ioda-academy.com" type="email"/>
+</div>
+<div class="md:col-span-3">
+<label class="block text-sm font-medium text-[#111318] mb-1">Peran (Role)</label>
+<div class="relative">
+<select class="w-full h-10 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm outline-none appearance-none cursor-pointer">
+<option value="borrower">Peminjam (Borrower)</option>
+<option value="manager">Manajer Inventaris</option>
+<option value="admin">Admin Sistem</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400 pointer-events-none text-lg">expand_more</span>
+</div>
+</div>
+<div class="md:col-span-3">
+<label class="block text-sm font-medium text-[#111318] mb-1">Izin Akses</label>
+<div class="relative">
+<select class="w-full h-10 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm outline-none appearance-none cursor-pointer">
+<option value="read">Hanya Lihat (Read Only)</option>
+<option value="write">Lihat &amp; Edit</option>
+<option value="full">Akses Penuh</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-gray-400 pointer-events-none text-lg">expand_more</span>
+</div>
+</div>
+<div class="md:col-span-2 flex items-end">
+<button class="w-full h-10 bg-primary hover:bg-blue-700 text-white font-medium rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                                    Tambah
+                                </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-4 rounded-xl border border-[#e5e7eb] shadow-sm">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<div class="relative group w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#9ca3af] group-focus-within:text-primary transition-colors text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-gray-50 border border-transparent focus:bg-white focus:border-primary/50 focus:ring-4 focus:ring-primary/10 rounded-lg text-sm transition-all outline-none text-[#111318]" placeholder="Cari pengguna..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-3 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg border border-transparent text-sm font-medium text-[#616f89] transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>Filter</span>
+</button>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-white border border-[#e5e7eb] hover:bg-gray-50 text-[#616f89] text-sm font-medium rounded-lg transition-all">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+                                Ekspor
+                            </button>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e5e7eb] shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50/50 border-b border-[#e5e7eb]">
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider w-[60px]">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider">Pengguna</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider">Peran</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider">Izin</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider">Status</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider">Terakhir Aktif</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#616f89] uppercase tracking-wider text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#e5e7eb]">
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="py-4 px-6">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border border-gray-200" data-alt="Avatar of Sarah Jenkins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEkevE89LtQdGKeKPHQCgY4ERt8sYquccWP8RAfuRMlFDpRHbVws4Cts5mPZy1uGo5xQLeshU_8oTvoLw6e5pU5gCGwyikes8QyiNN7zAIukDzwhH867OD_s-vntxHs4lYuvfjBhCwHS4N7M8qwW1nNH1oEew_drLlT1zKBKyJYSUNs1JFCxV6wgH_Ixl0pH0V3F88qY88A70J-pAyAtzahU_7vqb0O1Q342BoHvsK1eEtnqmr9OBxA0NYV94H18iI4FQE0R8hpeQ");'></div>
+<div>
+<p class="text-sm font-bold text-[#111318]">Sarah Jenkins</p>
+<p class="text-xs text-[#616f89]">sarah.j@ioda-academy.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 border border-purple-200">
+                                                Manager
+                                            </span>
+</td>
+<td class="py-4 px-6">
+<span class="text-xs text-[#616f89] font-mono bg-gray-100 px-2 py-1 rounded">Lihat/Edit</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+</span>
+<span class="text-sm text-[#111318]">Aktif</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm text-[#616f89]">2 menit lalu</p>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-[#9ca3af] hover:text-[#111318] p-1 rounded-md hover:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="py-4 px-6">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border border-gray-200" data-alt="Avatar of Michael Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC00naXL442_Xff7F-NYh03hUwAZDIhlpKFuj09eLXKvxJI3d2GfaV25iiG1ELdB9EDFN678E9l7Y2xzsdEmY5Eq5gBLRYnzBFAGaHKNvwyawoKEAJgDRaOcZccqpqs32FKMaDpKwjK01LTNvIJj1ajoCp1cXoyhn4JW9610VInDR9SzBqtwWRzh5yygB7C4Hk9y8e73EDzOpgdYg2mxt-v3XTM4WJxsIwnn3-M44lYUR8r6xQyE4GXNZqLDCNYFrcyphV--GvVe7E");'></div>
+<div>
+<p class="text-sm font-bold text-[#111318]">Michael Chen</p>
+<p class="text-xs text-[#616f89]">m.chen@ioda-academy.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                                                Admin
+                                            </span>
+</td>
+<td class="py-4 px-6">
+<span class="text-xs text-[#616f89] font-mono bg-gray-100 px-2 py-1 rounded">Akses Penuh</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+<span class="text-sm text-[#111318]">Aktif</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm text-[#616f89]">1 jam lalu</p>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-[#9ca3af] hover:text-[#111318] p-1 rounded-md hover:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="py-4 px-6">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center text-primary font-bold text-sm">AL</div>
+<div>
+<p class="text-sm font-bold text-[#111318]">Alex Lewis</p>
+<p class="text-xs text-[#616f89]">alex.l@ioda-academy.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200">
+                                                Borrower
+                                            </span>
+</td>
+<td class="py-4 px-6">
+<span class="text-xs text-[#616f89] font-mono bg-gray-100 px-2 py-1 rounded">Hanya Lihat</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-gray-400"></span>
+<span class="text-sm text-[#616f89]">Offline</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm text-[#616f89]">2 hari lalu</p>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-[#9ca3af] hover:text-[#111318] p-1 rounded-md hover:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group bg-red-50/30">
+<td class="py-4 px-6">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border border-gray-200 opacity-60" data-alt="Avatar of Emily Davis" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZ3SWsl361xK5K9i1I_276cEvzz_xcFF319_Re2JB0cZEqLUeKlimLAPn-11Rm4akJFur06-GWagNpJ6nZ8lDovnx7Au_n2AxluQ661mOvBXCKGRpoTOAxppahixeFU6PXNzqL2JrxDayquaa94-R3W0hL5xav3JAsXAHwXK1dHlF3as_vHKHAEO7Aigxhoex6UJEBvYOWdAKzMBrDc0j0u1_piDAmVCW9kzPVlt4_fyzTM-43LtWq9VilXOW7Syd5yuWCKoEa4wE");'></div>
+<div class="opacity-60">
+<p class="text-sm font-bold text-[#111318]">Emily Davis</p>
+<p class="text-xs text-[#616f89]">emily.d@ioda-academy.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200 opacity-60">
+                                                Borrower
+                                            </span>
+</td>
+<td class="py-4 px-6">
+<span class="text-xs text-[#616f89] font-mono bg-gray-100 px-2 py-1 rounded opacity-60">Hanya Lihat</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+<span class="text-sm text-[#111318]">Ditangguhkan</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm text-[#616f89] opacity-60">1 minggu lalu</p>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-[#9ca3af] hover:text-[#111318] p-1 rounded-md hover:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-white border-t border-[#e5e7eb] px-6 py-4 flex items-center justify-between">
+<p class="text-sm text-[#616f89]">Menampilkan <span class="font-medium text-[#111318]">1</span> hingga <span class="font-medium text-[#111318]">4</span> dari <span class="font-medium text-[#111318]">42</span> hasil</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm border border-[#e5e7eb] rounded-md bg-white text-[#616f89] hover:bg-gray-50 disabled:opacity-50" disabled="">Sebelumnya</button>
+<button class="px-3 py-1 text-sm border border-[#e5e7eb] rounded-md bg-white text-[#616f89] hover:bg-gray-50">Berikutnya</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

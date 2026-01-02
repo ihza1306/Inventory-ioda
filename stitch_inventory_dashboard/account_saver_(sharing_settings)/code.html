@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Ioda Academy - Pengaturan Berbagi Akun</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#1A2230",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] dark:border-b-[#2a3441] bg-white dark:bg-card-dark px-10 py-3 shadow-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#111318] dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">inventory_2</span>
+</div>
+<h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Inventory Ioda Academy</h2>
+</div>
+<div class="hidden md:flex items-center gap-9">
+<a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Dasbor</a>
+<a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Inventaris</a>
+<a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Peminjam</a>
+<a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Laporan</a>
+<a class="text-[#111318] dark:text-white text-sm font-medium leading-normal" href="#">Pengaturan</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="hidden lg:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#616f89] dark:text-gray-400 flex border-none bg-[#f0f2f4] dark:bg-[#2a3441] items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] dark:bg-[#2a3441] focus:border-none h-full placeholder:text-[#616f89] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Cari inventaris..." value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center overflow-hidden rounded-lg size-10 bg-[#f0f2f4] dark:bg-[#2a3441] text-[#111318] dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-white dark:border-[#2a3441] shadow-sm cursor-pointer" data-alt="User profile avatar with abstract gradient" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhmRu5YMnoMbuoqc1BEQqc6Dfpk1q41K6Su48SMp-kJRrKZC9hSNPUPr4Yz0rXFuSwJAawmZnbTdjSmwDjY7vmZmYt2HOkP3fY6RNBCe33vRgEQlSs5fP7fFGuh0k53SWWv9LA3NJdp6kyl6N11l4zxrZp24UGQQg6xm-757Uybw6iE7wHLPNjY2xZMFUXp7OInZHWfP0Ig8DG8IOvEr3hlsxcIZvG5R2G0ZwVljYoGEApiJ-II7y8AzkYqvRtx6QCgUtaSiMh_b4");'></div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5 px-4 md:px-10 lg:px-40">
+<div class="layout-content-container flex flex-col max-w-[1024px] flex-1 gap-6">
+<div class="flex flex-wrap gap-2 px-4">
+<a class="text-[#616f89] dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary" href="#">Beranda</a>
+<span class="text-[#616f89] dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<a class="text-[#616f89] dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary" href="#">Pengaturan</a>
+<span class="text-[#616f89] dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<span class="text-[#111318] dark:text-white text-sm font-medium leading-normal">Berbagi</span>
+</div>
+<div class="flex flex-wrap justify-between items-end gap-4 px-4">
+<div class="flex min-w-72 flex-col gap-2">
+<h1 class="text-[#111318] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">Pengaturan Berbagi</h1>
+<p class="text-[#616f89] dark:text-gray-400 text-base font-normal leading-normal">Kelola visibilitas, akses kode QR, dan izin tim.</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-blue-700 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-lg shadow-blue-500/20">
+<span class="truncate">Simpan Perubahan</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4">
+<div class="lg:col-span-2 flex flex-col gap-6">
+<section class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-[#f0f2f4] dark:border-[#2a3441] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#f0f2f4] dark:border-[#2a3441]">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">Visibilitas Umum</h3>
+</div>
+<div class="divide-y divide-[#f0f2f4] dark:divide-[#2a3441]">
+<div class="flex items-center gap-4 px-6 py-4 justify-between hover:bg-gray-50 dark:hover:bg-[#202b3d] transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-[#111318] dark:text-white flex items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-[#2a3441] shrink-0 size-10">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111318] dark:text-white text-base font-medium leading-normal">Akses Tautan Publik</p>
+<p class="text-[#616f89] dark:text-gray-400 text-sm font-normal leading-normal">Izinkan siapa saja dengan tautan untuk melihat katalog.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[24px] w-[44px] cursor-pointer items-center rounded-full border-none bg-[#f0f2f4] dark:bg-[#2a3441] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-all">
+<div class="h-full w-[20px] rounded-full bg-white shadow-sm"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4 justify-between hover:bg-gray-50 dark:hover:bg-[#202b3d] transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-[#111318] dark:text-white flex items-center justify-center rounded-lg bg-[#f0f2f4] dark:bg-[#2a3441] shrink-0 size-10">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111318] dark:text-white text-base font-medium leading-normal">Pemindaian QR Aman</p>
+<p class="text-[#616f89] dark:text-gray-400 text-sm font-normal leading-normal">Wajibkan login untuk melihat detail barang via kode QR.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[24px] w-[44px] cursor-pointer items-center rounded-full border-none bg-[#f0f2f4] dark:bg-[#2a3441] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-all">
+<div class="h-full w-[20px] rounded-full bg-white shadow-sm"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-[#f0f2f4] dark:border-[#2a3441] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#f0f2f4] dark:border-[#2a3441] flex justify-between items-center">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">Privasi Kategori</h3>
+<button class="text-sm font-medium text-primary hover:underline">Kelola Kategori</button>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex items-center justify-between p-3 rounded-lg border border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-card-dark">
+<div class="flex items-center gap-3">
+<div class="size-2 rounded-full bg-green-500"></div>
+<span class="text-[#111318] dark:text-white font-medium">Elektronik</span>
+</div>
+<div class="flex bg-[#f0f2f4] dark:bg-[#2a3441] rounded-md p-1">
+<button class="px-3 py-1 rounded bg-white dark:bg-gray-600 text-xs font-semibold shadow-sm text-[#111318] dark:text-white">Dibagikan</button>
+<button class="px-3 py-1 rounded hover:bg-white/50 dark:hover:bg-gray-700 text-xs font-medium text-[#616f89] dark:text-gray-400">Pribadi</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-card-dark">
+<div class="flex items-center gap-3">
+<div class="size-2 rounded-full bg-orange-500"></div>
+<span class="text-[#111318] dark:text-white font-medium">Perabotan</span>
+</div>
+<div class="flex bg-[#f0f2f4] dark:bg-[#2a3441] rounded-md p-1">
+<button class="px-3 py-1 rounded hover:bg-white/50 dark:hover:bg-gray-700 text-xs font-medium text-[#616f89] dark:text-gray-400">Dibagikan</button>
+<button class="px-3 py-1 rounded bg-white dark:bg-gray-600 text-xs font-semibold shadow-sm text-[#111318] dark:text-white">Pribadi</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-card-dark">
+<div class="flex items-center gap-3">
+<div class="size-2 rounded-full bg-blue-500"></div>
+<span class="text-[#111318] dark:text-white font-medium">Kendaraan</span>
+</div>
+<div class="flex bg-[#f0f2f4] dark:bg-[#2a3441] rounded-md p-1">
+<button class="px-3 py-1 rounded bg-white dark:bg-gray-600 text-xs font-semibold shadow-sm text-[#111318] dark:text-white">Dibagikan</button>
+<button class="px-3 py-1 rounded hover:bg-white/50 dark:hover:bg-gray-700 text-xs font-medium text-[#616f89] dark:text-gray-400">Pribadi</button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-[#f0f2f4] dark:border-[#2a3441] overflow-hidden">
+<div class="px-6 py-4 border-b border-[#f0f2f4] dark:border-[#2a3441] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold">Anggota Tim</h3>
+<div class="flex gap-2 w-full sm:w-auto">
+<div class="relative flex-1 sm:flex-initial">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[#616f89] text-[20px]">search</span>
+<input class="pl-9 pr-3 py-2 bg-[#f0f2f4] dark:bg-[#2a3441] rounded-lg text-sm border-none focus:ring-1 focus:ring-primary w-full text-[#111318] dark:text-white placeholder:text-[#616f89]" placeholder="Cari anggota..." type="text"/>
+</div>
+<button class="flex items-center justify-center gap-2 bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span class="hidden sm:inline">Undang</span>
+</button>
+</div>
+</div>
+<div class="divide-y divide-[#f0f2f4] dark:divide-[#2a3441]">
+<div class="p-4 flex flex-col sm:flex-row items-center gap-4 justify-between hover:bg-gray-50 dark:hover:bg-[#202b3d] transition-colors group">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Portrait of Sarah Jenkins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbjrX6g35aJEylkcRW9hLw3pagczjly6zrslCjsdfV3gBkC7_y_djKNC9zPMWgP9TQtkHV0DQRTfxTdUfQHe_pHLFSII7iC64buMCX9AjVokMv856eXTr7fLX_nmmulzhzgfvmqRQ6neB2Cp0WoMLp5yuR3ZPU3ODoaxcELAkkoQRnCEYEzLIztXN-s84d3zjFChFOakf_s5tKYwAe4AeA5nHDE9nZ8UFPnJlXjkHJhCyldOOTDPYVHLBNkq_IG2nsq_qFzyTpTVk');"></div>
+<div>
+<p class="text-[#111318] dark:text-white font-medium text-sm">Sarah Jenkins</p>
+<p class="text-[#616f89] dark:text-gray-400 text-xs">sarah.j@company.com</p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<select class="bg-white dark:bg-[#2a3441] border border-[#dce0e5] dark:border-gray-600 text-[#111318] dark:text-white text-xs font-medium rounded px-2 py-1.5 focus:border-primary focus:ring-primary">
+<option selected="">Admin</option>
+<option>Editor</option>
+<option>Peninjau</option>
+</select>
+<button class="p-1.5 text-[#616f89] hover:text-red-500 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col sm:flex-row items-center gap-4 justify-between hover:bg-gray-50 dark:hover:bg-[#202b3d] transition-colors group">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Portrait of Michael Chen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhlsuSS9ubIV12SQLvNc6L0inIkWlV4_nMPs2fJ9Mr8yIbpzGw3oxmkGCbfIlJoqg-X8JvECzbG27zFtVg7NW3c2VUN8HXDDtIbST32WmADSLUL68-jmfAIgC-_9FnuxBPx8NYfUIBp91yjItZjPtzbI0dIvcJJFtkRHuicTxVcG57W_BSAljcFhqIOgqRwGknmCrpBmzt-qvc36FWl2NaJJeqoiwKCmLaH5iNxumQNwUY3fnHiveRXBx40s0Bi1E2giwakSjagSs');"></div>
+<div>
+<p class="text-[#111318] dark:text-white font-medium text-sm">Michael Chen</p>
+<p class="text-[#616f89] dark:text-gray-400 text-xs">m.chen@company.com</p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<select class="bg-white dark:bg-[#2a3441] border border-[#dce0e5] dark:border-gray-600 text-[#111318] dark:text-white text-xs font-medium rounded px-2 py-1.5 focus:border-primary focus:ring-primary">
+<option>Admin</option>
+<option selected="">Editor</option>
+<option>Peninjau</option>
+</select>
+<button class="p-1.5 text-[#616f89] hover:text-red-500 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col sm:flex-row items-center gap-4 justify-between hover:bg-gray-50 dark:hover:bg-[#202b3d] transition-colors group">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<div class="size-10 rounded-full bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-200 flex items-center justify-center font-bold text-sm">
+                                                JD
+                                            </div>
+<div>
+<p class="text-[#111318] dark:text-white font-medium text-sm">James Doe</p>
+<p class="text-[#616f89] dark:text-gray-400 text-xs">james.doe@contractor.net</p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<select class="bg-white dark:bg-[#2a3441] border border-[#dce0e5] dark:border-gray-600 text-[#111318] dark:text-white text-xs font-medium rounded px-2 py-1.5 focus:border-primary focus:ring-primary">
+<option>Admin</option>
+<option>Editor</option>
+<option selected="">Peninjau</option>
+</select>
+<button class="p-1.5 text-[#616f89] hover:text-red-500 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="bg-white dark:bg-card-dark p-6 rounded-xl shadow-sm border border-[#f0f2f4] dark:border-[#2a3441]">
+<h3 class="text-[#111318] dark:text-white text-lg font-bold mb-4">Izin Peran</h3>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary text-[20px]">admin_panel_settings</span>
+</div>
+<div>
+<p class="font-bold text-sm text-[#111318] dark:text-white">Admin</p>
+<p class="text-xs text-[#616f89] dark:text-gray-400 leading-relaxed">Akses penuh ke pengaturan, penagihan, dan semua tindakan inventaris. Dapat mengundang dan menghapus anggota.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="mt-1">
+<span class="material-symbols-outlined text-blue-400 text-[20px]">edit_note</span>
+</div>
+<div>
+<p class="font-bold text-sm text-[#111318] dark:text-white">Editor</p>
+<p class="text-xs text-[#616f89] dark:text-gray-400 leading-relaxed">Dapat menambah, mengedit, atau menghapus barang inventaris. Dapat memproses barang masuk/keluar. Tidak dapat mengubah pengaturan.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="mt-1">
+<span class="material-symbols-outlined text-gray-400 text-[20px]">visibility</span>
+</div>
+<div>
+<p class="font-bold text-sm text-[#111318] dark:text-white">Peninjau</p>
+<p class="text-xs text-[#616f89] dark:text-gray-400 leading-relaxed">Akses hanya-baca ke daftar inventaris. Tidak dapat mengedit barang atau mengubah status.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-xl border border-blue-100 dark:border-blue-800">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-[24px]">info</span>
+<div>
+<p class="font-bold text-sm text-[#111318] dark:text-white mb-1">Perlu menambahkan banyak pengguna?</p>
+<p class="text-xs text-[#616f89] dark:text-gray-300">Anda dapat mengimpor anggota tim secara massal via CSV di halaman <a class="text-primary font-medium hover:underline" href="#">Pengaturan Tim</a>.</p>
+</div>
+</div>
+</div>
+<div class="bg-transparent p-4">
+<p class="text-xs text-[#616f89] dark:text-gray-500 text-center">Terakhir diperbarui oleh Sarah Jenkins<br/>2 jam yang lalu</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></body></html>

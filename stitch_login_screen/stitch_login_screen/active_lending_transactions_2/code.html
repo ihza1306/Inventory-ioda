@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Active Lending Transactions</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "text-main": "#111618",
+                        "text-secondary": "#617c89",
+                        "accent-danger": "#ef4444",
+                        "accent-warning": "#f59e0b",
+                        "accent-success": "#10b981",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "card": "0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary/20">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
+<div class="flex items-center justify-between px-4 py-3">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-white">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h2 class="text-text-main dark:text-white text-lg font-bold leading-tight flex-1 text-center opacity-0 pointer-events-none hidden sm:block">Active Lending</h2>
+<button class="flex size-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</button>
+</div>
+<!-- Large Title & Search Container -->
+<div class="px-4 pb-4">
+<h1 class="text-text-main dark:text-white text-3xl font-bold tracking-tight mb-4">Active Lending</h1>
+<!-- Search Bar -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-text-secondary text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-xl border-none bg-white dark:bg-gray-800 py-3 pl-10 pr-4 text-sm text-text-main dark:text-white placeholder-text-secondary focus:ring-2 focus:ring-primary/50 shadow-sm transition-all" placeholder="Search items, borrowers..." type="text"/>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 px-4 pb-4 overflow-x-auto no-scrollbar">
+<button class="flex shrink-0 items-center justify-center rounded-full bg-primary px-4 py-1.5 transition-colors shadow-sm">
+<span class="text-white text-sm font-medium">All</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 px-4 py-1.5 transition-colors">
+<span class="text-text-main dark:text-gray-300 text-sm font-medium">Overdue</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 px-4 py-1.5 transition-colors">
+<span class="text-text-main dark:text-gray-300 text-sm font-medium">Due Soon</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 px-4 py-1.5 transition-colors">
+<span class="text-text-main dark:text-gray-300 text-sm font-medium">Long Term</span>
+</button>
+</div>
+</header>
+<!-- Transaction List -->
+<main class="flex-1 px-4 py-2 space-y-3 pb-8">
+<!-- Summary Text -->
+<p class="text-xs font-medium text-text-secondary uppercase tracking-wider mb-2 pl-1">5 Active Transactions</p>
+<!-- Card 1: Overdue -->
+<div class="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-gray-800 p-4 shadow-card hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start gap-4">
+<!-- Item Image -->
+<div class="relative shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-700 size-[72px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Silver laptop computer open" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBm5DTSmy_iw4qRBXyCom8dbgK5bpeaOLzx9f5kpg8XDWgvKINKJasNPG5pNAt5RFJBmD4gVCUhNrQOYBbqpf3R-QXdQGRydsVG4j7LpyD-NcU01JHJX1ZAXLglJvHmF_qGpSayWAXY3U_FGSP-wFKLL_9L23yQaws7z4kIexZHNxWh4WQAwRNDm2o1g73ADJSIj3c8AawfajkW4ZEfgs3YPwVwKnNUxnES8cqHrKGaQBYU7o02L8r5md5FU_lNwRfJeHddwqBMld6i");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-between h-full min-h-[72px]">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-text-main dark:text-white text-base font-semibold leading-tight line-clamp-1">MacBook Pro 16"</h3>
+<span class="shrink-0 inline-flex items-center rounded-full bg-accent-danger/10 px-2 py-0.5 text-xs font-semibold text-accent-danger">
+                                    Overdue
+                                </span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-sm mt-1">Loaned to: <span class="text-text-main dark:text-gray-200 font-medium">John Doe</span></p>
+</div>
+<div class="flex items-center gap-1 mt-auto">
+<span class="material-symbols-outlined text-accent-danger text-[16px]">calendar_today</span>
+<p class="text-accent-danger text-xs font-medium">Due Oct 24, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Due Soon -->
+<div class="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-gray-800 p-4 shadow-card hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start gap-4">
+<!-- Item Image -->
+<div class="relative shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-700 size-[72px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Black professional camera with lens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsDP2mQlplCbyf7Iu_Y7fEiLW3NCEiakoYnusMfor1_TLZInH9r1V3pXPuQdTJJT3YfZ8y144E6ZWihHZdd-O_iDfZI7ucVM2e1aOCJQtQ9TnysMv1YZbl_z2F5qN6yzGMwLMvPE2m88-55KT4qt4UsYEEPq7skVtm8olPNElaMeSkijHSePdBYz53vefVzQ5TgOuLljSYhD1p6OP4bpGdxcmsok53J4kyCszGUrD0atPmmqmBBUqjmdyMcIH_I2Ahmo47neVI0EF-");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-between h-full min-h-[72px]">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-text-main dark:text-white text-base font-semibold leading-tight line-clamp-1">Sony Alpha A7III</h3>
+<span class="shrink-0 inline-flex items-center rounded-full bg-accent-warning/10 px-2 py-0.5 text-xs font-semibold text-accent-warning">
+                                    Due Soon
+                                </span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-sm mt-1">Loaned to: <span class="text-text-main dark:text-gray-200 font-medium">Sarah Smith</span></p>
+</div>
+<div class="flex items-center gap-1 mt-auto">
+<span class="material-symbols-outlined text-accent-warning text-[16px]">schedule</span>
+<p class="text-accent-warning text-xs font-medium">Due Tomorrow</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Active -->
+<div class="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-gray-800 p-4 shadow-card hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start gap-4">
+<!-- Item Image -->
+<div class="relative shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-700 size-[72px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Yellow power drill tool" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAClUGCo_-dwmbiju8V6gS9x20CjNOeNDgu-Uc4bdSNCiGyo68aC2ipfgmCo9Zwhew5GCOp5TpYKsPkQxVK2iueL3HwZiHR8Kdg54cxAIJXleyBRffrK-30PAbLHk4zKPvYAR-_ltFYAwq9ZB7d1AfauwA15QFAHnA99lbjUnxtQUAcs8orsW-P_YlYRejo3VpaazsSi4Xwn18BchUeLMj6y5D_1UIoxJTQjLLc47R8xVlh9uT71fD_wo1Cm7uoSeIyxKpwWQkasw5x");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-between h-full min-h-[72px]">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-text-main dark:text-white text-base font-semibold leading-tight line-clamp-1">DeWalt Drill Kit</h3>
+<span class="shrink-0 inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                                    Active
+                                </span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-sm mt-1">Loaned to: <span class="text-text-main dark:text-gray-200 font-medium">Maintenance Team</span></p>
+</div>
+<div class="flex items-center gap-1 mt-auto">
+<span class="material-symbols-outlined text-text-secondary text-[16px]">event</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Due Nov 01, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Active -->
+<div class="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-gray-800 p-4 shadow-card hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start gap-4">
+<!-- Item Image -->
+<div class="relative shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-700 size-[72px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Video projector device" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCoQKeqh9hH-eS1Au4rWfe2HOM3VkUK9y6rhtf9Z2abLwSDcF6oRZ6ir8UomYWXZvVKpMcTIiqaKM9UK1zTr7novwC5Bexweb20AlyRoebSXlNRsOqwlaf52eBno8craW7f9eeasMkSZXvSjsGepNVKWKthI5Sz6S2Ffe0-XAb3QJoUzp-Uyq9LnVJZfExTDp5l4pz703f3C3G3GAFeZXOWIoRMTG6dzLaP-MO4Ql1R0jfWOn6EEm95J_2WfbrAk2mW-3-uTUr2efML");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-between h-full min-h-[72px]">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-text-main dark:text-white text-base font-semibold leading-tight line-clamp-1">Projector 4K</h3>
+<span class="shrink-0 inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                                    Active
+                                </span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-sm mt-1">Loaned to: <span class="text-text-main dark:text-gray-200 font-medium">Marketing Dept</span></p>
+</div>
+<div class="flex items-center gap-1 mt-auto">
+<span class="material-symbols-outlined text-text-secondary text-[16px]">event</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Due Nov 15, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5: Active -->
+<div class="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-gray-800 p-4 shadow-card hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start gap-4">
+<!-- Item Image -->
+<div class="relative shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-700 size-[72px] flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined text-[32px]">inventory_2</span>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-between h-full min-h-[72px]">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-text-main dark:text-white text-base font-semibold leading-tight line-clamp-1">Extension Cord 50ft</h3>
+<span class="shrink-0 inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                                    Active
+                                </span>
+</div>
+<p class="text-text-secondary dark:text-gray-400 text-sm mt-1">Loaned to: <span class="text-text-main dark:text-gray-200 font-medium">Event Staff</span></p>
+</div>
+<div class="flex items-center gap-1 mt-auto">
+<span class="material-symbols-outlined text-text-secondary text-[16px]">event</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Due Nov 20, 2023</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

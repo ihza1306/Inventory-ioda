@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pengaturan Akun - Inventory Ioda Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 sm:px-10 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight hidden sm:block">Inventory Ioda Academy</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-lg size-10 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-slate-200 dark:border-slate-600" data-alt="User profile picture placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDEsvZd2Cvs_hFD0yNBRjQwA22snePkE83RarZSfAS7r-tCg8gqAyVriDAWc7UuT8ZZTxclfur7JAeDQYVkTK-QUfZ59IAJzLthcC1gGg6WCcv7STb_60c96tnY3Wt53Vdad6xiIlx92jymeJAApP4PVzz2Oihq17sTpd4XMy2lNjtcw8VwXo9al3paiUnQ0uw7iyFCuq7sZJPtSHd1NDqreBGwVOQ2YrL6Nlb-IwstKLQeB7-myK_BTjngh566A67tVIEYR8Zxp4");'></div>
+</div>
+</div>
+</header>
+<div class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-10 py-8 flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Navigation -->
+<aside class="w-full lg:w-64 shrink-0 space-y-6">
+<div class="hidden lg:flex flex-col gap-3 mb-6">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12" data-alt="Profile avatar sidebar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8_xo9SVmN3R2esL722y8xuvpYG1xbCg2Wi2GCmKHyrRaHdGJZcutuIbHeG5WxUdeIgWRjGsIMR5Kb5QLjXOVnJFYjfHyp9GFOmlOntWGbGKZCuvG6tT9tRU9yeBuauNxU8mjgNg5MTxbdkCKXO1tU9R8MgMU2a9eOm1Lw23sQ-JJ9r3Xne0O3R51D931eslxEcUbeABtlbUtCGO8yoiMHgoF7zsw0ASg48QtX9rFC-cEFUS9B3-1Xv6POyAqU0kdHJg3AI_K1gsg");'></div>
+<div class="flex flex-col">
+<h1 class="text-base font-bold leading-tight">Budi Santoso</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Siswa</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-blue-400 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined filled">person</span>
+<span class="text-sm">Profil Umum</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="text-sm">Keamanan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-sm">Notifikasi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">devices</span>
+<span class="text-sm">Sesi Aktif</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span class="text-sm">ID Inventaris Saya</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Keluar</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col gap-6 min-w-0">
+<!-- Page Heading -->
+<div class="flex flex-col gap-2 pb-4 border-b border-slate-200 dark:border-slate-700">
+<h1 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Pengaturan Akun</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base">Kelola informasi profil, keamanan, dan preferensi akun Ioda Academy Anda.</p>
+</div>
+<!-- Profile Header Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col sm:flex-row gap-6 items-center justify-between shadow-sm">
+<div class="flex flex-col sm:flex-row items-center gap-6">
+<div class="relative group">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-24 border-4 border-slate-50 dark:border-slate-700 shadow-inner" data-alt="Large user profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBNV3TUKFNuTD0gpLsOf7o0aYy437Ppp3LLJF-yvhfSZlszKHZroL2uIgId3PBo3t9GY994T31Aa_LOXm_rcuX0rSboUV_7GpQz88RkX__1BQ1exKyzjfp9iAw4ME5hgA7p2iSbPUbEAeW8yecSrCWOPbfWK9l8wALCuMOZJ-B2jOfl4RL6YqZXhARPvzR_wJtpFibPyebDgJICuezmP5ld2S2yq2m5v10S90vxrKUByZ3Nqirjf95BKvJj_YVkeI8YpF3EZ3wXVk");'></div>
+<button class="absolute bottom-0 right-0 p-1.5 bg-primary text-white rounded-full border-2 border-white dark:border-slate-800 shadow-sm hover:bg-blue-600 transition-colors" title="Change Photo">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="text-center sm:text-left">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Budi Santoso</h2>
+<p class="text-slate-500 dark:text-slate-400">Siswa • Bergabung sejak 2023</p>
+<div class="mt-2 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-300 text-xs font-semibold uppercase tracking-wide">
+<span class="material-symbols-outlined text-sm">verified</span>
+                            Akun Terverifikasi
+                        </div>
+</div>
+</div>
+<button class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors w-full sm:w-auto">
+                    Lihat Profil Publik
+                </button>
+</div>
+<!-- Personal Information Form -->
+<section class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-700">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Informasi Pribadi</h3>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Nama Depan</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-primary focus:ring-primary h-11" type="text" value="Budi"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Nama Belakang</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-primary focus:ring-primary h-11" type="text" value="Santoso"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Email</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400">mail</span>
+<input class="form-input w-full pl-10 rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 focus:border-primary focus:ring-primary h-11 cursor-not-allowed" readonly="" type="email" value="budi.santoso@ioda.academy"/>
+</div>
+<p class="text-xs text-slate-500">Email dikelola oleh administrator sekolah.</p>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Nomor Telepon</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400">call</span>
+<input class="form-input w-full pl-10 rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-primary focus:ring-primary h-11" type="tel" value="+62 812 3456 7890"/>
+</div>
+</label>
+</div>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-900/30 flex justify-end gap-3 border-t border-slate-200 dark:border-slate-700">
+<button class="px-4 py-2 text-slate-700 dark:text-slate-300 font-medium text-sm hover:underline">Batal</button>
+<button class="px-5 py-2 bg-primary hover:bg-blue-700 text-white rounded-lg text-sm font-bold shadow-sm transition-all transform active:scale-95">Simpan Perubahan</button>
+</div>
+</section>
+<!-- Notification Preferences -->
+<section class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-700">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Preferensi Notifikasi</h3>
+</div>
+<div class="p-6 divide-y divide-slate-100 dark:divide-slate-700">
+<div class="flex items-center justify-between py-3">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Peminjaman Jatuh Tempo</span>
+<span class="text-sm text-slate-500 dark:text-slate-400">Terima email peringatan 2 hari sebelum batas waktu.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between py-3">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Konfirmasi Peminjaman</span>
+<span class="text-sm text-slate-500 dark:text-slate-400">Notifikasi saat permintaan alat disetujui.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between py-3">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Berita Ioda Academy</span>
+<span class="text-sm text-slate-500 dark:text-slate-400">Update tentang peralatan baru dan event.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Active Sessions -->
+<section class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-700">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Sesi Aktif</h3>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-between p-4 rounded-lg bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700">
+<div class="flex gap-4 items-center">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">laptop_mac</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Windows PC - Chrome</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Jakarta, Indonesia • Aktif sekarang</p>
+</div>
+</div>
+<div class="px-3 py-1 bg-green-100 text-green-700 rounded text-xs font-bold">Saat Ini</div>
+</div>
+<div class="mt-4 flex items-center justify-between p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex gap-4 items-center">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">iPhone 13 - Safari</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Bandung, Indonesia • 2 hari yang lalu</p>
+</div>
+</div>
+<button class="text-red-600 text-sm font-semibold hover:underline">Keluar</button>
+</div>
+</div>
+</section>
+<!-- Footer Links -->
+<div class="flex flex-col sm:flex-row justify-between items-center pt-8 pb-4 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-primary transition-colors" href="#">Syarat Penggunaan</a>
+<a class="hover:text-primary transition-colors" href="#">Bantuan</a>
+</div>
+<p class="mt-4 sm:mt-0">© 2023 Inventory Ioda Academy. All rights reserved.</p>
+</div>
+</main>
+</div>
+</body></html>

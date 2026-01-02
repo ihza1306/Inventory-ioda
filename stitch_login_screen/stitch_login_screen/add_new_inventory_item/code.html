@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Inventory Item</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 flex items-center justify-between bg-white/80 dark:bg-[#101622]/80 backdrop-blur-md px-4 py-3 border-b border-slate-200 dark:border-slate-800">
+<button class="flex h-10 w-10 items-center justify-start text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight text-center flex-1">Add New Item</h1>
+<button class="flex h-10 w-12 items-center justify-end text-primary font-semibold text-base disabled:opacity-50">
+                Save
+            </button>
+</header>
+<main class="flex-1 flex flex-col gap-6 p-4 pb-24 max-w-lg mx-auto w-full">
+<section class="flex flex-col items-center gap-4 py-2">
+<div class="relative group cursor-pointer w-full aspect-[4/3] max-h-64 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary transition-all flex flex-col items-center justify-center gap-3">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#135bec_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">add_a_photo</span>
+</div>
+<p class="z-10 text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-primary transition-colors">Tap to add image</p>
+</div>
+</section>
+<section class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white px-1">Item Details</h3>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 ml-1">Tool Name</label>
+<input class="w-full h-14 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 text-base text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. Hammer Drill" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 ml-1">QR Scan Identifier</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-4 pr-14 text-base text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Scan or enter QR ID" type="text"/>
+<button class="absolute right-0 top-0 bottom-0 px-4 text-slate-500 hover:text-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-4 pt-2">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white px-1">Inventory Data</h3>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 ml-1">Quantity</label>
+<div class="flex items-center gap-3">
+<button class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 active:scale-95 transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<input class="flex-1 h-14 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 text-center text-lg font-semibold text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all no-spinners" type="number" value="1"/>
+<button class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 ml-1">Status</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="status" type="radio"/>
+<div class="flex h-12 w-full items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-medium text-slate-600 dark:text-slate-400 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary">
+                                In Stock
+                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="status" type="radio"/>
+<div class="flex h-12 w-full items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-medium text-slate-600 dark:text-slate-400 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary">
+                                Low Stock
+                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="status" type="radio"/>
+<div class="flex h-12 w-full items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-medium text-slate-600 dark:text-slate-400 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary">
+                                Out
+                            </div>
+</label>
+</div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-[#101622] p-4 border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="max-w-lg mx-auto w-full">
+<button class="w-full h-14 rounded-lg bg-primary text-white text-lg font-bold shadow-lg shadow-primary/25 active:scale-[0.98] transition-all hover:bg-blue-600 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">check</span>
+                    Save Item
+                </button>
+</div>
+</div>
+</div>
+<style>
+        .no-spinners::-webkit-outer-spin-button,
+        .no-spinners::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .no-spinners {
+            -moz-appearance: textfield;
+        }
+    </style>
+
+</body></html>

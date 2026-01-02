@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Produk - Inventory Ioda Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2532",
+                        "border-light": "#dbdfe6",
+                        "border-dark": "#2a3441",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white overflow-x-hidden min-h-screen flex flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-4 sm:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#111318] dark:text-white">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">inventory_2</span>
+</div>
+<h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] hidden sm:block">Inventory Ioda Academy</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64 hidden md:flex">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#616f89] dark:text-[#9ca3af] flex border-none bg-[#f0f2f4] dark:bg-[#2a3441] items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] dark:bg-[#2a3441] focus:border-none h-full placeholder:text-[#616f89] dark:placeholder:text-[#9ca3af] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Cari produk, SKU..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-6 hidden lg:flex">
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dasbor</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Inventaris</a>
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Peminjaman</a>
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Pemasok</a>
+<a class="text-[#111318] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Laporan</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center text-[#616f89] dark:text-[#9ca3af] hover:text-[#111318] dark:hover:text-white">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-border-light dark:border-border-dark" data-alt="User profile avatar showing a smiling person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5FfQ6XvROJmgH1zIoRjjh0kCfJS4m5x3rGLKRQ3bc0awINLThIzfi-Ne8ML2IeiRAn9oKtfgEa4d4gXzKk8a1U2ydwKML9fnSXQFFX86ZyMOU7jHMgT2Ozw4x17h8wdTyARxknonjCHhSxdzpw2l1oJqIBmWfXew7BD-D26k7PUUUAHq1jvILMKuJxQXQu4U3Nh2iI3Iu46G1qzSMmibkqpm2ggqQsbG4Cov8wRGXDbx4o6vrVnBvo_rkVIOcRJRHV84U_u2r-tc");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-6">
+<nav class="flex flex-wrap gap-2 mb-6 text-sm">
+<a class="text-[#616f89] dark:text-[#9ca3af] font-medium hover:text-primary transition-colors" href="#">Inventaris</a>
+<span class="text-[#616f89] dark:text-[#9ca3af] font-medium">/</span>
+<a class="text-[#616f89] dark:text-[#9ca3af] font-medium hover:text-primary transition-colors" href="#">Produk</a>
+<span class="text-[#616f89] dark:text-[#9ca3af] font-medium">/</span>
+<span class="text-[#111318] dark:text-white font-medium">Laptop Pro Bisnis 14-inci</span>
+</nav>
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-4 mb-8">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 flex-wrap group">
+<h1 class="text-[#111318] dark:text-white text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em]">Laptop Pro Bisnis 14-inci</h1>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-primary" title="Edit Nama">
+<span class="material-symbols-outlined" style="font-size: 24px;">edit</span>
+</button>
+<span class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/40 px-3 py-1 text-xs font-bold text-orange-700 dark:text-orange-400 ring-1 ring-inset ring-orange-600/20">
+                        Stok Menipis
+                    </span>
+</div>
+<div class="flex items-center gap-4 text-[#616f89] dark:text-[#9ca3af] text-sm sm:text-base">
+<p class="font-normal flex items-center gap-1">
+                    SKU: TECH-LPT-14-PRO
+                    <button class="hover:text-primary" title="Salin SKU">
+<span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+</button>
+</p>
+<span class="w-1 h-1 rounded-full bg-[#616f89]"></span>
+<p class="font-normal">Elektronik &gt; Komputer &gt; Laptop</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark text-[#111318] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm">
+<span class="material-symbols-outlined mr-2" style="font-size: 18px;">print</span>
+<span class="truncate">Cetak Label</span>
+</button>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-sm">
+<span class="material-symbols-outlined mr-2" style="font-size: 18px;">edit</span>
+<span class="truncate">Edit Produk</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark shadow-sm group">
+<div class="flex items-center justify-between">
+<p class="text-[#616f89] dark:text-[#9ca3af] text-sm font-medium">Total Stok</p>
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">inventory</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#111318] dark:text-white text-3xl font-bold tracking-tight flex items-center gap-2">
+                    142
+                    <button class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-300 hover:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+</button>
+</p>
+<p class="text-red-600 dark:text-red-400 text-xs font-bold flex items-center">
+<span class="material-symbols-outlined" style="font-size: 16px;">arrow_downward</span>
+                    5%
+                </p>
+</div>
+<p class="text-xs text-[#616f89] dark:text-[#9ca3af]">vs bulan lalu</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark shadow-sm">
+<div class="flex items-center justify-between">
+<p class="text-[#616f89] dark:text-[#9ca3af] text-sm font-medium">Dipesan / Dicadangkan</p>
+<span class="material-symbols-outlined text-orange-500" style="font-size: 20px;">lock_clock</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#111318] dark:text-white text-3xl font-bold tracking-tight">12</p>
+<p class="text-green-600 dark:text-green-400 text-xs font-bold flex items-center">
+<span class="material-symbols-outlined" style="font-size: 16px;">arrow_upward</span>
+                    2%
+                </p>
+</div>
+<p class="text-xs text-[#616f89] dark:text-[#9ca3af]">Permintaan tertunda</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark shadow-sm">
+<div class="flex items-center justify-between">
+<p class="text-[#616f89] dark:text-[#9ca3af] text-sm font-medium">Tersedia</p>
+<span class="material-symbols-outlined text-green-500" style="font-size: 20px;">check_circle</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#111318] dark:text-white text-3xl font-bold tracking-tight">130</p>
+<p class="text-[#616f89] dark:text-[#9ca3af] text-xs font-medium">Unit</p>
+</div>
+<p class="text-xs text-[#616f89] dark:text-[#9ca3af]">Siap keluar</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark shadow-sm relative overflow-hidden">
+<div class="absolute right-0 top-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-red-500" style="font-size: 80px;">warning</span>
+</div>
+<div class="flex items-center justify-between relative z-10">
+<p class="text-[#616f89] dark:text-[#9ca3af] text-sm font-medium">Titik Pesan Ulang</p>
+<span class="material-symbols-outlined text-red-500" style="font-size: 20px;">warning</span>
+</div>
+<div class="flex items-baseline gap-2 relative z-10">
+<p class="text-[#111318] dark:text-white text-3xl font-bold tracking-tight">50</p>
+<p class="text-[#616f89] dark:text-[#9ca3af] text-xs font-medium">Unit min</p>
+</div>
+<p class="text-xs text-orange-600 dark:text-orange-400 font-medium relative z-10">Mendekati batas</p>
+</div>
+</div>
+<div class="mb-6 border-b border-border-light dark:border-border-dark">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8 overflow-x-auto">
+<a class="border-primary text-primary whitespace-nowrap border-b-2 py-4 px-1 text-sm font-bold" href="#">
+                Ringkasan
+            </a>
+<a class="border-transparent text-[#616f89] dark:text-[#9ca3af] hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#">
+                Inventaris &amp; Lokasi
+            </a>
+<a class="border-transparent text-[#616f89] dark:text-[#9ca3af] hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#">
+                Pembelian
+            </a>
+<a class="border-transparent text-[#616f89] dark:text-[#9ca3af] hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#">
+                Riwayat &amp; Log
+            </a>
+</nav>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 space-y-6">
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 shadow-sm">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white mb-4">Informasi Umum</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8 mb-6">
+<div class="group relative">
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">Nama Produk</p>
+<div class="flex items-center gap-2">
+<p class="text-[#111318] dark:text-white font-medium">Laptop Pro Bisnis 14-inci</p>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-xs text-primary font-medium">Ubah</button>
+</div>
+</div>
+<div>
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">Merek</p>
+<p class="text-[#111318] dark:text-white font-medium">TechBrand</p>
+</div>
+<div>
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">Nilai Aset</p>
+<p class="text-[#111318] dark:text-white font-medium">Rp 29.999.000</p>
+</div>
+<div>
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">Harga Pokok</p>
+<p class="text-[#111318] dark:text-white font-medium">Rp 21.750.000 <span class="text-green-600 dark:text-green-400 text-xs ml-2">(Margin 27%)</span></p>
+</div>
+<div>
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">SKU Internal</p>
+<div class="flex items-center gap-2">
+<p class="text-[#111318] dark:text-white font-medium font-mono">TECH-LPT-14-PRO</p>
+</div>
+</div>
+<div>
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">Berat &amp; Dimensi</p>
+<p class="text-[#111318] dark:text-white font-medium">1.6 kg • 31.2 x 22.1 x 1.5 cm</p>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-border-dark pt-4 group relative">
+<div class="flex justify-between items-end mb-2">
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider">Deskripsi</p>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-xs text-primary font-bold">Edit</button>
+</div>
+<p class="text-sm text-[#111318] dark:text-gray-300 leading-relaxed">
+                        Laptop bisnis 14-inci berperforma tinggi dengan prosesor generasi terbaru. Memiliki daya tahan baterai sepanjang hari dan layar resolusi tinggi yang memukau. Unit ini memiliki warna Abu-abu, Memori Terpadu 16GB, dan penyimpanan SSD 512GB. Cocok untuk tim desain dan teknik.
+                    </p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Gambar Produk</h3>
+<button class="text-primary text-sm font-bold hover:underline">Kelola Gambar</button>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square rounded-lg bg-gray-100 dark:bg-gray-800 border-2 border-primary relative overflow-hidden group">
+<div class="w-full h-full bg-center bg-cover" data-alt="Tampilan depan laptop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzL9UQoVFC0lv8ob0YInQlk2fguQsCwPOQotRRDuhV0VKcW3xbuf1_WtEErQFkb92GaUSBbumdC3iRUJCk81SMV0Bm9ERe7GjWroKF8LTuB7WlB3kw8HVwVTkwy7u5j7sxHDrt47FiyLXYdBzmcTVIdh7FkoIGTucMCWH8LzQ_nvXxvBsi8f5gtr6do79GpPqLTJrL7lf4a4dpGqa24NGley8aqBOZoVGAI7wk6iny3dGBOqA3VilfFdWqiUoaqiXYCZZN8foE0Jc");'></div>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+</div>
+<div class="aspect-square rounded-lg bg-gray-100 dark:bg-gray-800 border border-transparent hover:border-gray-300 dark:hover:border-gray-600 relative overflow-hidden group">
+<div class="w-full h-full bg-center bg-cover" data-alt="Tampilan samping laptop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEN4WtgYeoCzeX-BEQW9way69jSfxC0SLho_MfCPaNq-4HHLnp-aV4_yMpwLmTWIYOZy-QHzYfp8zp3H5zDfUyPZIrWdRhS0zjGtr2J3NAwkdR3qvMF1jSX6d6gIkgsAZU06lZI5IAsNKFpkr9swyzx0oLoQ7zuevbvsqBNZfe95xjjFtLdcc-nHEL80qYZNbsw8fZOIm7dlprVV_aQGhSOjdFuevdPD7HWFjiaTv9mlPGVXsrFnI2HcDo9L5yY-XEZD63m_Oi4Qc");'></div>
+</div>
+<div class="aspect-square rounded-lg bg-gray-100 dark:bg-gray-800 border border-transparent hover:border-gray-300 dark:hover:border-gray-600 relative overflow-hidden group">
+<div class="w-full h-full bg-center bg-cover" data-alt="Tampilan keyboard laptop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOQwgC2XHeVBU3igIMH_kHN6H1nVkVPtOJSXiKm_1eewwIuvfBLFBWO04JGjE6A5vVGaeZ5EK_Xdmk7BswdUBn8oO7eSqRsU6tyXapGlqMOxZt1zi4S65rRm1a7kNzt0hZbZp5Gika3-25yKnQkVVAeIA6EpNeMvW5wae5hBzaA4HEGf26SYjjvkVWDCfPKwYBkB5lYkOGGCCYCi8j7t-Y1RZ1SdkTt4awrMaxAua4qMxX5UYKNjTdxJ8y3XFhKE_Tj61AYCWATyQ");'></div>
+</div>
+<div class="aspect-square rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-dashed border-gray-300 dark:border-gray-600 flex flex-col items-center justify-center text-[#616f89] dark:text-[#9ca3af] hover:text-primary dark:hover:text-primary hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-1">add_photo_alternate</span>
+<span class="text-xs font-medium">Tambah Gambar</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Tingkat Pemanfaatan</h3>
+<select class="bg-transparent text-sm font-medium text-[#616f89] dark:text-[#9ca3af] border-none focus:ring-0 cursor-pointer">
+<option>30 Hari Terakhir</option>
+<option>90 Hari Terakhir</option>
+<option>Tahun Ini</option>
+</select>
+</div>
+<div class="h-48 w-full flex items-end justify-between gap-2 px-2 pb-2 relative">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-gray-100 dark:bg-gray-800"></div>
+<div class="w-full h-px bg-gray-100 dark:bg-gray-800"></div>
+<div class="w-full h-px bg-gray-100 dark:bg-gray-800"></div>
+<div class="w-full h-px bg-gray-100 dark:bg-gray-800"></div>
+</div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[40%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[55%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[45%] relative group"></div>
+<div class="w-full bg-blue-200 dark:bg-blue-800/40 rounded-t-sm h-[70%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[65%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[60%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[50%] relative group"></div>
+<div class="w-full bg-blue-300 dark:bg-blue-700/60 rounded-t-sm h-[30%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[35%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[40%] relative group"></div>
+<div class="w-full bg-blue-100 dark:bg-blue-900/20 rounded-t-sm h-[42%] relative group"></div>
+<div class="w-full bg-primary rounded-t-sm h-[48%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#111318] dark:bg-white text-white dark:text-[#111318] text-xs font-bold px-2 py-1 rounded shadow-lg">Saat Ini</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Identifikasi</h3>
+<span class="px-2 py-1 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold">Aktif</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="bg-white p-3 rounded-xl border border-border-light shadow-sm mb-4">
+<svg fill="none" height="140" viewBox="0 0 100 100" width="140" xmlns="http://www.w3.org/2000/svg">
+<rect fill="white" height="100" width="100"></rect>
+<path clip-rule="evenodd" d="M10 10H40V40H10V10ZM16 16V34H34V16H16Z" fill="black" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M22 22H28V28H22V22Z" fill="black" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M60 10H90V40H60V10ZM66 16V34H84V16H66Z" fill="black" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M72 22H78V28H72V22Z" fill="black" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M10 60H40V90H10V60ZM16 66V84H34V66H16Z" fill="black" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M22 72H28V78H22V72Z" fill="black" fill-rule="evenodd"></path>
+<rect fill="black" height="10" width="10" x="50" y="50"></rect>
+<rect fill="black" height="10" width="10" x="65" y="50"></rect>
+<rect fill="black" height="10" width="10" x="80" y="50"></rect>
+<rect fill="black" height="10" width="10" x="50" y="65"></rect>
+<rect fill="black" height="10" width="10" x="50" y="80"></rect>
+<rect fill="black" height="25" width="25" x="65" y="65"></rect>
+<rect fill="black" height="15" width="5" x="90" y="60"></rect>
+</svg>
+</div>
+<div class="text-center w-full">
+<p class="text-xs font-medium text-[#616f89] dark:text-[#9ca3af] uppercase tracking-wider mb-1">Pindai untuk Pinjam / Kembali</p>
+<p class="text-[#111318] dark:text-white font-mono font-bold text-lg mb-4 select-all">TECH-LPT-14-PRO</p>
+<div class="flex gap-2 w-full">
+<button class="flex-1 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark text-[#111318] dark:text-white text-sm font-bold py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+                                    Simpan
+                                </button>
+<button class="flex-1 bg-primary text-white text-sm font-bold py-2 px-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">qr_code_scanner</span>
+                                    Pindai
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 shadow-sm">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white mb-4">Pemasok</h3>
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[#616f89] dark:text-[#9ca3af]">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<div>
+<p class="text-[#111318] dark:text-white font-bold">TeknoData Corp</p>
+<p class="text-xs text-[#616f89] dark:text-[#9ca3af]">ID: SUP-8821</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-[#616f89] dark:text-[#9ca3af]">Waktu Tunggu</span>
+<span class="text-[#111318] dark:text-white font-medium">14 Hari</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-[#616f89] dark:text-[#9ca3af]">Pesanan Terakhir</span>
+<span class="text-[#111318] dark:text-white font-medium">24 Okt 2023</span>
+</div>
+</div>
+<button class="w-full mt-5 bg-transparent border border-border-light dark:border-border-dark text-[#111318] dark:text-white text-sm font-bold py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        Lihat Pemasok
+                    </button>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 pb-2">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Lokasi</h3>
+</div>
+<table class="w-full text-left text-sm">
+<thead class="bg-gray-50 dark:bg-[#151b26] text-[#616f89] dark:text-[#9ca3af] font-medium border-b border-border-light dark:border-border-dark">
+<tr>
+<th class="px-6 py-3 font-medium">Gudang</th>
+<th class="px-6 py-3 font-medium text-right">Jml</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4">
+<p class="text-[#111318] dark:text-white font-medium">Gudang Utama</p>
+<p class="text-xs text-[#616f89] dark:text-[#9ca3af]">Baris 4, Rak B</p>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400 ring-1 ring-inset ring-green-600/20">100</span>
+</td>
+</tr>
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4">
+<p class="text-[#111318] dark:text-white font-medium">Lab Desain</p>
+<p class="text-xs text-[#616f89] dark:text-[#9ca3af]">Lantai 2, Lemari A</p>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center rounded-md bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-500 ring-1 ring-inset ring-yellow-600/20">42</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 border-t border-border-light dark:border-border-dark bg-gray-50 dark:bg-[#151b26]">
+<button class="flex items-center justify-center w-full text-primary text-sm font-bold gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">move_location</span>
+                            Transfer Stok
+                        </button>
+</div>
+</div>
+<div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl p-6">
+<h3 class="text-sm font-bold text-blue-900 dark:text-blue-100 mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 20px;">lightbulb</span>
+                        Saran
+                    </h3>
+<p class="text-sm text-blue-800 dark:text-blue-200 mb-4">
+                    Stok menipis untuk periode ini. Pertimbangkan meningkatkan pesanan berikutnya sebesar 15% untuk persiapan permintaan akhir tahun.
+                </p>
+<button class="text-xs font-bold text-primary hover:text-blue-700 uppercase tracking-wide">Buat Pesanan Pembelian</button>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-border-light dark:border-border-dark flex items-center justify-between">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white">Pergerakan Terakhir (Pinjam/Kembali)</h3>
+<button class="text-sm font-medium text-primary hover:underline">Lihat Semua</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm whitespace-nowrap">
+<thead class="bg-gray-50 dark:bg-[#151b26] text-[#616f89] dark:text-[#9ca3af] font-medium">
+<tr>
+<th class="px-6 py-3 font-medium">Tanggal &amp; Waktu</th>
+<th class="px-6 py-3 font-medium">Aksi</th>
+<th class="px-6 py-3 font-medium">Referensi</th>
+<th class="px-6 py-3 font-medium">Pengguna</th>
+<th class="px-6 py-3 font-medium text-right">Perubahan</th>
+<th class="px-6 py-3 font-medium text-right">Saldo</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 text-[#111318] dark:text-white">24 Okt 2023 <span class="text-xs text-gray-500 ml-1">10:42 WIB</span></td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 rounded-full bg-orange-50 dark:bg-orange-900/20 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-400">
+<span class="material-symbols-outlined" style="font-size: 14px;">arrow_outward</span> Keluar
+                        </span>
+</td>
+<td class="px-6 py-4 text-primary font-medium cursor-pointer">LOAN-22910</td>
+<td class="px-6 py-4 text-[#616f89] dark:text-[#9ca3af]">Jane Doe</td>
+<td class="px-6 py-4 text-right text-red-600 dark:text-red-400 font-medium">-1</td>
+<td class="px-6 py-4 text-right text-[#111318] dark:text-white font-medium">142</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 text-[#111318] dark:text-white">22 Okt 2023 <span class="text-xs text-gray-500 ml-1">14:15 WIB</span></td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 rounded-full bg-orange-50 dark:bg-orange-900/20 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-400">
+<span class="material-symbols-outlined" style="font-size: 14px;">arrow_outward</span> Keluar
+                        </span>
+</td>
+<td class="px-6 py-4 text-primary font-medium cursor-pointer">LOAN-22850</td>
+<td class="px-6 py-4 text-[#616f89] dark:text-[#9ca3af]">Tim Desain</td>
+<td class="px-6 py-4 text-right text-red-600 dark:text-red-400 font-medium">-2</td>
+<td class="px-6 py-4 text-right text-[#111318] dark:text-white font-medium">143</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 text-[#111318] dark:text-white">15 Okt 2023 <span class="text-xs text-gray-500 ml-1">09:00 WIB</span></td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 rounded-full bg-blue-50 dark:bg-blue-900/20 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-400">
+<span class="material-symbols-outlined" style="font-size: 14px;">arrow_downward</span> Masuk
+                        </span>
+</td>
+<td class="px-6 py-4 text-primary font-medium cursor-pointer">RET-9912</td>
+<td class="px-6 py-4 text-[#616f89] dark:text-[#9ca3af]">Mike Smith</td>
+<td class="px-6 py-4 text-right text-green-600 dark:text-green-400 font-medium">+1</td>
+<td class="px-6 py-4 text-right text-[#111318] dark:text-white font-medium">145</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+
+</body></html>
