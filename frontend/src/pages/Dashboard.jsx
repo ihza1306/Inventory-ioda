@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -24,7 +24,7 @@ const Dashboard = () => {
     const { data: stats, isLoading } = useQuery({
         queryKey: ['dashboard-stats'],
         queryFn: async () => {
-            const response = await axios.get('/api/dashboard/stats');
+            const response = await api.get('/api/dashboard/stats');
             return response.data;
         },
         refetchInterval: 2000,
@@ -33,7 +33,7 @@ const Dashboard = () => {
     const { data: recentActivity } = useQuery({
         queryKey: ['recent-activity'],
         queryFn: async () => {
-            const response = await axios.get('/api/transactions');
+            const response = await api.get('/api/transactions');
             return response.data.slice(0, 5); // Just latest 5
         },
         refetchInterval: 2000,
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
     const { data: reservations } = useQuery({
         queryKey: ['reservations-dashboard'],
-        queryFn: async () => (await axios.get('/api/reservations')).data,
+        queryFn: async () => (await api.get('/api/reservations')).data,
         refetchInterval: 5000,
     });
 

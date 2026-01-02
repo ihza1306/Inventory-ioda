@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 
 const AuthContext = createContext();
 
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
         // For now, let's simulate a successful login or use our backend
         // Since we don't have a real password system yet, we'll auto-login or upsert via API
         try {
-            const response = await axios.post('/api/users', {
+            const response = await api.post('/api/users', {
                 email: email,
                 google_uid: 'manual-' + Math.random().toString(36).substr(2, 9),
                 display_name: email.split('@')[0],
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
             const googleUser = result.user;
 
             // Sync with backend
-            const response = await axios.post('/api/users', {
+            const response = await api.post('/api/users', {
                 google_uid: googleUser.uid,
                 email: googleUser.email,
                 display_name: googleUser.displayName,
@@ -100,7 +100,7 @@ export const AuthProvider = ({ children }) => {
         if (!demoEmail) return { success: false, error: 'Login cancelled' };
 
         try {
-            const response = await axios.post('/api/users', {
+            const response = await api.post('/api/users', {
                 google_uid: 'demo-' + Math.random().toString(36).substr(2, 9),
                 email: demoEmail,
                 display_name: demoEmail.split('@')[0],
@@ -119,7 +119,7 @@ export const AuthProvider = ({ children }) => {
     const refreshUser = async () => {
         if (!user) return;
         try {
-            const response = await axios.get(`/api/users/${user.user_id}`);
+            const response = await api.get(`/api/users/${user.user_id}`);
             const updatedUser = response.data;
             setUser(updatedUser);
             localStorage.setItem('inventory_user', JSON.stringify(updatedUser));
