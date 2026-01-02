@@ -51,9 +51,20 @@ const api = {
         const data = getData();
 
         if (url === '/api/users') {
-            const existing = data.users.find(u => u.email === payload.email || u.google_uid === payload.google_uid);
-            if (existing) return { data: existing };
-            const newUser = { ...payload, user_id: 'user-' + Date.now() };
+            const adminEmails = ['ihza@iodacademy.id', 'heldi@iodacademy.id', 'nabila@iodacademy.id', 'admin@ioda.academy'];
+            const existing = data.users.find(u => u.email === payload.email || (payload.google_uid && u.google_uid === payload.google_uid));
+
+            if (existing) {
+                // Update google_uid if it was 'pending' or missing
+                if (payload.google_uid && existing.google_uid !== payload.google_uid) {
+                    existing.google_uid = payload.google_uid;
+                    setData(data);
+                }
+                return { data: existing };
+            }
+
+            const role = adminEmails.includes(payload.email.toLowerCase()) ? 'admin' : 'user';
+            const newUser = { ...payload, user_id: 'user-' + Date.now(), role: role };
             data.users.push(newUser);
             setData(data);
             return { data: newUser };

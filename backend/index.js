@@ -233,7 +233,7 @@ app.post('/api/users', async (req, res) => {
             });
         } else {
             // Create new
-            const isAdminEmail = ['ihza@iodacademy.id', 'heldi@iodacademy.id', 'admin@inventory.com'].includes(email.toLowerCase());
+            const isAdminEmail = ['ihza@iodacademy.id', 'heldi@iodacademy.id', 'nabila@iodacademy.id', 'admin@inventory.com'].includes(email.toLowerCase());
             user = await prisma.user.create({
                 data: {
                     google_uid: google_uid || `invite_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,

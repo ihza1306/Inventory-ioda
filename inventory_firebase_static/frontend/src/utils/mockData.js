@@ -9,6 +9,33 @@ export const initialData = {
             role: 'admin',
             theme_pref: 'system',
             photo_url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=admin'
+        },
+        {
+            user_id: 'admin-ihza',
+            google_uid: 'pending',
+            email: 'ihza@iodacademy.id',
+            display_name: 'Ihza Admin',
+            role: 'admin',
+            theme_pref: 'system',
+            photo_url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ihza'
+        },
+        {
+            user_id: 'admin-heldi',
+            google_uid: 'pending',
+            email: 'heldi@iodacademy.id',
+            display_name: 'Heldi Admin',
+            role: 'admin',
+            theme_pref: 'system',
+            photo_url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=heldi'
+        },
+        {
+            user_id: 'admin-nabila',
+            google_uid: 'pending',
+            email: 'nabila@iodacademy.id',
+            display_name: 'Nabila Admin',
+            role: 'admin',
+            theme_pref: 'system',
+            photo_url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=nabila'
         }
     ],
     inventory: [
