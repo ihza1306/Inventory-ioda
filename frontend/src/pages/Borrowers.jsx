@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import { motion } from 'framer-motion';
 
 const Borrowers = () => {
@@ -10,7 +10,7 @@ const Borrowers = () => {
     const { data: users, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const response = await axios.get('/api/users');
+            const response = await api.get('/api/users');
             return response.data;
         }
     });
@@ -19,7 +19,7 @@ const Borrowers = () => {
     const { data: transactions } = useQuery({
         queryKey: ['transactions'],
         queryFn: async () => {
-            const response = await axios.get('/api/transactions');
+            const response = await api.get('/api/transactions');
             return response.data;
         }
     });

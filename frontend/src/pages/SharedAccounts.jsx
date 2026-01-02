@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import Modal from '../components/Modal';
 import { useAuth } from '../hooks/useAuth';
 import { useNotification } from '../components/NotificationProvider';
@@ -30,7 +30,7 @@ const SharedAccounts = () => {
     const { data: usersData } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const response = await axios.get('/api/users');
+            const response = await api.get('/api/users');
             return response.data;
         },
         enabled: isAdmin
@@ -39,23 +39,23 @@ const SharedAccounts = () => {
     const { data: accounts, isLoading } = useQuery({
         queryKey: ['shared-accounts'],
         queryFn: async () => {
-            const response = await axios.get('/api/shared-accounts');
+            const response = await api.get('/api/shared-accounts');
             return response.data;
         }
     });
 
     const { data: systemSettings } = useQuery({
         queryKey: ['system-settings'],
-        queryFn: async () => (await axios.get('/api/system-settings')).data,
+        queryFn: async () => (await api.get('/api/system-settings')).data,
     });
 
     // Mutations
     const manageMutation = useMutation({
         mutationFn: async (data) => {
             if (manageType === 'ADD') {
-                return axios.post('/api/shared-accounts', data);
+                return api.post('/api/shared-accounts', data);
             } else {
-                return axios.put(`/api/shared-accounts/${selectedAccount.account_id}`, data);
+                return api.put(`/api/shared-accounts/${selectedAccount.account_id}`, data);
             }
         },
         onSuccess: () => {
@@ -72,7 +72,7 @@ const SharedAccounts = () => {
 
     const deleteMutation = useMutation({
         mutationFn: async (id) => {
-            return axios.delete(`/api/shared-accounts/${id}`);
+            return api.delete(`/api/shared-accounts/${id}`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['shared-accounts']);
@@ -87,7 +87,7 @@ const SharedAccounts = () => {
 
     const updateSettingsMutation = useMutation({
         mutationFn: async (newIcons) => {
-            return axios.put('/api/system-settings', { ...systemSettings, platform_icons: JSON.stringify(newIcons) });
+            return api.put('/api/system-settings', { ...systemSettings, platform_icons: JSON.stringify(newIcons) });
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['system-settings']);
@@ -139,7 +139,7 @@ const SharedAccounts = () => {
 
         try {
             setIsUploading(true);
-            const response = await axios.post('/api/upload', uploadData, {
+            const response = await api.post('/api/upload', uploadData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setFormData(prev => ({ ...prev, icon_url: response.data.url }));
@@ -425,7 +425,7 @@ const SharedAccounts = () => {
                                         uploadData.append('logo', file);
                                         try {
                                             setIsUploading(true);
-                                            const res = await axios.post('/api/upload', uploadData);
+                                            const res = await api.post('/api/upload', uploadData);
                                             const icons = JSON.parse(systemSettings.platform_icons || '{}');
                                             icons[platform] = res.data.url;
                                             updateSettingsMutation.mutate(icons);

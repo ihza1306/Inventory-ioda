@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Modal from '../components/Modal';
 import QRScanner from '../components/QRScanner';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -28,29 +28,29 @@ const Transactions = () => {
     // --- DATA FETCHING ---
     const { data: reservations, isLoading: isResLoading } = useQuery({
         queryKey: ['reservations'],
-        queryFn: async () => (await axios.get('/api/reservations')).data,
+        queryFn: async () => (await api.get('/api/reservations')).data,
         refetchInterval: 5000,
     });
 
     const { data: inventory } = useQuery({
         queryKey: ['inventory'],
-        queryFn: async () => (await axios.get('/api/inventory')).data,
+        queryFn: async () => (await api.get('/api/inventory')).data,
     });
 
     const { data: transactions, isLoading: isTrxLoading } = useQuery({
         queryKey: ['transactions'],
-        queryFn: async () => (await axios.get('/api/transactions')).data,
+        queryFn: async () => (await api.get('/api/transactions')).data,
         refetchInterval: 5000,
     });
 
     const { data: systemSettings } = useQuery({
         queryKey: ['system-settings'],
-        queryFn: async () => (await axios.get('/api/system-settings')).data
+        queryFn: async () => (await api.get('/api/system-settings')).data
     });
 
     // --- MUTATIONS ---
     const createReservationMutation = useMutation({
-        mutationFn: async (data) => axios.post('/api/reservations', data),
+        mutationFn: async (data) => api.post('/api/reservations', data),
         onSuccess: () => {
             queryClient.invalidateQueries(['reservations']);
             setIsReservationModalOpen(false);
@@ -58,7 +58,7 @@ const Transactions = () => {
     });
 
     const editReservationMutation = useMutation({
-        mutationFn: async ({ id, data }) => axios.put(`/api/reservations/${id}`, data),
+        mutationFn: async ({ id, data }) => api.put(`/api/reservations/${id}`, data),
         onSuccess: () => {
             queryClient.invalidateQueries(['reservations']);
             setIsEditResModalOpen(false);
@@ -67,7 +67,7 @@ const Transactions = () => {
     });
 
     const deleteReservationMutation = useMutation({
-        mutationFn: async (id) => axios.delete(`/api/reservations/${id}`),
+        mutationFn: async (id) => api.delete(`/api/reservations/${id}`),
         onSuccess: () => {
             queryClient.invalidateQueries(['reservations']);
             setIsDeleteResModalOpen(false);
@@ -76,7 +76,7 @@ const Transactions = () => {
     });
 
     const updateResStatusMutation = useMutation({
-        mutationFn: async ({ id, status, rejection_reason }) => axios.put(`/api/reservations/${id}/status`, { status, rejection_reason }),
+        mutationFn: async ({ id, status, rejection_reason }) => api.put(`/api/reservations/${id}/status`, { status, rejection_reason }),
         onSuccess: () => {
             queryClient.invalidateQueries(['reservations']);
             setIsRejectModalOpen(false);
@@ -84,7 +84,7 @@ const Transactions = () => {
     });
 
     const updateStatusMutation = useMutation({
-        mutationFn: async ({ id, status }) => axios.put(`/api/transactions/${id}/status`, { status }),
+        mutationFn: async ({ id, status }) => api.put(`/api/transactions/${id}/status`, { status }),
         onSuccess: () => {
             queryClient.invalidateQueries(['transactions']);
             queryClient.invalidateQueries(['inventory']);
@@ -93,7 +93,7 @@ const Transactions = () => {
     });
 
     const returnMutation = useMutation({
-        mutationFn: async (trx) => axios.post('/api/transactions', {
+        mutationFn: async (trx) => api.post('/api/transactions', {
             item_id: trx.item_id,
             user_id: trx.user_id,
             type: 'IN',

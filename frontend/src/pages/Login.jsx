@@ -4,7 +4,7 @@ import { Mail, Lock, LogIn } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { useSound } from '../hooks/useSound';
 import { useNotification } from '../components/NotificationProvider';
@@ -22,7 +22,7 @@ const Login = () => {
 
     const { data: systemSettings, isLoading } = useQuery({
         queryKey: ['system-settings'],
-        queryFn: async () => (await axios.get('/api/system-settings')).data
+        queryFn: async () => (await api.get('/api/system-settings')).data
     });
 
     const handleLogin = async (e) => {

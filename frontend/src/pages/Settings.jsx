@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useTheme } from '../hooks/useTheme';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import { motion } from 'framer-motion';
 import Modal from '../components/Modal';
 
@@ -38,7 +38,7 @@ const Settings = () => {
     const { data: users } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const response = await axios.get('/api/users');
+            const response = await api.get('/api/users');
             return response.data;
         }
     });
@@ -47,7 +47,7 @@ const Settings = () => {
     const { data: systemSettings } = useQuery({
         queryKey: ['system-settings'],
         queryFn: async () => {
-            const response = await axios.get('/api/system-settings');
+            const response = await api.get('/api/system-settings');
             return response.data;
         }
     });
@@ -62,7 +62,7 @@ const Settings = () => {
 
     const updateSettingsMutation = useMutation({
         mutationFn: async (newData) => {
-            const response = await axios.put('/api/system-settings', newData);
+            const response = await api.put('/api/system-settings', newData);
             return response.data;
         },
         onSuccess: () => {
@@ -80,7 +80,7 @@ const Settings = () => {
 
         try {
             setIsUploading(true);
-            const response = await axios.post('/api/upload', formData, {
+            const response = await api.post('/api/upload', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setSettingsForm({ ...settingsForm, company_logo: response.data.url });
@@ -100,7 +100,7 @@ const Settings = () => {
 
         try {
             setIsUploading(true);
-            const response = await axios.post('/api/upload-profile', formData, {
+            const response = await api.post('/api/upload-profile', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setProfileForm({ ...profileForm, photoUrl: response.data.url });
@@ -112,12 +112,12 @@ const Settings = () => {
     };
 
     const updateRoleMutation = useMutation({
-        mutationFn: async ({ userId, role }) => axios.put(`/api/users/${userId}/role`, { role }),
+        mutationFn: async ({ userId, role }) => api.put(`/api/users/${userId}/role`, { role }),
         onSuccess: () => queryClient.invalidateQueries(['users'])
     });
 
     const addUserMutation = useMutation({
-        mutationFn: async (data) => axios.post('/api/users', data),
+        mutationFn: async (data) => api.post('/api/users', data),
         onSuccess: () => {
             queryClient.invalidateQueries(['users']);
             setIsInviteModalOpen(false);
@@ -127,7 +127,7 @@ const Settings = () => {
     });
 
     const deleteUserMutation = useMutation({
-        mutationFn: async (userId) => axios.delete(`/api/users/${userId}`),
+        mutationFn: async (userId) => api.delete(`/api/users/${userId}`),
         onSuccess: () => {
             queryClient.invalidateQueries(['users']);
             setIsDeleteModalOpen(false);
@@ -139,7 +139,7 @@ const Settings = () => {
     });
 
     const updateProfileMutation = useMutation({
-        mutationFn: async (data) => axios.put(`/api/users/${currentUser.user_id}/profile`, data),
+        mutationFn: async (data) => api.put(`/api/users/${currentUser.user_id}/profile`, data),
         onSuccess: () => {
             queryClient.invalidateQueries(['users']);
             refreshUser();
@@ -295,7 +295,7 @@ const Settings = () => {
                                                                 formData.append('video', file);
                                                                 try {
                                                                     setIsUploading(true);
-                                                                    const res = await axios.post('/api/upload-video', formData);
+                                                                    const res = await api.post('/api/upload-video', formData);
                                                                     const newData = { ...settingsForm, login_bg_video_url: res.data.url };
                                                                     setSettingsForm(newData);
                                                                     updateSettingsMutation.mutate(newData);
@@ -365,7 +365,7 @@ const Settings = () => {
                                                                 formData.append('logo', file);
                                                                 try {
                                                                     setIsUploading(true);
-                                                                    const res = await axios.post('/api/upload', formData);
+                                                                    const res = await api.post('/api/upload', formData);
                                                                     const newData = { ...settingsForm, login_logo: res.data.url };
                                                                     setSettingsForm(newData);
                                                                     updateSettingsMutation.mutate(newData);

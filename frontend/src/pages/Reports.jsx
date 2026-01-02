@@ -1,23 +1,23 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import { motion } from 'framer-motion';
 
 const Reports = () => {
     // Queries
     const { data: items } = useQuery({
         queryKey: ['inventory'],
-        queryFn: async () => (await axios.get('/api/inventory')).data,
+        queryFn: async () => (await api.get('/api/inventory')).data,
     });
 
     const { data: transactions } = useQuery({
         queryKey: ['transactions'],
-        queryFn: async () => (await axios.get('/api/transactions')).data,
+        queryFn: async () => (await api.get('/api/transactions')).data,
     });
 
     const { data: systemSettings } = useQuery({
         queryKey: ['system-settings'],
-        queryFn: async () => (await axios.get('/api/system-settings')).data,
+        queryFn: async () => (await api.get('/api/system-settings')).data,
     });
 
     const company = systemSettings || {

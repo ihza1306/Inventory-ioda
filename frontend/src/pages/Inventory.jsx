@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../utils/api';
 import Modal from '../components/Modal';
 import QRScanner from '../components/QRScanner';
 import { QRCodeSVG } from 'qrcode.react';
@@ -58,7 +58,7 @@ const Inventory = () => {
     const { data: items, isLoading } = useQuery({
         queryKey: ['inventory'],
         queryFn: async () => {
-            const response = await axios.get('/api/inventory');
+            const response = await api.get('/api/inventory');
             return response.data;
         },
         refetchInterval: 1000,
@@ -67,7 +67,7 @@ const Inventory = () => {
     const { data: categories, isLoading: isCatsLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const response = await axios.get('/api/categories');
+            const response = await api.get('/api/categories');
             return response.data;
         },
         refetchInterval: 5000,
@@ -100,7 +100,7 @@ const Inventory = () => {
             if (isRequest && selectedItem.stock_qty < borrowQty) {
                 throw new Error('Stok tidak mencukupi untuk pengajuan ini');
             }
-            return axios.post('/api/transactions', {
+            return api.post('/api/transactions', {
                 item_id: selectedItem.item_id,
                 user_id: user.user_id,
                 type: 'OUT',
@@ -122,9 +122,9 @@ const Inventory = () => {
     const manageMutation = useMutation({
         mutationFn: async (data) => {
             if (manageType === 'ADD') {
-                return axios.post('/api/inventory', { ...data, last_updated_by: user.user_id });
+                return api.post('/api/inventory', { ...data, last_updated_by: user.user_id });
             } else {
-                return axios.put(`/api/inventory/${selectedItem.item_id}`, { ...data, last_updated_by: user.user_id });
+                return api.put(`/api/inventory/${selectedItem.item_id}`, { ...data, last_updated_by: user.user_id });
             }
         },
         onSuccess: () => {
@@ -154,7 +154,7 @@ const Inventory = () => {
 
     const deleteMutation = useMutation({
         mutationFn: async (id) => {
-            return axios.delete(`/api/inventory/${id}`);
+            return api.delete(`/api/inventory/${id}`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['inventory']);
@@ -168,7 +168,7 @@ const Inventory = () => {
 
     const addCategoryMutation = useMutation({
         mutationFn: async (name) => {
-            return axios.post('/api/categories', { name });
+            return api.post('/api/categories', { name });
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['categories']);
@@ -179,7 +179,7 @@ const Inventory = () => {
 
     const deleteCategoryMutation = useMutation({
         mutationFn: async (id) => {
-            return axios.delete(`/api/categories/${id}`);
+            return api.delete(`/api/categories/${id}`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['categories']);
